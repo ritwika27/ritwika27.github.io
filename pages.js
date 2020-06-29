@@ -97,11 +97,12 @@ class Book {
       this.current_page++;
       if (this.current_page < this.pages.length) {
         this.pages[this.current_page].play();
+        if (this.current_page ==  this.pages.length-2) {
+          export_data();
+        }
       } else {
         $("img").hide()
         $("#end").show()
-
-        export_data();
       }
     }.bind(this), this.buffer_time * 1000);
   }
