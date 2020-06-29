@@ -106,7 +106,6 @@
     -webkit-appearance: none;
     border-radius: 0;
 
-
   }
 
 
@@ -146,6 +145,47 @@
 
 
 
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.exit {
+	width: 0;
+	height: 0;
+	 border-top: 10px solid white;
+	  border-left: 10px solid green;
+	  border-bottom: 10px solid white;
+    border-right: 15px solid white;
+
+
+
+    width: 74px;
+  height: 74px;
+  border-style: solid;
+  border-width: 37px;
+  border-color: #202020;
+    box-sizing: border-box;
+    border-width: 37px 0px 37px 74px;
+    border-color: #eee #eee #eee green;
+    position: absolute;
+    right: 0;
+    bottom: 5;
+
+}
+
+</style>
+</head>
+<body>
+
+<h2>Triangle Right CSS</h2>
+<div class="hi">
+	<input class="exit" type="button" value="Skip"></input>
+</div>
+
+</body>
+</html>  -->
 <style>
   #doc-page {
     display: block;
@@ -461,6 +501,56 @@
   </video>
 </div>
 
+<style>
+
+    #end-page > * {
+      position: relative;
+    }
+    
+    
+    #end-page > .turtles {
+      margin: auto;
+      height: 60%;
+      width: 50%;
+      
+    }
+    
+    #end-page > .turtles > img {
+      position:relative;
+      display:block;
+      width: 150px;
+    }
+
+    #end-page > input {
+      border-radius:10px;
+      color: white;
+      font-size: 20px;
+      width: 10%;
+      background-color:rgb(158,206,203);
+      position: absolute;
+      bottom: 0;
+      right: 0;
+    }
+    
+    #over {
+      text-align: center;
+      font-size: 400%;
+    }
+    </style>
+    
+    <div id="end-page" class="page">
+      <h1 id = "over">Game Over!</h1>
+      <div class="turtles">
+        <img style="left:25%; top:0;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:75%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:0%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:50%; top:-66%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:75%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:25%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:50%; top:-133%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+      </div>
+      <input class="endpg" type="button"value = "Exit Game" ></input>
+    </div>
 
     <script src="pages.js"></script>
 
@@ -1125,7 +1215,26 @@ class MovPage extends Page {
     $("#movpage").hide();
   }
 }
-</script>
+
+class EndPage extends Page {
+    constructor() {
+      super("endpg");
+    }
+  
+    play() {
+      $("#end-page").show();
+      turtledance(".turtles > img");
+      
+    }
+  
+    deactivate() {
+      super.deactivate();
+    }
+  }
+
+  $(".endpg").bind("click touch", function() {
+    window.close();
+  });</script>
 
     <script src="lists.js"></script> <!-- NOTE FOR RICKY: DELETE THIS WHEN ADDING LIST CODE -->
 
