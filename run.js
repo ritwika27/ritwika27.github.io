@@ -19,7 +19,8 @@ let listOrderings = [
      
      let thisOrdering = listOrderings[Math.floor(Math.random() * listOrderings.length)];
      
-     var shuflist = reorder(list, thisOrdering);
+     // var shuflist = reorder(list, thisOrdering);
+     var shuflist = [];
      console.log(shuflist);
      
      all_pages = []
@@ -31,6 +32,8 @@ let listOrderings = [
                                    <hr><div style='color:red;text-align:center;width:100%'>"+userID+"</div><br/> <br/> ",
                                    "90%", "60px", "Ready!",
                                    undefined));
+     
+     all_pages.push(new ChooseList());
      
      all_pages.push(new DocPage("instruction page", "Caregiver Instructions<br />\
                                    <ul>\
@@ -216,55 +219,62 @@ let listOrderings = [
      
      all_pages.push(new BeginPage("WAVFiles/Introduction_Instructions/Slide10_LetsBegin.wav"));
      
-     all_pages = all_pages.concat(shuflist.slice(0,4));
-     all_pages.push(new ProgressPage("prog", 1, 7,
+     function addPages(index){
+            list = lists[index];
+            shuflist = reorder(list, thisOrdering);
+            console.log(shuflist);
+            globalBook.pages = globalBook.pages.concat(shuflist.slice(0,4));
+            globalBook.pages.push(new ProgressPage("prog", 1, 7,
                                      "FinalImagesALL/ImgaesforExamples/TurtleTransparent.png",
                                      "customImages/box.png",
                                      "FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png",
                                      "WAVFiles/Reinforcement/Slide12_LandingPage1.wav"));
      
-     all_pages = all_pages.concat(shuflist.slice(4,8));
-     all_pages.push(new ProgressPage("prog", 2, 7,
+            globalBook.pages = globalBook.pages.concat(shuflist.slice(4,8));
+            globalBook.pages.push(new ProgressPage("prog", 2, 7,
                                      "FinalImagesALL/ImgaesforExamples/TurtleTransparent.png",
                                      "customImages/box.png",
                                      "FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png",
                                      "WAVFiles/Reinforcement/LandingPage2.wav"));
      
-     all_pages = all_pages.concat(shuflist.slice(8,12));
-     all_pages.push(new ProgressPage("prog", 3, 7,
+            globalBook.pages = globalBook.pages.concat(shuflist.slice(8,12));
+            globalBook.pages.push(new ProgressPage("prog", 3, 7,
                                      "FinalImagesALL/ImgaesforExamples/TurtleTransparent.png",
                                      "customImages/box.png",
                                      "FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png",
                                      "WAVFiles/Reinforcement/LandingPage3.wav"));
      
-     all_pages = all_pages.concat(shuflist.slice(12,16));
-     all_pages.push(new ProgressPage("prog", 4, 7,
+            globalBook.pages = globalBook.pages.concat(shuflist.slice(12,16));
+            globalBook.pages.push(new ProgressPage("prog", 4, 7,
                                      "FinalImagesALL/ImgaesforExamples/TurtleTransparent.png",
                                      "customImages/box.png",
                                      "FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png",
                                      "WAVFiles/Reinforcement/LandingPage4.wav"));
      
-     all_pages = all_pages.concat(shuflist.slice(16,20));
-     all_pages.push(new ProgressPage("prog", 5, 7,
+            globalBook.pages = globalBook.pages.concat(shuflist.slice(16,20));
+            globalBook.pages.push(new ProgressPage("prog", 5, 7,
                                      "FinalImagesALL/ImgaesforExamples/TurtleTransparent.png",
                                      "customImages/box.png",
                                      "FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png",
                                      "WAVFiles/Reinforcement/LandingPage5.wav"));
      
-     all_pages = all_pages.concat(shuflist.slice(20,24));
-     all_pages.push(new ProgressPage("prog", 6, 7,
+            globalBook.pages = globalBook.pages.concat(shuflist.slice(20,24));
+            globalBook.pages.push(new ProgressPage("prog", 6, 7,
                                      "FinalImagesALL/ImgaesforExamples/TurtleTransparent.png",
                                      "customImages/box.png",
                                      "FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png",
                                      "WAVFiles/Reinforcement/LandingPage6.wav"));
      
-     all_pages = all_pages.concat(shuflist.slice(24,28));
-     all_pages.push(new ProgressPage("prog", 7, 7,
+            globalBook.pages = globalBook.pages.concat(shuflist.slice(24,28));
+            globalBook.pages.push(new ProgressPage("prog", 7, 7,
                                      "FinalImagesALL/ImgaesforExamples/TurtleTransparent.png",
                                      "customImages/box.png",
                                      "FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png",
                                      "WAVFiles/Reinforcement/LandingPage7.wav"));
-     all_pages.push(new EndPage());
+            globalBook.pages.push(new EndPage());
+     }
+     
+     
      
      var book = new Book(all_pages, 0);
      

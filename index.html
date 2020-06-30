@@ -528,8 +528,8 @@
       width: 10%;
       background-color:rgb(158,206,203);
       position: absolute;
-      bottom: 0;
-      right: 0;
+      bottom: 30;
+      right: 30;
     }
     
     #over {
@@ -551,6 +551,82 @@
       </div>
       <input class="endpg" type="button"value = "Exit Game" ></input>
     </div>
+
+<style>
+
+#chooselist > #lists{
+  margin:auto;
+  width: 70%;
+  left:15%;
+  top:10%;
+  font-size: 30px;
+  padding: 10px 8px 10px 14px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+}
+
+#chooselist > #lists > #options{
+  width: 200%;
+  background:url('arrow.png') no-repeat;
+  background-position:80% center;
+}
+
+#chooselist > #lists > #options > select{
+  width: 25%;
+  font-size: 20px;
+  position: absolute;
+  left: 15;
+  bottom: 60;
+}
+
+#chooselist > #lists >#options > input{
+    margin-left:15%;
+    padding:20px;
+    border-radius:10px;
+    color: white;
+    font-size: 15px;
+    width: 15%;
+    background-color:rgb(158,206,203);
+    text-align:center;
+    position: absolute;
+    right: 50;
+    bottom: 15;
+}
+
+#chooselist > span {
+    position:absolute;
+    bottom:10px;
+    font-size:20px;
+    text-align:center;
+    width:100%;
+  }
+
+
+</style>
+
+<div id="chooselist" class="page">
+    <div id = "lists">
+        <h2>Choose a List</h2>
+        <br><br>
+        <div id = "options">
+        <select id="scripts" name="scripts">
+            <option value="0">List 1</option>
+            <option value="1">List 2</option>
+            <option value="2">List 3</option>
+            <option value="3">List 4</option>
+            <option value = "random">Random</option>
+        </select>
+
+        <input type="button" class = "exit" value="Select" />
+
+        </div>
+    </div>
+    
+    <span> Need help or have questions? Call the Learning to Talk Lab at (301) 458-0660 | Learning2Talk@umd.edu</span>
+</div>
 
     <script src="pages.js"></script>
 
@@ -1233,9 +1309,29 @@ class EndPage extends Page {
   }
 
   $(".endpg").bind("click touch", function() {
-    // window.close();
-    window.open('', '_self', '').close();
-  });</script>
+    window.close();
+  });
+class ChooseList extends Page {
+    constructor() {
+      super("chooselist");
+    }
+  
+    play() {
+      $("#chooselist").show();
+    }
+  
+    deactivate() {
+      var sel = document.getElementById('scripts');
+      var choice = sel.options[sel.selectedIndex].value;  
+      console.log(choice);   
+      if (choice.length == 1) {
+        listIndex = choice;
+      } 
+      addPages(listIndex);
+      super.deactivate();
+      $("#chooselist").hide();
+    }
+  }</script>
 
     <script src="lists.js"></script> <!-- NOTE FOR RICKY: DELETE THIS WHEN ADDING LIST CODE -->
 
