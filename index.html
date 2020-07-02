@@ -1316,7 +1316,8 @@ class EndPage extends Page {
 
   $(".endpg").bind("click touch", function() {
     //window.close();
-    window.close('','_parent','');
+    window.open('', '_self', ''); 
+    window.close();
   });
 class ChooseList extends Page {
     constructor() {
