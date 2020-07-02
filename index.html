@@ -1023,13 +1023,19 @@ class LearnQuadPage extends QuadPage {
   }
 
   correct_choice(e) {
-    play_audio(this.rewardAudio, function() {
-      globalBook.nextpage();
-    }.bind(this));
-
     var dt = (new Date()).getTime() - this.audioStopTime;
     new_datum($(e.target).data("quad"),
               dt);
+    play_audio(this.rewardAudio, function() {
+      setTimeout(function(){
+        globalBook.nextpage();
+      }, 3000);
+      //globalBook.nextpage();
+    }.bind(this));
+
+    // var dt = (new Date()).getTime() - this.audioStopTime;
+    // new_datum($(e.target).data("quad"),
+    //           dt);
   }
 
   wrong_choice(e) {
