@@ -306,10 +306,10 @@ new QuadPage("JR were touching the frog", "JR_P_TF.wav",
 ,
 new QuadPage("JR were holding the basket", "JR_P_HB.wav",
     [
-    new Choice("T", "Girl2_3_Bear.jpg"),
-    new Choice("C1", "Boy2_3_Bear.jpg"),
-    new Choice("C2", "Girl1_Bear.jpg"),
-    new Choice("C3", "Boy1_Bear.jpg")
+    new Choice("T", "Girl2_3_Basket.jpg"),
+    new Choice("C1", "Boy2_3_Basket.jpg"),
+    new Choice("C2", "Girl1_Basket.jpg"),
+    new Choice("C3", "Boy1_Basket.jpg")
     ])
 ,
 new QuadPage("JR were building the sandcastle", "JR_P_BSC.wav",
