@@ -222,6 +222,22 @@ let listOrderings = [
      function addPages(index){
             list = lists[index];
             shuflist = reorder(list, thisOrdering);
+            let index1 = null;
+            let found = false;
+            for(let i = 0; i < shuflist.length; i++){
+                   if(!found && shuflist[i].pageID.match(/JR was/)){
+                          break;
+                   }else if(shuflist[i].pageID.match(/JR were/)){
+                          index1 = i;
+                          found = true;
+                   }else if(found && shuflist[i].pageID.match(/JR was/)){
+                          index2 = i;
+                          let curr = shuflist[index1];
+                          shuflist[index1] = shuflist[i];
+                          shuflist[i] = shuflist[index1];
+                          break;
+                   }
+            }
             console.log(shuflist);
             globalBook.pages = globalBook.pages.concat(shuflist.slice(0,4));
             globalBook.pages.push(new ProgressPage("prog", 1, 7,
