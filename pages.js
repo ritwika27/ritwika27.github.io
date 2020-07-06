@@ -38,14 +38,16 @@ function new_datum(clickQuadrant, deltaTime) {
 }
 
 function export_data() {
-  var blob = new Blob([JSON.stringify(logged_data)],
-      { type: "text/plain;charset=utf-8" });
-  saveAs(blob, "log.txt");
-  /*$.post("https://dev.vulpcod3z.dev/submit", logged_data, function(data, status, xhr){
+  $.post("https://dev.vulpcod3z.dev/submit", logged_data, function(data, status, xhr){
     console.log(status);
   },
-  "json"); */
+  "json"); 
+  /* var blob = new Blob([JSON.stringify(logged_data)],
+      { type: "text/plain;charset=utf-8" });
+  saveAs(blob, "log.txt"); */
 }
+
+
 
 // A page can be played or stopped
 class Page {

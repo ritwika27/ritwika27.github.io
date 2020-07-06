@@ -220,26 +220,25 @@ let listOrderings = [
      all_pages.push(new BeginPage("WAVFiles/Introduction_Instructions/Slide10_LetsBegin.wav"));
      
      function addPages(index){
-            list = lists[index];
-            shuflist = reorder(list, thisOrdering);
-            let index1 = null;
-            let found = false;
-            for(let i = 0; i < shuflist.length; i++){
-                   if(!found && shuflist[i].pageID.match(/JR was/)){
-                          break;
-                   }else if(shuflist[i].pageID.match(/JR were/)){
-                          index1 = i;
-                          found = true;
-                   }else if(found && shuflist[i].pageID.match(/JR was/)){
-                          index2 = i;
-                          let curr = shuflist[index1];
-                          shuflist[index1] = shuflist[i];
-                          shuflist[i] = curr;
-                          console.log(index1);
-                          console.log(i);
-                          break;
-                   }
-            }
+              list = lists[index];
+              shuflist = reorder(list, thisOrdering);
+              let index1 = null;
+              let found = false;
+              for(let i = 0; i < shuflist.length; i++){
+                     if( !found && shuflist[i].pageID.match(/JR were/) != null){
+                            index1 = i;
+                            found = true;
+                     }else if(!found && shuflist[i].pageID.match(/JR was/) != null){
+                            break;
+                     }else if(found && shuflist[i].pageID.match(/JR was/) != null){
+                            let curr = shuflist[i];
+                            shuflist[i] = shuflist[index1];
+                            shuflist[index1] = curr;
+                            console.log(index1);
+                            console.log(i);
+                            break;
+              }
+       }
             console.log(shuflist);
             globalBook.pages = globalBook.pages.concat(shuflist.slice(0,4));
             globalBook.pages.push(new ProgressPage("prog", 1, 7,
