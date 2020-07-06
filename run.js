@@ -234,7 +234,9 @@ let listOrderings = [
                           index2 = i;
                           let curr = shuflist[index1];
                           shuflist[index1] = shuflist[i];
-                          shuflist[i] = shuflist[index1];
+                          shuflist[i] = curr;
+                          console.log(index1);
+                          console.log(i);
                           break;
                    }
             }
