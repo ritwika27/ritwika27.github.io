@@ -45,6 +45,19 @@ function export_data() {
   /* var blob = new Blob([JSON.stringify(logged_data)],
       { type: "text/plain;charset=utf-8" });
   saveAs(blob, "log.txt"); */
+  // $.ajax({
+  //   url: 'https://dev.vulpcod3z.dev/submit',
+  //   headers: {
+  //       'contentType': "application/json; charset=utf-8",
+  //       'Bearer': authKey,
+  //   },
+  //   dataType:"json",
+  //   method: 'POST',
+  //   data: JSON.stringify(logged_data),
+  //   success: function(data, status, xhr){
+  //     console.log(status);
+  //   }
+  // });
 }
 
 
