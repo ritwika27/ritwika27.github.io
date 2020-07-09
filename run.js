@@ -229,24 +229,9 @@ let listOrderings = [
      
      function addPages(index){
               list = lists[index];
-              shuflist = reorder(list, thisOrdering);
-              let index1 = null;
-              let found = false;
-       //        for(let i = 0; i < shuflist.length; i++){
-       //               if( !found && shuflist[i].pageID.match(/JR were/) != null){
-       //                      index1 = i;
-       //                      found = true;
-       //               }else if(!found && shuflist[i].pageID.match(/JR was/) != null){
-       //                      break;
-       //               }else if(found && shuflist[i].pageID.match(/JR was/) != null){
-       //                      let curr = shuflist[i];
-       //                      shuflist[i] = shuflist[index1];
-       //                      shuflist[index1] = curr;
-       //                      console.log(index1);
-       //                      console.log(i);
-       //                      break;
-       //        }
-       // }
+              thisOrderingUp = thisOrdering.map(x => ((x+ 28-7*index))%28);
+              shuflist = reorder(list, thisOrderingUp);
+
             console.log(shuflist);
             globalBook.pages = globalBook.pages.concat(shuflist.slice(0,4));
             globalBook.pages.push(new ProgressPage("prog", 1, 7,
