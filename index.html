@@ -1333,7 +1333,7 @@ class ChooseList extends Page {
       var choice = sel.options[sel.selectedIndex].value;  
       console.log(choice);   
       if (choice.length == 1) {
-        listIndex = choice;
+        listIndex = parseInt(choice);
       } 
       addPages(listIndex);
       super.deactivate();
