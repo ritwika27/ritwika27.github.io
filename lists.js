@@ -628,7 +628,7 @@ new QuadPage("J was washing a car.", "J_S_WC.wav",
     new Choice("T", "Boy1_Car.jpg"),
     new Choice("C1", "Boy2_3_Car.jpg"),
     new Choice("C2", "Girl2_3_Car.jpg"),
-    new Choice("C3", "Girl1_Car.png")
+    new Choice("C3", "Girl1_Car.jpg")
     ])
 ,
 new QuadPage("J was reading a book.", "J_S_RBook.wav",
@@ -721,7 +721,7 @@ new QuadPage("JR was fixing the bike", "JR_S_FB.wav",
 new QuadPage("JR was pushing the cart", "JR_S_PC.wav",
     [
     new Choice("T", "Girl1_Cart.png"),
-    new Choice("C1", "Boy2_3_Cart.jpg"),
+    new Choice("C1", "Boy2_3_Cart.png"),
     new Choice("C2", "Girl2_3_Cart.png"),
     new Choice("C3", "Boy1_Cart.png")
     ])
