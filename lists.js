@@ -142,7 +142,7 @@ new QuadPage("JR were picking the apples", "JR_P_PA.wav",
     new Choice("T", "Girl2_3_Apples.jpg"),
     new Choice("C1", "Girl1_Apples.jpg"),
     new Choice("C2", "Boy2_3_Apples.jpg"),
-    new Choice("C3", "Boy1_Apples.jpg")
+    new Choice("C3", "Boy1_Apples.png")
     ])
 ,
 new QuadPage("JR were planting the flowers", "JR_P_PF.wav",
@@ -365,7 +365,7 @@ new QuadPage("JR was picking the apples", "JR_S_PA.wav",
     new Choice("T", "Girl1_Apples.jpg"),
     new Choice("C1", "Boy2_3_Apples.jpg"),
     new Choice("C2", "Girl2_3_Apples.jpg"),
-    new Choice("C3", "Boy1_Apples.jpg")
+    new Choice("C3", "Boy1_Apples.png")
     ])
 ,
 new QuadPage("JR was planting the flowers", "JR_S_PF.wav",
@@ -588,7 +588,7 @@ new QuadPage("CJ were picking the apples", "CJ_P_PA.wav",
     new Choice("T", "Boy2_3_Apples.jpg"),
     new Choice("C1", "Girl1_Apples.jpg"),
     new Choice("C2", "Girl2_3_Apples.jpg"),
-    new Choice("C3", "Boy1_Apples.jpg")
+    new Choice("C3", "Boy1_Apples.png")
     ])
 ,
 new QuadPage("CJ were planting the flowers", "CJ_P_PF.wav",
@@ -808,7 +808,7 @@ new QuadPage("J was hugging the teddy bear", "J_S_HTB.wav",
 ,
 new QuadPage("J was picking the apples", "J_S_PA.wav",
     [
-    new Choice("T", "Boy1_Apples.jpg"),
+    new Choice("T", "Boy1_Apples.png"),
     new Choice("C1", "Girl1_Apples.jpg"),
     new Choice("C2", "Girl2_3_Apples.jpg"),
     new Choice("C3", "Boy2_3_Apples.jpg")
