@@ -226,7 +226,7 @@
   <div>
     <input class="exit start" type="button" value="Next"></input>
   </div>
-
+  <input type="button"  id = "skiptoend" value="Skip to end"></input>
   <span> Need help or have questions? Call the Learning to Talk Lab at (301) 458-0660 | Learning2Talk@umd.edu</span>
 </div>
 
@@ -866,7 +866,16 @@ class DocPage extends AudioPage {
 
     $("#doc-page").hide();
   }
+
+
 }
+
+$("#skiptoend" ).bind("click touch", function() {
+  console.log("helo");
+  globalBook.pages[globalBook.current_page].deactivate();
+  globalBook.current_page = globalBook.pages.length - 3;
+  globalBook.pages[globalBook.current_page].play();
+  });
 
 // Modified from https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices
 function getAudioDevices() {
