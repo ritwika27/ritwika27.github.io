@@ -1,0 +1,27 @@
+  
+html, body {margin: 0; height: 100%; overflow: hidden}
+
+#drop_zone {
+    /* margin-left: auto;
+    margin-right: auto;
+    margin-top: 50%; */
+    margin: auto;
+    background-color:  blue;
+    border: #999 1px solid ;
+    width: 280px;
+    height: 200px;
+    padding: 8px;
+    font-size: 19px;
+
+  }
+  
+  #circle {
+    height: 50px;
+    width: 50px;
+    margin-bottom: 25% ;
+
+    /*margin-left: 75%;
+    margin-top: 50%; */
+    background-color: greenyellow;
+    border-radius: 50%;
+  }

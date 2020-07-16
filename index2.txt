@@ -1,0 +1,1367 @@
+
+
+
+<html>
+  <head>
+    <title> iPad Test </title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <style>
+      :root {
+        --theme-color: #eee;
+      }
+
+      html, body {
+        background-color: var(--theme-color);
+      }
+
+      .page {
+        display: hidden;
+      }
+
+      input[type="button"] {
+        border: none;
+        height: 50px;
+        width: 200px;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+
+      input[type="button"][disabled] {
+        color: gray;
+        border: ridge 5px;
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="custom.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="resources/FileSaver.min.js"></script>
+  </head>
+
+  <body>
+
+    
+
+<style>
+  #forcelandscape {
+    --font-size: 40px;
+
+    z-index: 100; /* in front of everything else */
+    text-align: center;
+    align-items: center;
+    padding-top:calc(50% - var(--font-size) / 2);
+    color:red;
+    font-size:var(--font-size);
+    background-color: white;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+  }
+
+  #forcelandscape > div {
+    position:relative;
+    display:inline-block;
+  }
+</style>
+<div id="forcelandscape" class="page">
+  Please rotate your device to landscape mode.
+</div>
+
+<style>
+  :root {
+    --image-distance-from-center: 10px;
+    --image-distance-from-side: 10px;
+    --bottom-input-height: 0px;
+
+    --img-horiz-position:  calc(50% + var(--image-distance-from-center));
+    --img-top-position:    calc(50% + var(--image-distance-from-center) -
+                                var(--bottom-input-height) / 2);
+    --img-bottom-position: calc(50% + var(--image-distance-from-center) +
+                                var(--bottom-input-height) / 2);
+  }
+
+  .imgquad > img {
+    position: absolute;
+    height: calc((100% - var(--bottom-input-height)) / 2  -
+                  var(--image-distance-from-side) -
+                  var(--image-distance-from-center));
+  }
+
+  #quad-page > input {
+    width: 5%;
+    height: 10%;
+    border-top: 10px solid grey;
+    border-right: 10px solid  grey;
+    border-left: solid #eee;
+    border-bottom: solid #eee;
+    transform: rotate(45deg);
+    /*border-radius: 15%;*/
+    position: absolute;
+    right: 30;
+    bottom: 30;
+    -webkit-appearance: none;
+    border-radius: 0;
+
+  }
+
+
+  .topleft-img {
+    right: var(--img-horiz-position);
+    bottom: var(--img-bottom-position);
+  }
+
+  .topright-img {
+    left: var(--img-horiz-position);
+    bottom: var(--img-bottom-position);
+  }
+
+  .bottomleft-img {
+    right: var(--img-horiz-position);
+    top: var(--img-top-position);
+  }
+
+  .bottomright-img {
+    left: var(--img-horiz-position);
+    top: var(--img-top-position);
+  }
+
+
+
+</style>
+
+<div class="page" id="quad-page">
+  <div id="images" class="imgquad">
+    <img id="topleft-img" class="topleft-img" />
+    <img id="topright-img" class="topright-img" />
+    <img id="bottomleft-img" class="bottomleft-img" />
+    <img id="bottomright-img" class="bottomright-img" />
+  </div>
+    <input class="exit" type="button" ></input>
+</div>
+
+
+
+<!-- 
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<style>
+.exit {
+	width: 0;
+	height: 0;
+	 border-top: 10px solid white;
+	  border-left: 10px solid green;
+	  border-bottom: 10px solid white;
+    border-right: 15px solid white;
+
+
+
+    width: 74px;
+  height: 74px;
+  border-style: solid;
+  border-width: 37px;
+  border-color: #202020;
+    box-sizing: border-box;
+    border-width: 37px 0px 37px 74px;
+    border-color: #eee #eee #eee green;
+    position: absolute;
+    right: 0;
+    bottom: 5;
+
+}
+
+</style>
+</head>
+<body>
+
+<h2>Triangle Right CSS</h2>
+<div class="hi">
+	<input class="exit" type="button" value="Skip"></input>
+</div>
+
+</body>
+</html>  -->
+<style>
+  #doc-page {
+    display: block;
+    justify-content: center;
+
+    --form-width: 50%;
+  }
+
+  #doc-page > #form-page-center {
+    --padding: 25px;
+
+    background-color:white;
+    width: var(--form-width);
+    margin-left: calc(50% - var(--form-width) / 2 - var(--padding));
+    margin-top: 40px;
+    padding:var(--padding);
+    display: block;
+    justify-content: left;
+  }
+
+  #doc-page > div {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  #doc-page > span {
+    position:absolute;
+    bottom:10px;
+    font-size:20px;
+    text-align:center;
+    width:100%;
+  }
+</style>
+
+<div id="doc-page" class="page">
+  <div id="form-page-center"> Hello this is a consent form. <br /> <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<br /><br />Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? </div>
+  <div>
+    <input class="exit start" type="button" value="Next"></input>
+  </div>
+  <input type="button"  id = "skiptoend" value="Skip to end"></input>
+  <span> Need help or have questions? Call the Learning to Talk Lab at (301) 458-0660 | Learning2Talk@umd.edu</span>
+</div>
+
+<style>
+#testheadphones-page > input {
+  border-radius:10px;
+  background-color: rgb(158,206,203);
+  position:absolute;
+  color: white;
+  font-size:25px;
+  border-color: rgb(158,206,203);
+}
+
+#testheadphones-page > .replay {
+  width: 500px;
+  height:80px;
+  top:55%;
+  margin-left: calc(50% - 250px);
+}
+
+#testheadphones-page > .exit {
+  width: 300px;
+  height:80px;
+  top:70%;
+  margin-left: calc(50% - 150px);
+}
+
+#testheadphones-page > input[disabled] {
+  background-color: #889c97;
+  border-color: #889c97;
+}
+
+#testheadphones-page > .info {
+ margin-left:15%;
+ padding:20px;
+ border-radius:10px;
+ top:30%;
+ color: white;
+ font-size: 40px;
+ width: 70%;
+ background-color:rgb(158,206,203);
+ position:absolute;
+ text-align:center;
+}
+
+</style>
+
+<div id="testheadphones-page" class="page">
+
+  <div class="info">
+      Please use headphones to play this game, and make sure you’re in a quiet room.
+  </div>
+
+  <input type="button" class="replay" value="Click here to test the sound" />
+
+  <input type="button" class="exit" value="Click here to start!" />
+</div>
+
+<style>
+  #imgaudio {
+    justify-content: center;
+    align-items:center;
+    height:100%;
+  }
+
+  #imgaudio > .center-image {
+    height: 80%;
+  }
+
+  #imgaudio > * {
+    display:block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:20px;
+  }
+
+</style>
+
+<div id="imgaudio" class="page">
+  <img class="center-image" />
+  <input type="button" class="exit" value="Next" />
+</div>
+
+<!-- NOTE: Uses styling format from quad -->
+<div id="slide7" class="page">
+  <div class="imgquad">
+    <img class="topleft-img" src="FinalImagesALL/ImgaesforExamples/Boy1_Piano.png" />
+    <img class="topright-img" src="FinalImagesALL/ImgaesforExamples/Boy2_3_Paper.png" />
+    <img class="bottomleft-img" src="FinalImagesALL/ImgaesforExamples/Girl1_Movie.png" />
+    <img class="bottomright-img" src="FinalImagesALL/ImgaesforExamples/Girl2_3_Table.png" />
+  </div>
+</div>
+
+
+<!-- COMMENT -->
+<style>
+
+#turtlerun-page > * {
+  position: relative;
+}
+
+#turtlerun-page > img {
+  height:60%;
+  left:0;
+  top:30%;
+}
+
+#turtlerun-page > .turtles {
+  height:50%;
+  width: 600px;
+  left: 30%;
+  bottom: 0;
+  display:block;
+  position:absolute;
+}
+
+#turtlerun-page > .turtles > img {
+  position:relative;
+  display:block;
+  height:33%;
+}
+
+</style>
+
+<div id="turtlerun-page" class="page">
+  <img src="FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png" />
+
+  <div class="turtles">
+    <img style="left:25%; top:0;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:75%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:0%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:50%; top:-66%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:75%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:25%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:50%; top:-133%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+
+  </div>
+</div>
+
+<!-- This is a custom styled page. It shows a bunch of turtles, Jerimiah, and
+      an image "let's begin the game" -->
+
+<style>
+  #begin-page{
+    background-color:white;
+    width:100%;
+    height:100%;
+  }
+
+  #begin-page > * {
+    position: absolute;
+    display: block;
+  }
+
+  #begin-boy1 {
+    left:35%;
+    top:0%;
+    height:70%;
+  }
+
+  #begin-text {
+    left:20px;
+    top:30%;
+    width:40%;
+  }
+
+  #beginturtle1 {
+    top:0;
+    right:0;
+    width:200px;
+  }
+
+  #beginturtle2 {
+    bottom:20px;
+    right:50%;
+    width:200px;
+  }
+
+</style>
+
+<div id="begin-page" class="page">
+  <img id="begin-boy1" src="FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png">
+  <img id="begin-text" src="customImages/beginImage.png">
+
+  <img id="beginturtle1" controls="controls"
+    src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+
+  <img id="beginturtle2"
+    src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+</div>
+
+<style>
+#progress-page > .progress {
+  height: 15%;
+  width: 100%;
+
+  position:absolute;
+  bottom: 20px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+#progress-page > .progress > div {
+  height: 100%;
+  flex: 1;
+
+  position:relative;
+}
+
+#progress-page > .progress > div > *{
+  height: 100%;
+}
+
+#progress-page > img {
+  position: absolute;
+}
+
+#progress-page > .progress-img {
+  height:50%;
+  display:block;
+
+  top:50px;
+}
+
+#progress-page > #newitem {
+  left: 60%;
+  top: 30%;
+}
+
+#progress-page > #newitem {
+  height: 15%;
+}
+
+</style>
+
+<div id="progress-page" class="page">
+  <img class="progress-img" />
+  <div class="progress-boxes progress">
+  </div>
+  <div class="progress-items progress">
+  </div>
+
+  <img id="newitem" />
+</div>
+
+
+
+<style>
+  #imgpg {
+    height:100%;
+    width: 100%;
+    margin:0;
+    padding:0;
+  }
+
+  #imgpg > img {
+    width:100%;
+    margin-top: 10%;;
+  }
+</style>
+
+<div id="imgpg" class="page">
+  <img />
+</div>
+
+<div id="movpage" class="page">
+  <video width="400" controls autoplay>
+    <!-- does not work currently -->
+    <source src="customImages/256transparentTurtle.mov">
+  </video>
+</div>
+
+<style>
+
+    #end-page > * {
+      position: relative;
+    }
+    
+    
+    #end-page > .turtles {
+      margin: auto;
+      height: 60%;
+      width: 50%;
+      
+    }
+    
+    #end-page > .turtles > img {
+      position:relative;
+      display:block;
+      width: 150px;
+    }
+
+    #end-page > input {
+      border-radius:10px;
+      color: white;
+      font-size: 20px;
+      width: 15%;
+      background-color:rgb(158,206,203);
+      position: absolute;
+      bottom: 30;
+      right: 30;
+    }
+    
+    #over {
+      text-align: center;
+      font-size: 400%;
+    }
+    </style>
+    
+    <div id="end-page" class="page">
+      <h1 id = "over">Game Over!</h1>
+      <div class="turtles">
+        <img style="left:25%; top:0;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:75%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:0%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:50%; top:-66%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:75%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:25%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:50%; top:-133%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+      </div>
+      <input class="endpg" type="button"value = "Exit Game" ></input>
+    </div>
+
+<style>
+
+#chooselist > #lists{
+  margin:auto;
+  width: 70%;
+  left:15%;
+  top:10%;
+  font-size: 30px;
+  padding: 10px 8px 10px 14px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+}
+
+#chooselist > #lists > #options{
+  width: 200%;
+  background:url('arrow.png') no-repeat;
+  background-position:80% center;
+}
+
+#chooselist > #lists > #options > select{
+  width: 25%;
+  font-size: 20px;
+  position: absolute;
+  left: 15;
+  bottom: 60;
+}
+
+#chooselist > #lists >#options > input{
+    margin-left:15%;
+    padding:20px;
+    border-radius:10px;
+    color: white;
+    font-size: 15px;
+    width: 15%;
+    background-color:rgb(158,206,203);
+    text-align:center;
+    position: absolute;
+    right: 50;
+    bottom: 15;
+}
+
+#chooselist > span {
+    position:absolute;
+    bottom:10px;
+    font-size:20px;
+    text-align:center;
+    width:100%;
+  }
+
+
+</style>
+
+<div id="chooselist" class="page">
+    <div id = "lists">
+        <h2>Choose a List</h2>
+        <br><br>
+        <div id = "options">
+        <select id="scripts" name="scripts">
+            <option value="0">List 1</option>
+            <option value="1">List 2</option>
+            <option value="2">List 3</option>
+            <option value="3">List 4</option>
+            <option value = "random">Random</option>
+        </select>
+
+        <input type="button" class = "exit" value="Select" />
+
+        </div>
+    </div>
+    
+    <span> Need help or have questions? Call the Learning to Talk Lab at (301) 458-0660 | Learning2Talk@umd.edu</span>
+</div>
+
+    <script src="pages.js"></script>
+
+    <script>// This is the Fisher-Yates shuffle
+// Taken from https://bost.ocks.org/mike/shuffle/
+function shuffle(array) {
+  var m = array.length, t, i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
+}
+
+// takes two lists of equal length
+//  list is anything
+//  arrangement is a shuffling of range(0, len(arrangement))
+function reorder(list, arrangement) {
+  var o = [];
+
+  for(var i=0; i< arrangement.length; i++) {
+    o.push(list[arrangement[i]])
+  }
+
+  return o;
+}
+
+// play audio some amount of time after the page starts
+
+var _global_audio = new Audio("");
+var _audio_ready = false;
+
+$("input").bind("click touch", function() {
+  if (!_audio_ready){
+    console.log("WINDOW CLICKED")
+    try{
+      _global_audio.play();
+    } catch(error) {console.log("error caught");console.log(error)}
+
+    _audio_ready = true;
+  }
+});
+
+var _afterfunction = function() {};
+
+_global_audio.addEventListener('canplaythrough', function () {
+  console.log("LOADED")
+    _global_audio.play();
+
+  globalBook.pages[globalBook.current_page].setTimeout(function() {
+    _afterfunction();
+  }, 1000*_global_audio.duration);
+});
+
+function play_audio(file, afterfunction) {
+  if (file == undefined) {
+    console.log("NO LOAD")
+
+    afterfunction();
+  } else {
+    _afterfunction = afterfunction;
+  }
+
+  _global_audio.src = file;
+  _global_audio.load();
+}
+
+class AudioPage extends Page {
+  constructor(pageID, audio, delay) {
+    super(pageID);
+
+    this.audiofile = audio;
+    this.delay = delay;
+  }
+
+  after_audio() {}
+
+  play_audio() {
+    play_audio(this.audiofile, function() {
+        (this.after_audio.bind(this))();
+    }.bind(this));
+  }
+
+  play() {
+    this.setTimeout(this.play_audio.bind(this), this.delay);
+  }
+
+  deactivate() {
+    super.deactivate();
+    _global_audio.pause();
+  }
+}
+
+// note that this does not act like a normal page
+
+function forceLandscape(){
+  if ($(window).width() > $(window).height()) {
+    $("#forcelandscape").hide();
+  } else {
+    $("#forcelandscape").show();
+  }
+}
+
+$(window).on("resize",forceLandscape);
+
+$(window).on("load", forceLandscape);
+
+// This stores 4 images, and plays audio. Once the audio is played, one image
+// must be tapped on, and that image is logged. There is also a replay button,
+// which plays the audio again
+let img_order = ["topleft", "topright", "bottomleft", "bottomright"];
+
+// These are defined to minimize re-typing
+var imgSourceDirectory = "";
+var audioSourceDirectory = "";
+
+// Choice
+// A choice has a name and an image
+// it is in the OptionPage
+class Choice {
+  constructor(label, image) {
+    this.label = label;
+    this.image = imgSourceDirectory + image;
+  }
+}
+
+class QuadPage extends AudioPage {
+  constructor(pageID, audio, choices, showdelay) {
+    if (showdelay === undefined) { showdelay = 500; }
+
+    super(pageID, audioSourceDirectory+audio, showdelay + 3000);
+
+    this.showdelay = showdelay;
+
+    this.choices = [];
+
+    this.choices.push(choices.find(e => e.image.match(/Boy/) && e.image.match(/1/)));
+    this.choices.push(choices.find(e => e.image.match(/Boy/) && e.image.match(/2_3/)));
+    this.choices.push(choices.find(e => e.image.match(/Girl/) && e.image.match(/1/)));
+    this.choices.push(choices.find(e => e.image.match(/Girl/) && e.image.match(/2_3/)));
+
+    this.targetQuadrant = -1;
+    this.audioStopTime = 0;
+  }
+
+  select_option(e) {
+    if (_global_audio.paused) {//only run if no audio playing
+      var dt = (new Date()).getTime() - this.audioStopTime;
+      new_datum($(e.target).data("quad"),
+                dt);
+
+      globalBook.nextpage();
+    }
+  }
+
+  after_audio() {
+    $("img").unbind('click touch');//ensure it doesnt get double called
+    $("img").bind('click touch', this.select_option.bind(this));
+    this.audioStopTime = (new Date()).getTime();
+    $("#quad-page > input").removeAttr("disabled");
+  }
+
+  play_audio() {
+    super.play_audio();
+  }
+
+  play() {
+    super.play();
+    $("#images > img").data("isTarget", "C");
+   
+    for (var i=0; i<4; i++) {
+      if (this.choices[i] != undefined) {
+        $(`#${img_order[i]}-img`).attr("src", this.choices[i].image);
+        $(`#${img_order[i]}-img`).data("id", this.choices[i].label);
+        $(`#${img_order[i]}-img`).data("quad", i); // This doesnt need to be
+                                                   // set every time, but not
+                                                   // that important to optimize
+        if (this.choices[i].label == "T") {
+          this.targetQuadrant = i;
+        }
+      } else {
+        $(`#${img_order[i]}-img`).attr("src", "");
+        $(`#${img_order[i]}-img`).data("id", "undefined");
+      }
+    }
+    
+    this.setTimeout(function(){$("#quad-page > input.exit").attr("disabled", "disabled");$("#quad-page").show()}, this.showdelay);
+  }
+
+  deactivate() {
+    super.deactivate();
+
+    $("img").unbind("click touch");
+    $("#quad-page").hide();
+  }
+}
+
+class DocPage extends AudioPage {
+  constructor(pid, text, width_str, fontsize, buttontext, audio) {
+    super(pid, audio, 400);
+
+    this.text = text;
+    this.width = width_str;
+    this.fontsize = fontsize;
+
+    this.buttontext = buttontext;
+  }
+
+  after_audio() {
+    $("#doc-page > div > input").removeAttr("disabled");
+  }
+
+  play() {
+    super.play();
+    $("#doc-page").css("--form-width", this.width)
+    $("#doc-page > #form-page-center").html(this.text)
+    $("#doc-page > #form-page-center").css("font-size", this.fontsize)
+
+    $("#doc-page > div > input ").attr("value", this.buttontext)
+
+    $("#doc-page > div > input").attr("disabled", "disabled")
+
+    $("#doc-page").show();
+  }
+
+  deactivate() {
+    super.deactivate();
+
+    $("#doc-page").hide();
+  }
+
+
+}
+
+$("#skiptoend" ).bind("click touch", function() {
+  console.log("helo");
+  globalBook.pages[globalBook.current_page].deactivate();
+  globalBook.current_page = globalBook.pages.length - 3;
+  globalBook.pages[globalBook.current_page].play();
+  });
+
+// Modified from https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices
+function getAudioDevices() {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+    console.log("enumerateDevices() not supported.");
+    return;
+  }
+
+  var devices = navigator.mediaDevices.enumerateDevices();
+
+  return devices.filter(device => device.type == "audiooutput");
+}
+
+// TODO TEST HOW TO TELL IF HEADPHONES EXIST
+function getHeadphones() {
+  audios = getAudioDevices();
+}
+
+class TestHeadphonesPage extends AudioPage {
+  constructor(pageID) {
+    super(pageID, "WAVFiles/Introduction_Instructions/Slide4_WearHeadphones.wav", 0);
+  }
+
+  after_audio() {
+    $("#testheadphones-page > input").removeAttr("disabled");
+  }
+
+  play() {
+    $(".replay").on('click touch', function() {
+      this.play_audio();
+    }.bind(this));
+
+    $("#testheadphones-page > input.exit").attr("disabled", "disabled");
+    $("#testheadphones-page").show();
+    super.play();
+  }
+
+  deactivate() {
+    super.deactivate();
+
+    $("#testheadphones-page").hide();
+  }
+}
+
+class ImgAudioPage extends AudioPage {
+  constructor(pageID, imagefile, audiofile) {
+    super(pageID, audiofile, 0);
+
+    this.image = imagefile;
+  }
+
+  after_audio() {
+    $("#imgaudio > input").removeAttr("disabled")
+  }
+
+  play() {
+    super.play();
+    $("#imgaudio > img").attr("src", this.image)
+    $("#imgaudio").show();
+    $("#imgaudio > input").attr("disabled", "disabled");
+  }
+
+  deactivate () {
+    super.deactivate();
+    $("#imgaudio").hide();
+  }
+}
+
+class Slide7Page extends AudioPage {
+  constructor(pid) {
+    var pid = "slide7";
+    var audio = "WAVFiles/Introduction_Instructions/Slide6_IntroToNames.wav";
+    var delay = 500;
+    super(pid, audio, delay);
+
+    this.delay = delay;
+
+    this.growIndexes = [0,2,1,3];
+    this.growTimestamps = [8000, 18500, 27800, 36700];
+
+  }
+
+  grow(index) {
+    console.log(index);
+    var imgpos = "#slide7 > .imgquad > .";
+    var imgname = imgpos + img_order[index] + "-img";
+    console.log(imgname);
+
+    // save the current offset for later;
+    var offset = $(imgname).offset();
+    var height = $(imgname).height();
+
+    // shows up in front of other values
+    $(imgname).css("zIndex", 2);
+
+    $(imgname).animate({
+      height: "70%",
+      top: "15%",
+      left: "25%",
+    }, 2000, function() {
+      console.log("Done with first animation!");
+      this.setTimeout(function() {
+        $(imgname).animate({
+          height: height,
+          "z-index": 1,
+          top: offset.top,
+          left: offset.left,
+        }, 2000, function() {
+          $(imgname).removeAttr("height");
+          $(imgname).css("zIndex", 1);
+        });
+      }, 1000);
+    }.bind(this));
+  }
+
+  after_audio () {
+    globalBook.nextpage();
+  }
+
+  play() {
+    $("#slide7").show();
+    super.play();
+
+    for(var i=0; i<this.growIndexes.length; i++) {
+      let ind = this.growIndexes[i];
+      this.setTimeout(
+        function () {
+          this.grow(ind)
+        }.bind(this),
+        this.growTimestamps[i] + this.delay);
+    }
+
+    console.log(this.audiofile);
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#slide7").hide();
+  }
+}
+
+class LearnQuadPage extends QuadPage {
+  constructor(pid, images, audio, target_index,
+              correct_feedback_audio, incorrect_feedback_audio, replay_audio) {
+    super(pid, audio, images, 0);
+
+    this.replay_audio = replay_audio;
+
+    var orig = "WAVFiles/Reinforcement/"
+    this.rewardAudio = orig + correct_feedback_audio;
+    this.wrongAudio = orig + incorrect_feedback_audio;
+
+    this.clickready = false;
+  }
+
+  correct_choice(e) {
+    var dt = (new Date()).getTime() - this.audioStopTime;
+    new_datum($(e.target).data("quad"),
+              dt);
+    play_audio(this.rewardAudio, function() {
+      setTimeout(function(){
+        globalBook.nextpage();
+      }, 3000);
+      //globalBook.nextpage();
+    }.bind(this));
+
+    // var dt = (new Date()).getTime() - this.audioStopTime;
+    // new_datum($(e.target).data("quad"),
+    //           dt);
+  }
+
+  wrong_choice(e) {
+    if (this.replay_audio) {
+      play_audio(this.wrongAudio, this.play_audio.bind(this));
+    } else {
+      play_audio(this.wrongAudio, this.after_audio.bind(this) );
+    }
+
+    this.clickready = false;
+
+    var dt = (new Date()).getTime() - this.audioStopTime;
+    new_datum($(e.target).data("quad"),
+              dt);
+  }
+
+  select_option(e) {
+    if (_global_audio.paused && this.clickready) {
+      if ($(e.target).data("isTarget") == "T") {
+        this.correct_choice(e);
+      } else {
+        this.wrong_choice(e);
+      }
+    }
+  }
+
+  after_audio() {
+    super.after_audio();
+    this.clickready = true;
+  }
+
+  play() {
+    super.play();
+    var targetImageName = "." + img_order[this.targetQuadrant] + "-img";
+
+    $("#images > img").data("isTarget", "C");
+    $("#images > " + targetImageName).data("isTarget", "T");
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#images > img").removeData("isTarget");
+  }
+}
+
+class TurtleRunPage extends AudioPage {
+  constructor() {
+    super("turtles run away", "WAVFiles/Introduction_Instructions/Slide5_StoryIntro.wav", 300);
+
+    this.time_to_run = 7000;
+  }
+
+  after_audio() {
+    globalBook.nextpage();
+  }
+
+  play() {
+    $("#turtlerun-page").show();
+
+    this.setTimeout(function(){
+      $("#turtlerun-page > .turtles").animate({
+        opacity: 0
+      }, 2500);
+    }, this.time_to_run);
+
+    this.setInterval(
+      function() {
+        turtledance(".turtles > img");
+      }, 5000, true);
+
+    super.play();
+  }
+
+  deactivate() {
+    $("#turtlerun-page").hide();
+
+    super.deactivate();
+    $("#turtlerun-page > .turtles").css("left","40%")
+    $("#turtlerun-page > .turtles").css("bottom","0")
+
+  }
+}
+
+class BeginPage extends AudioPage {
+  constructor(audio) {
+    super("begin", audio, 500);
+  }
+
+  after_audio() {
+    globalBook.nextpage();
+  }
+
+  play() {
+    super.play();
+
+    this.setInterval(
+      function() {
+        turtledance("#beginturtle1");
+      }, 5000, true);
+
+    this.setTimeout(function() {
+      this.setInterval(function() {
+        turtledance("#beginturtle2")
+      }, 5000, true);
+    }.bind(this), 100);
+
+    $("#begin-page").show();
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#begin-page").hide();
+  }
+}
+
+// todo create audiopage which other pages are based on
+class ProgressPage extends AudioPage {
+  constructor(pageID, number, total, progressImage, emptyImage, mainImage, audiofile) {
+    super(pageID, audiofile, 400);
+
+    this.number = number;
+    this.total = total;
+
+    this.progressImage = progressImage;
+    this.emptyImage = emptyImage;
+    this.mainImage = mainImage;
+  }
+
+  after_audio() {
+    globalBook.nextpage();
+  }
+
+  play() {
+    $("#progress-page > .progress-img").attr("src", this.mainImage);
+
+    for(var i=0; i<this.total; i++) {
+      $("#progress-page > .progress-boxes").append(`<div><img src="${this.emptyImage}" /><div>`);
+    }
+
+    for(var i=0; i<this.number-1; i++) {
+      $("#progress-page > .progress-items").append(`<div><img src="${this.progressImage}" /></div>`);
+    }
+
+    for(var i=this.number-1; i<this.total; i++) {
+      $("#progress-page > .progress-items").append(`<div></div>`);
+    }
+
+    $("#newitem").attr("src", this.progressImage);
+
+    $("#progress-page").show();
+
+    this.setTimeout(function() {
+      var xpos = $(".progress-items > div")[this.number-1].offsetLeft;
+      var ypos = $(".progress-items")[0].offsetTop;
+
+      $("#newitem").animate({
+        left: xpos,
+        top: ypos
+      }, {
+        duration: 2500,
+        queue: false
+      });
+    }.bind(this), 1000);
+
+    this.setInterval(
+      function() {
+        turtledance(".progress-items > div");
+        turtledance("#newitem");
+      }, 5000, true);
+
+    super.play();
+  }
+
+  deactivate() {
+    super.deactivate();
+
+    $("#progress-page").hide();
+    $("#progress-page > .progress-boxes").html("");
+    $("#progress-page > .progress-items").html("");
+    $("#progress-page > img#newitem").attr("src", "");
+    $("#newitem").css("left", "60%");
+    $("#newitem").css("top", "30%");
+  }
+}
+
+// just plays the audio, not interactive
+class QuadAudioPage extends QuadPage {
+  constructor(pageID, audio, choices) {
+    super(pageID, audio, choices, 0);
+  }
+
+  after_audio() {
+    globalBook.nextpage();
+  }
+
+  play() {
+    super.play();
+  }
+
+  deactivate() {
+    super.deactivate();
+  }
+}
+
+class ImagePage extends Page {
+  constructor(name, image, delay) {
+    super(name);
+    this.image = image;
+    this.delay = delay;
+  }
+
+  play() {
+    super.play();
+    $("#imgpg > img").attr("src", this.image);
+    $("#imgpg").show();
+
+    this.setTimeout(function() {
+      globalBook.nextpage();
+    }, this.delay);
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#imgpg").hide();
+  }
+}
+
+function turtledance(turtlename) {
+  var danceposes = [[ 30, 2000],
+                    [-30, 1000],
+                    [ 30, 1000],
+                    [  0, 1000]];
+
+  for (var i=0; i<danceposes.length; i++) {
+    $(turtlename).animate({
+      deg: danceposes[i][0]
+    }, {
+      duration: danceposes[i][1],
+      step: function(cur) {
+          $(turtlename).css({
+            "WebkitTransform": "rotate("+cur+"deg)",
+            "-moz-transform": "rotate("+cur+"deg)",
+            "transform": "rotate("+cur+"deg)"})
+      }});
+  }
+}
+
+class MovPage extends Page {
+  constructor() {
+    super("mov");
+  }
+
+  play() {
+    $("#movpage").show();
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#movpage").hide();
+  }
+}
+
+class EndPage extends Page {
+    constructor() {
+      super("endpg");
+    }
+  
+    play() {
+      $("#end-page").show();
+      turtledance(".turtles > img");
+      
+    }
+  
+    deactivate() {
+      super.deactivate();
+    }
+  }
+
+  $(".endpg").bind("click touch", function() {
+    //window.close();
+    window.open('', '_self', ''); 
+    window.close();
+  });
+class ChooseList extends Page {
+    constructor() {
+      super("chooselist");
+    }
+  
+    play() {
+      $("#chooselist").show();
+    }
+  
+    deactivate() {
+      var sel = document.getElementById('scripts');
+      var choice = sel.options[sel.selectedIndex].value;  
+      console.log(choice);   
+      if (choice.length == 1) {
+        listIndex = parseInt(choice);
+      } 
+      addPages(listIndex);
+      super.deactivate();
+      $("#chooselist").hide();
+    }
+  }</script>
+
+    <script src="lists.js"></script> <!-- NOTE FOR RICKY: DELETE THIS WHEN ADDING LIST CODE -->
+
+    <script>
+      let userID = 0; // NOTE FOR RICKY: USERID INSERTED HERE
+      let listIndex = 0; // NOTE FOR RICKY: LIST INDEX INSERTED HERE
+      let list = lists[listIndex]; // NOTE FOR RICKY: CURRENT LIST INSERTED HERE
+    </script>
+
+    <script src="run.js"></script>
+  </body>
+
+</html>
