@@ -43,8 +43,10 @@ window.onload = function () {
     var originalX = '';
     var originalY = '';
 
+    /*for dragging on a computer */
     object1.addEventListener('dragstart', handleDragStart, false);
     object1.addEventListener('dragend', handleDragEnd, false);
+    /*for dragging on a touch screen */
     object1.addEventListener('touchstart', handleTouchStart, false);
     object1.addEventListener('touchmove', handleTouchMove, false);
     object1.addEventListener('touchend', handleTouchEnd, false);
@@ -96,14 +98,14 @@ window.onload = function () {
                 dropZone.appendChild(e.target);
                 e.target.style.position = "initial";
                 droppedIn = true;
-                _('app_status').innerHTML = "You droped " + e.target.getAttribute('id') + " into drop zone";
+                _('app_status').innerHTML = "You droped the circle into the drop zone";
                 end_time = (new Date()).getTime();
                 console.log(end_time);
                 _('time_elapse').innerHTML = "Time Elapsed (in miliseconds): " + (end_time - start_time);
             } else {
                 e.target.style.left = originalX;
                 e.target.style.top = originalY;
-                _('app_status').innerHTML = "You let the " + e.target.getAttribute('id') + " go.";
+                _('app_status').innerHTML = "You let the circle go.";
             }
         }
     }
