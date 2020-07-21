@@ -1,6 +1,3 @@
-
-
-
 <html>
   <head>
     <title> iPad Test </title>
@@ -229,7 +226,11 @@
   <div>
     <input class="exit start" type="button" value="Next"></input>
   </div>
-  <input type="button"  id = "skiptoend" value="Skip to end"></input>
+
+  <input type="button"  id = "skip" value="Skip to end"></input>
+
+  
+
   <span> Need help or have questions? Call the Learning to Talk Lab at (301) 458-0660 | Learning2Talk@umd.edu</span>
 </div>
 
@@ -528,7 +529,7 @@
       border-radius:10px;
       color: white;
       font-size: 20px;
-      width: 15%;
+      width: 10%;
       background-color:rgb(158,206,203);
       position: absolute;
       bottom: 30;
@@ -851,6 +852,8 @@ class DocPage extends AudioPage {
     $("#doc-page > div > input").removeAttr("disabled");
   }
 
+
+
   play() {
     super.play();
     $("#doc-page").css("--form-width", this.width)
@@ -869,16 +872,15 @@ class DocPage extends AudioPage {
 
     $("#doc-page").hide();
   }
-
-
 }
 
-$("#skiptoend" ).bind("click touch", function() {
+
+$("#skip").bind("click touch", function() {
   console.log("helo");
   globalBook.pages[globalBook.current_page].deactivate();
   globalBook.current_page = globalBook.pages.length - 3;
   globalBook.pages[globalBook.current_page].play();
-  });
+});
 
 // Modified from https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices
 function getAudioDevices() {
@@ -1327,8 +1329,6 @@ class EndPage extends Page {
   }
 
   $(".endpg").bind("click touch", function() {
-    //window.close();
-    window.open('', '_self', ''); 
     window.close();
   });
 class ChooseList extends Page {
@@ -1345,7 +1345,7 @@ class ChooseList extends Page {
       var choice = sel.options[sel.selectedIndex].value;  
       console.log(choice);   
       if (choice.length == 1) {
-        listIndex = parseInt(choice);
+        listIndex = choice;
       } 
       addPages(listIndex);
       super.deactivate();
