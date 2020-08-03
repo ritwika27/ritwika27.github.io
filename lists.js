@@ -752,10 +752,10 @@ new QuadPage("CJ were touching the frog", "CJ_P_TF.wav",
 ,
 new QuadPage("CJ were holding the basket", "CJ_P_HB.wav",
     [
-    new Choice("T", "Boy2_3_Bear.jpg"),
-    new Choice("C1", "Girl1_Bear.jpg"),
-    new Choice("C2", "Girl2_3_Bear.jpg"),
-    new Choice("C3", "Boy1_Bear.jpg")
+    new Choice("T", "Boy2_3_Basket.jpg"),
+    new Choice("C1", "Girl1_Basket.jpg"),
+    new Choice("C2", "Girl2_3_Basket.jpg"),
+    new Choice("C3", "Boy1_Basket.jpg")
     ])
 ,
 new QuadPage("CJ were building the sandcastle", "CJ_P_BSC.wav",
