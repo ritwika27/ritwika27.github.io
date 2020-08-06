@@ -1577,34 +1577,43 @@ class Consent extends Page {
     });
   });
 
- 
 
-// https://www.tutorialspoint.com/pouchdb/pouchdb_synchronization.htm#:~:text=You%20can%20synchronize%20the%20databases,have%20used%20the%20method%20PouchDB.
+// https://www.tutorialspoint.com/pouchdb/pouchdb_synchronizationpn.htm#:~:text=You%20can%20synchronize%20the%20databases,have%20used%20the%20method%20PouchDB.
 var db = new PouchDB('ab_study');
 
 /*need to create CouchDB database */
-var remoteCouch = false;
+var remoteCouch = 'http://localhost:5984/ab_study';
 
 
-//add new data to PouchDB, adds all the logged data for a single game as a documents
-function addData(test_data){
-    var test = {
-        _id: new Date().toISOString(),
-        data: test_data,
-      };
-      db.put(test).then(function(result){
-        console.log(result);
-      }).catch(function(err){
-        console.log(err);
-      });
-}
+
 
 //implement sync function
 function sync(){
-  syncDom.setAttribute('data-sync-state', 'syncing');
-  var opts = {live: true};
-  db.sync(remoteCouch, opts, syncError);
-}</script>
+  //syncDom.setAttribute('data-sync-state', 'syncing');
+  var opts = {live: true, retry: true};
+  //two way sync
+  db.sync(remoteCouch, opts);
+}
+
+//add new data to PouchDB, adds all the logged data for a single game as a new document
+function addData(test_data){
+  var test = {
+      _id: new Date().toISOString(),
+      data: test_data,
+    };
+    db.put(test).then(function(result){
+      console.log(result);
+    }).catch(function(err){
+      console.log(err);
+    });
+}
+
+if (remoteCouch) {
+  sync();
+}
+
+
+</script>
 
 
     <script src="lists.js"></script> <!-- NOTE FOR RICKY: DELETE THIS WHEN ADDING LIST CODE -->
