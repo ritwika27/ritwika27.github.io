@@ -701,7 +701,7 @@ p {
 }
 
 </style>
-
+<!-- 
 <div id="consent" class="page">
     
     <div>
@@ -790,7 +790,7 @@ p {
         <button id = "submit" type="submit" size = "100">Submit </button>
     </form>
 
-</div>
+</div> -->
 
     <script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
     <script src="pages.js"></script>
@@ -1517,61 +1517,61 @@ class ChooseList extends Page {
       $("#chooselist").hide();
     }
   }
-class Consent extends Page {
-    constructor() {
-      super("consent");
-    }
+// class Consent extends Page {
+//     constructor() {
+//       super("consent");
+//     }
   
-    play() {
-      $("#consent").show();
-    }
+//     play() {
+//       $("#consent").show();
+//     }
   
-    deactivate() {
-      super.deactivate();
-      $("#consent").hide();
-    }
-  }
+//     deactivate() {
+//       super.deactivate();
+//       $("#consent").hide();
+//     }
+//   }
 
 
 
-  function advance(){
-    var no_consent = document.getElementById("no").checked;
-    var consent = document.getElementById("yes").checked;
-    if (no_consent) {
-      alert("Please close the game.");
-    }
-    if (consent == true){
-      globalBook.nextpage();
-    }
-  }
+//   function advance(){
+//     var no_consent = document.getElementById("no").checked;
+//     var consent = document.getElementById("yes").checked;
+//     if (no_consent) {
+//       alert("Please close the game.");
+//     }
+//     if (consent == true){
+//       globalBook.nextpage();
+//     }
+//   }
   
 
 
-   $('#form').submit(function(e) {
-    e.preventDefault();
+//    $('#form').submit(function(e) {
+//     e.preventDefault();
 
-    form_data = [document.getElementById("fn_parent").value, 
-    document.getElementById("ln_parent").value,
-    document.getElementById("fn_participant").value,
-    document.getElementById("ln_participant").value,
-    document.getElementById("dob_participant").value,
-    userID,
-    document.getElementById("current_date").value,
-    document.getElementById("parent_email").value,
-    document.getElementById("yes").checked, 
-    document.getElementById("no").checked];
+//     form_data = [document.getElementById("fn_parent").value, 
+//     document.getElementById("ln_parent").value,
+//     document.getElementById("fn_participant").value,
+//     document.getElementById("ln_participant").value,
+//     document.getElementById("dob_participant").value,
+//     userID,
+//     document.getElementById("current_date").value,
+//     document.getElementById("parent_email").value,
+//     document.getElementById("yes").checked, 
+//     document.getElementById("no").checked];
     
-    $.ajax({
-        headers: {
-        'content-type': "application/json; charset=utf-8",
-        },
-         method: 'POST',
-         url: "https://493eebb3-f2ce-4ba4-9d67-ac4b1ec5e8b5.mock.pstmn.io/ipad_study",
-         data: JSON.stringify(form_data),
-         dataType: "json",
-         success: advance()
-    });
-  });
+//     $.ajax({
+//         headers: {
+//         'content-type': "application/json; charset=utf-8",
+//         },
+//          method: 'POST',
+//          url: "https://493eebb3-f2ce-4ba4-9d67-ac4b1ec5e8b5.mock.pstmn.io/ipad_study",
+//          data: JSON.stringify(form_data),
+//          dataType: "json",
+//          success: advance()
+//     });
+//   });
 
 
 // https://www.tutorialspoint.com/pouchdb/pouchdb_synchronizationpn.htm#:~:text=You%20can%20synchronize%20the%20databases,have%20used%20the%20method%20PouchDB.
