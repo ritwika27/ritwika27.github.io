@@ -40,7 +40,7 @@ let listOrderings = [
                                    <hr><div style='color:red;text-align:center;width:100%'>"+userID+"</div><br/> <br/> ",
                                    "90%", "60px", "Ready!",
                                    undefined));
-     all_pages.push(new Consent());
+     //all_pages.push(new Consent());
      all_pages.push(new ChooseList());
      
      all_pages.push(new DocPage("instruction page", "Caregiver Instructions<br />\

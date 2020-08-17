@@ -100,24 +100,23 @@ function getNameConditionObject(sentence){
 }
 
 function export_data() {
-  //addData(logged_data);
-  $.ajax({
-    url: 'https://493eebb3-f2ce-4ba4-9d67-ac4b1ec5e8b5.mock.pstmn.io',
-    // headers: {
-    //     'Content_Type': "application/json",
-    //     'Bearer': authKey,
-    // },
-    // headers: {
-    //   'Bearer': authKey
-    // },
-    contentType: 'application/json',
-    method: 'POST',
-    data: JSON.stringify({ "data": logged_data }),
-    success: function (data, status, xhr) {
-      console.log(status);
-    }
-  });
-
+  addData(logged_data);
+  // $.ajax({
+  //   url: 'https://493eebb3-f2ce-4ba4-9d67-ac4b1ec5e8b5.mock.pstmn.io',
+  //   // headers: {
+  //   //     'Content_Type': "application/json",
+  //   //     'Bearer': authKey,
+  //   // },
+  //   // headers: {
+  //   //   'Bearer': authKey
+  //   // },
+  //   contentType: 'application/json',
+  //   method: 'POST',
+  //   data: JSON.stringify({ "data": logged_data }),
+  //   success: function (data, status, xhr) {
+  //     console.log(status);
+  //   }
+  // });
 }
 
 
