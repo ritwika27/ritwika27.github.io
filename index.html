@@ -145,47 +145,7 @@
 
 
 
-<!-- 
-<!DOCTYPE html>
-<html>
-<head>
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<style>
-.exit {
-	width: 0;
-	height: 0;
-	 border-top: 10px solid white;
-	  border-left: 10px solid green;
-	  border-bottom: 10px solid white;
-    border-right: 15px solid white;
 
-
-
-    width: 74px;
-  height: 74px;
-  border-style: solid;
-  border-width: 37px;
-  border-color: #202020;
-    box-sizing: border-box;
-    border-width: 37px 0px 37px 74px;
-    border-color: #eee #eee #eee green;
-    position: absolute;
-    right: 0;
-    bottom: 5;
-
-}
-
-</style>
-</head>
-<body>
-
-<h2>Triangle Right CSS</h2>
-<div class="hi">
-	<input class="exit" type="button" value="Skip"></input>
-</div>
-
-</body>
-</html>  -->
 <style>
   #doc-page {
     display: block;
@@ -631,7 +591,7 @@
     
     <span> Need help or have questions? Call the Learning to Talk Lab at (301) 458-0660 | Learning2Talk@umd.edu</span>
 </div>
-<style>
+<!-- <style>
 /* #consent{
   margin:auto;
   width: 80%;
@@ -697,11 +657,12 @@ p {
     background-color: rgb(158,206,203);
     border-color: rgb(158,206,203);
     color: white;
-    width: 10%;
+    width: 15%;
+    
 }
 
 </style>
-<!-- 
+
 <div id="consent" class="page">
     
     <div>
@@ -790,10 +751,12 @@ p {
         <button id = "submit" type="submit" size = "100">Submit </button>
     </form>
 
+  
+
 </div> -->
 
-    <script src="//cdn.jsdelivr.net/npm/pouchdb@7.2.1/dist/pouchdb.min.js"></script>
-    <script src="pages.js"></script>
+    <script src="pouchdb-7.2.1.min.js"></script>
+    <script src="pages1.js"></script>
 
     <script>// This is the Fisher-Yates shuffle
 // Taken from https://bost.ocks.org/mike/shuffle/
@@ -948,11 +911,16 @@ class QuadPage extends AudioPage {
 
   select_option(e) {
     if (_global_audio.paused) {//only run if no audio playing
-      // var dt = (new Date()).getTime() - this.audioStopTime;
-      // new_datum($(e.target).data("quad"),
-      //           dt);
+      //var dt = (new Date()).getTime() - this.audioStopTime;
       new_datum($(e.target).data("quad"), this.audioStopTime, (new Date()).getTime() );
 
+      //
+
+      // if (globalBook.current_page == globalBook.pages.length - 3){
+      //   addData(logged_data);
+      // }
+      
+      //
 
       globalBook.nextpage();
     }
@@ -1511,13 +1479,14 @@ class ChooseList extends Page {
       console.log(choice);   
       if (choice.length == 1) {
         listIndex = choice;
+        listIndex = parseInt(listIndex);
       } 
       addPages(listIndex);
       super.deactivate();
       $("#chooselist").hide();
     }
   }
-// class Consent extends Page {
+// class ConsentPage extends Page {
 //     constructor() {
 //       super("consent");
 //     }
@@ -1531,8 +1500,6 @@ class ChooseList extends Page {
 //       $("#consent").hide();
 //     }
 //   }
-
-
 
 //   function advance(){
 //     var no_consent = document.getElementById("no").checked;
@@ -1573,11 +1540,12 @@ class ChooseList extends Page {
 //     });
 //   });
 
+ 
 
 // https://www.tutorialspoint.com/pouchdb/pouchdb_synchronizationpn.htm#:~:text=You%20can%20synchronize%20the%20databases,have%20used%20the%20method%20PouchDB.
 var db = new PouchDB('ab_study');
 
-/*need to create CouchDB database */
+/*create CouchDB database (personal cloudant db for testng purposes) */
 var remoteCouch = "https://08c3bb2d-aec5-48c2-9972-362ab894e00b-bluemix:c087461717c7e0e15d1592c1505f749fad973517380eb1c36ebe1588922002f9@08c3bb2d-aec5-48c2-9972-362ab894e00b-bluemix.cloudantnosqldb.appdomain.cloud/ab-study";
 
 
@@ -1606,10 +1574,7 @@ function addData(test_data){
 
 if (remoteCouch) {
   sync();
-}
-
-
-</script>
+}</script>
 
 
     <script src="lists.js"></script> <!-- NOTE FOR RICKY: DELETE THIS WHEN ADDING LIST CODE -->
