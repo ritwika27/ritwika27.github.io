@@ -153,7 +153,7 @@ new QuadPage("JR were planting the flowers", "JR_P_PF.wav",
     new Choice("C3", "Boy1_Flowers.jpg")
     ])
 ,
-new QuadPage("JR were eating a pizza.", "JR_P_EP.wav",
+new QuadPage("JR were eating a pizza", "JR_P_EP.wav",
     [
     new Choice("T", "Girl2_3_Pizza.jpg"),
     new Choice("C1", "Girl1_Pizza.jpg"),
@@ -161,7 +161,7 @@ new QuadPage("JR were eating a pizza.", "JR_P_EP.wav",
     new Choice("C3", "Boy1_Pizza.jpg")
     ])
 ,
-new QuadPage("JR were baking a cake.", "JR_P_BC.wav",
+new QuadPage("JR were baking a cake", "JR_P_BC.wav",
     [
     new Choice("T", "Girl2_3_Cake.jpg"),
     new Choice("C1", "Girl1_Cake.jpg"),
@@ -169,7 +169,7 @@ new QuadPage("JR were baking a cake.", "JR_P_BC.wav",
     new Choice("C3", "Boy1_Cake.jpg")
     ])
 ,
-new QuadPage("JR were walkng a dog.", "JR_P_WD.wav",
+new QuadPage("JR were walkng a dog", "JR_P_WD.wav",
     [
     new Choice("T", "Girl2_3_Dog.jpg"),
     new Choice("C1", "Girl1_Dog.jpg"),
@@ -177,7 +177,7 @@ new QuadPage("JR were walkng a dog.", "JR_P_WD.wav",
     new Choice("C3", "Boy1_Dog.jpg")
     ])
 ,
-new QuadPage("JR was washing a car.", "JR_S_WC.wav",
+new QuadPage("JR was washing a car", "JR_S_WC.wav",
     [
     new Choice("T", "Girl1_Car.jpg"),
     new Choice("C1", "Boy2_3_Car.jpg"),
@@ -185,7 +185,7 @@ new QuadPage("JR was washing a car.", "JR_S_WC.wav",
     new Choice("C3", "Boy1_Car.jpg")
     ])
 ,
-new QuadPage("JR was reading a book.", "JR_S_RBook.wav",
+new QuadPage("JR was reading a book", "JR_S_RBook.wav",
     [
     new Choice("T", "Girl1_Book.jpg"),
     new Choice("C1", "Boy2_3_Book.jpg"),
@@ -193,7 +193,7 @@ new QuadPage("JR was reading a book.", "JR_S_RBook.wav",
     new Choice("C3", "Boy1_Book.jpg")
     ])
 ,
-new QuadPage("JR was kicking a ball.", "JR_S_KB.wav",
+new QuadPage("JR was kicking a ball", "JR_S_KB.wav",
     [
     new Choice("T", "Girl1_Ball.jpg"),
     new Choice("C1", "Boy2_3_Ball.jpg"),
@@ -201,7 +201,7 @@ new QuadPage("JR was kicking a ball.", "JR_S_KB.wav",
     new Choice("C3", "Boy1_Ball.jpg")
     ])
 ,
-new QuadPage("JR was riding a horse.", "JR_S_RH.wav",
+new QuadPage("JR was riding a horse", "JR_S_RH.wav",
     [
     new Choice("T", "Girl1_Horse.jpg"),
     new Choice("C1", "Boy2_3_Horse.jpg"),
@@ -209,7 +209,7 @@ new QuadPage("JR was riding a horse.", "JR_S_RH.wav",
     new Choice("C3", "Boy1_Horse.jpg")
     ])
 ,
-new QuadPage("JR was pulling a wagon.", "JR_S_PW.wav",
+new QuadPage("JR was pulling a wagon", "JR_S_PW.wav",
     [
     new Choice("T", "Girl1_Wagon.jpg"),
     new Choice("C1", "Boy2_3_Wagon.jpg"),
@@ -217,7 +217,7 @@ new QuadPage("JR was pulling a wagon.", "JR_S_PW.wav",
     new Choice("C3", "Boy1_Wagon.jpg")
     ])
 ,
-new QuadPage("JR was folding a blanket.", "JR_S_FBlanket.wav",
+new QuadPage("JR was folding a blanket", "JR_S_FBlanket.wav",
     [
     new Choice("T", "Girl1_Blanket.jpg"),
     new Choice("C1", "Boy2_3_Blanket.jpg"),
@@ -225,7 +225,7 @@ new QuadPage("JR was folding a blanket.", "JR_S_FBlanket.wav",
     new Choice("C3", "Boy1_Blanket.jpg")
     ])
 ,
-new QuadPage("JR was climbing a tree.", "JR_S_CTree.wav",
+new QuadPage("JR was climbing a tree", "JR_S_CTree.wav",
     [
     new Choice("T", "Girl1_Tree.jpg"),
     new Choice("C1", "Boy2_3_Tree.jpg"),
@@ -376,7 +376,7 @@ new QuadPage("JR was planting the flowers", "JR_S_PF.wav",
     new Choice("C3", "Boy1_Flowers.jpg")
     ])
 ,
-new QuadPage("JR was eating a pizza.", "JR_S_EP.wav",
+new QuadPage("JR was eating a pizza", "JR_S_EP.wav",
     [
     new Choice("T", "Girl1_Pizza.jpg"),
     new Choice("C1", "Boy2_3_Pizza.jpg"),
@@ -384,7 +384,7 @@ new QuadPage("JR was eating a pizza.", "JR_S_EP.wav",
     new Choice("C3", "Boy1_Pizza.jpg")
     ])
 ,
-new QuadPage("JR was baking a cake.", "JR_S_BC.wav",
+new QuadPage("JR was baking a cake", "JR_S_BC.wav",
     [
     new Choice("T", "Girl1_Cake.jpg"),
     new Choice("C1", "Boy2_3_Cake.jpg"),
@@ -392,7 +392,7 @@ new QuadPage("JR was baking a cake.", "JR_S_BC.wav",
     new Choice("C3", "Boy1_Cake.jpg")
     ])
 ,
-new QuadPage("JR was walkng a dog.", "JR_S_WD.wav",
+new QuadPage("JR was walkng a dog", "JR_S_WD.wav",
     [
     new Choice("T", "Girl1_Dog.jpg"),
     new Choice("C1", "Boy2_3_Dog.jpg"),
@@ -400,7 +400,7 @@ new QuadPage("JR was walkng a dog.", "JR_S_WD.wav",
     new Choice("C3", "Boy1_Dog.jpg")
     ])
 ,
-new QuadPage("CJ were washing a car.", "CJ_P_WC.wav",
+new QuadPage("CJ were washing a car", "CJ_P_WC.wav",
     [
     new Choice("T", "Boy2_3_Car.jpg"),
     new Choice("C1", "Girl1_Car.jpg"),
@@ -408,7 +408,7 @@ new QuadPage("CJ were washing a car.", "CJ_P_WC.wav",
     new Choice("C3", "Boy1_Car.jpg")
     ])
 ,
-new QuadPage("CJ were reading a book.", "CJ_P_RBook.wav",
+new QuadPage("CJ were reading a book", "CJ_P_RBook.wav",
     [
     new Choice("T", "Boy2_3_Book.jpg"),
     new Choice("C1", "Girl1_Book.jpg"),
@@ -416,7 +416,7 @@ new QuadPage("CJ were reading a book.", "CJ_P_RBook.wav",
     new Choice("C3", "Boy1_Book.jpg")
     ])
 ,
-new QuadPage("CJ were kicking a ball.", "CJ_P_KB.wav",
+new QuadPage("CJ were kicking a ball", "CJ_P_KB.wav",
     [
     new Choice("T", "Boy2_3_Ball.jpg"),
     new Choice("C1", "Girl1_Ball.jpg"),
@@ -424,7 +424,7 @@ new QuadPage("CJ were kicking a ball.", "CJ_P_KB.wav",
     new Choice("C3", "Boy1_Ball.jpg")
     ])
 ,
-new QuadPage("CJ were riding a horse.", "CJ_P_RH.wav",
+new QuadPage("CJ were riding a horse", "CJ_P_RH.wav",
     [
     new Choice("T", "Boy2_3_Horse.jpg"),
     new Choice("C1", "Girl1_Horse.jpg"),
@@ -432,7 +432,7 @@ new QuadPage("CJ were riding a horse.", "CJ_P_RH.wav",
     new Choice("C3", "Boy1_Horse.jpg")
     ])
 ,
-new QuadPage("CJ were pulling a wagon.", "CJ_P_PW.wav",
+new QuadPage("CJ were pulling a wagon", "CJ_P_PW.wav",
     [
     new Choice("T", "Boy2_3_Wagon.jpg"),
     new Choice("C1", "Girl1_Wagon.jpg"),
@@ -440,7 +440,7 @@ new QuadPage("CJ were pulling a wagon.", "CJ_P_PW.wav",
     new Choice("C3", "Boy1_Wagon.jpg")
     ])
 ,
-new QuadPage("CJ were folding a blanket.", "CJ_P_FBlanket.wav",
+new QuadPage("CJ were folding a blanket", "CJ_P_FBlanket.wav",
     [
     new Choice("T", "Boy2_3_Blanket.jpg"),
     new Choice("C1", "Girl1_Blanket.jpg"),
@@ -448,7 +448,7 @@ new QuadPage("CJ were folding a blanket.", "CJ_P_FBlanket.wav",
     new Choice("C3", "Boy1_Blanket.jpg")
     ])
 ,
-new QuadPage("CJ were climbing a tree.", "CJ_P_CTree.wav",
+new QuadPage("CJ were climbing a tree", "CJ_P_CTree.wav",
     [
     new Choice("T", "Boy2_3_Tree.jpg"),
     new Choice("C1", "Girl1_Tree.jpg"),
@@ -479,7 +479,7 @@ new QuadPage("JR were blowing the bubbles", "JR_P_BB.wav",
     new Choice("C3", "Boy1_Bubbles.jpg")
     ])
 ,
-new QuadPage("JR was sweeping the floor", "JR_P_SF.wav",
+new QuadPage("JR were sweeping the floor", "JR_P_SF.wav",
     [
     new Choice("T", "Girl2_3_Floor.jpg"),
     new Choice("C1", "Boy2_3_Floor.jpg"),
@@ -599,7 +599,7 @@ new QuadPage("CJ were planting the flowers", "CJ_P_PF.wav",
     new Choice("C3", "Boy1_Flowers.jpg")
     ])
 ,
-new QuadPage("CJ were eating a pizza.", "CJ_P_EP.wav",
+new QuadPage("CJ were eating a pizza", "CJ_P_EP.wav",
     [
     new Choice("T", "Boy2_3_Pizza.jpg"),
     new Choice("C1", "Girl1_Pizza.jpg"),
@@ -607,7 +607,7 @@ new QuadPage("CJ were eating a pizza.", "CJ_P_EP.wav",
     new Choice("C3", "Boy1_Pizza.jpg")
     ])
 ,
-new QuadPage("CJ were baking a cake.", "CJ_P_BC.wav",
+new QuadPage("CJ were baking a cake", "CJ_P_BC.wav",
     [
     new Choice("T", "Boy2_3_Cake.jpg"),
     new Choice("C1", "Girl1_Cake.jpg"),
@@ -615,7 +615,7 @@ new QuadPage("CJ were baking a cake.", "CJ_P_BC.wav",
     new Choice("C3", "Boy1_Cake.jpg")
     ])
 ,
-new QuadPage("CJ were walkng a dog.", "CJ_P_WD.wav",
+new QuadPage("CJ were walkng a dog", "CJ_P_WD.wav",
     [
     new Choice("T", "Boy2_3_Dog.jpg"),
     new Choice("C1", "Girl1_Dog.jpg"),
@@ -623,7 +623,7 @@ new QuadPage("CJ were walkng a dog.", "CJ_P_WD.wav",
     new Choice("C3", "Boy1_Dog.jpg")
     ])
 ,
-new QuadPage("J was washing a car.", "J_S_WC.wav",
+new QuadPage("J was washing a car", "J_S_WC.wav",
     [
     new Choice("T", "Boy1_Car.jpg"),
     new Choice("C1", "Boy2_3_Car.jpg"),
@@ -631,7 +631,7 @@ new QuadPage("J was washing a car.", "J_S_WC.wav",
     new Choice("C3", "Girl1_Car.jpg")
     ])
 ,
-new QuadPage("J was reading a book.", "J_S_RBook.wav",
+new QuadPage("J was reading a book", "J_S_RBook.wav",
     [
     new Choice("T", "Boy1_Book.jpg"),
     new Choice("C1", "Boy2_3_Book.jpg"),
@@ -639,7 +639,7 @@ new QuadPage("J was reading a book.", "J_S_RBook.wav",
     new Choice("C3", "Girl1_Book.jpg")
     ])
 ,
-new QuadPage("J was kicking a ball.", "J_S_KB.wav",
+new QuadPage("J was kicking a ball", "J_S_KB.wav",
     [
     new Choice("T", "Boy1_Ball.jpg"),
     new Choice("C1", "Boy2_3_Ball.jpg"),
@@ -647,7 +647,7 @@ new QuadPage("J was kicking a ball.", "J_S_KB.wav",
     new Choice("C3", "Girl1_Ball.jpg")
     ])
 ,
-new QuadPage("J was riding a horse.", "J_S_RH.wav",
+new QuadPage("J was riding a horse", "J_S_RH.wav",
     [
     new Choice("T", "Boy1_Horse.jpg"),
     new Choice("C1", "Boy2_3_Horse.jpg"),
@@ -655,7 +655,7 @@ new QuadPage("J was riding a horse.", "J_S_RH.wav",
     new Choice("C3", "Girl1_Horse.jpg")
     ])
 ,
-new QuadPage("J was pulling a wagon.", "J_S_PW.wav",
+new QuadPage("J was pulling a wagon", "J_S_PW.wav",
     [
     new Choice("T", "Boy1_Wagon.jpg"),
     new Choice("C1", "Boy2_3_Wagon.jpg"),
@@ -663,7 +663,7 @@ new QuadPage("J was pulling a wagon.", "J_S_PW.wav",
     new Choice("C3", "Girl1_Wagon.jpg")
     ])
 ,
-new QuadPage("J was folding a blanket.", "J_S_FBlanket.wav",
+new QuadPage("J was folding a blanket", "J_S_FBlanket.wav",
     [
     new Choice("T", "Boy1_Blanket.jpg"),
     new Choice("C1", "Boy2_3_Blanket.jpg"),
@@ -671,7 +671,7 @@ new QuadPage("J was folding a blanket.", "J_S_FBlanket.wav",
     new Choice("C3", "Girl1_Blanket.jpg")
     ])
 ,
-new QuadPage("J was climbing a tree.", "J_S_CTree.wav",
+new QuadPage("J was climbing a tree", "J_S_CTree.wav",
     [
     new Choice("T", "Boy1_Tree.jpg"),
     new Choice("C1", "Boy2_3_Tree.jpg"),
@@ -822,7 +822,7 @@ new QuadPage("J was planting the flowers", "J_S_PF.wav",
     new Choice("C3", "Boy2_3_Flowers.jpg")
     ])
 ,
-new QuadPage("J was eating a pizza.", "J_S_EP.wav",
+new QuadPage("J was eating a pizza", "J_S_EP.wav",
     [
     new Choice("T", "Boy1_Pizza.jpg"),
     new Choice("C1", "Girl1_Pizza.jpg"),
@@ -830,7 +830,7 @@ new QuadPage("J was eating a pizza.", "J_S_EP.wav",
     new Choice("C3", "Boy2_3_Pizza.jpg")
     ])
 ,
-new QuadPage("J was baking a cake.", "J_S_BC.wav",
+new QuadPage("J was baking a cake", "J_S_BC.wav",
     [
     new Choice("T", "Boy1_Cake.jpg"),
     new Choice("C1", "Girl1_Cake.jpg"),
@@ -838,7 +838,7 @@ new QuadPage("J was baking a cake.", "J_S_BC.wav",
     new Choice("C3", "Boy2_3_Cake.jpg")
     ])
 ,
-new QuadPage("J was walkng a dog.", "J_S_WD.wav",
+new QuadPage("J was walkng a dog", "J_S_WD.wav",
     [
     new Choice("T", "Boy1_Dog.jpg"),
     new Choice("C1", "Girl1_Dog.jpg"),
@@ -846,7 +846,7 @@ new QuadPage("J was walkng a dog.", "J_S_WD.wav",
     new Choice("C3", "Boy2_3_Dog.jpg")
     ])
 ,
-new QuadPage("JR were washing a car.", "JR_P_WC.wav",
+new QuadPage("JR were washing a car", "JR_P_WC.wav",
     [
     new Choice("T", "Girl2_3_Car.jpg"),
     new Choice("C1", "Boy2_3_Car.jpg"),
@@ -854,7 +854,7 @@ new QuadPage("JR were washing a car.", "JR_P_WC.wav",
     new Choice("C3", "Boy1_Car.jpg")
     ])
 ,
-new QuadPage("JR were reading a book.", "JR_P_RBook.wav",
+new QuadPage("JR were reading a book", "JR_P_RBook.wav",
     [
     new Choice("T", "Girl2_3_Book.jpg"),
     new Choice("C1", "Boy2_3_Book.jpg"),
@@ -862,7 +862,7 @@ new QuadPage("JR were reading a book.", "JR_P_RBook.wav",
     new Choice("C3", "Boy1_Book.jpg")
     ])
 ,
-new QuadPage("JR were kicking a ball.", "JR_P_KB.wav",
+new QuadPage("JR were kicking a ball", "JR_P_KB.wav",
     [
     new Choice("T", "Girl2_3_Ball.jpg"),
     new Choice("C1", "Boy2_3_Ball.jpg"),
@@ -870,7 +870,7 @@ new QuadPage("JR were kicking a ball.", "JR_P_KB.wav",
     new Choice("C3", "Boy1_Ball.jpg")
     ])
 ,
-new QuadPage("JR were riding a horse.", "JR_P_RH.wav",
+new QuadPage("JR were riding a horse", "JR_P_RH.wav",
     [
     new Choice("T", "Girl2_3_Horse.jpg"),
     new Choice("C1", "Boy2_3_Horse.jpg"),
@@ -878,7 +878,7 @@ new QuadPage("JR were riding a horse.", "JR_P_RH.wav",
     new Choice("C3", "Boy1_Horse.jpg")
     ])
 ,
-new QuadPage("JR were pulling a wagon.", "JR_P_PW.wav",
+new QuadPage("JR were pulling a wagon", "JR_P_PW.wav",
     [
     new Choice("T", "Girl2_3_Wagon.jpg"),
     new Choice("C1", "Boy2_3_Wagon.jpg"),
@@ -886,7 +886,7 @@ new QuadPage("JR were pulling a wagon.", "JR_P_PW.wav",
     new Choice("C3", "Boy1_Wagon.jpg")
     ])
 ,
-new QuadPage("JR were folding a blanket.", "JR_P_FBlanket.wav",
+new QuadPage("JR were folding a blanket", "JR_P_FBlanket.wav",
     [
     new Choice("T", "Girl2_3_Blanket.jpg"),
     new Choice("C1", "Boy2_3_Blanket.jpg"),
@@ -894,7 +894,7 @@ new QuadPage("JR were folding a blanket.", "JR_P_FBlanket.wav",
     new Choice("C3", "Boy1_Blanket.jpg")
     ])
 ,
-new QuadPage("JR were climbing a tree.", "JR_P_CTree.wav",
+new QuadPage("JR were climbing a tree", "JR_P_CTree.wav",
     [
     new Choice("T", "Girl2_3_Tree.jpg"),
     new Choice("C1", "Boy2_3_Tree.jpg"),

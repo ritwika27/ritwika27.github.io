@@ -948,9 +948,10 @@ class QuadPage extends AudioPage {
 
   select_option(e) {
     if (_global_audio.paused) {//only run if no audio playing
-      var dt = (new Date()).getTime() - this.audioStopTime;
-      new_datum($(e.target).data("quad"),
-                dt);
+      // var dt = (new Date()).getTime() - this.audioStopTime;
+      // new_datum($(e.target).data("quad"),
+      //           dt);
+      new_datum($(e.target).data("quad"), this.audioStopTime, (new Date()).getTime() );
 
 
       globalBook.nextpage();
@@ -1199,9 +1200,10 @@ class LearnQuadPage extends QuadPage {
   }
 
   correct_choice(e) {
-    var dt = (new Date()).getTime() - this.audioStopTime;
-    new_datum($(e.target).data("quad"),
-              dt);
+    // var dt = (new Date()).getTime() - this.audioStopTime;
+    // new_datum($(e.target).data("quad"),
+    //           dt);
+    new_datum($(e.target).data("quad"), this.audioStopTime, (new Date()).getTime() );
     play_audio(this.rewardAudio, function() {
       setTimeout(function(){
         globalBook.nextpage();
@@ -1223,9 +1225,10 @@ class LearnQuadPage extends QuadPage {
 
     this.clickready = false;
 
-    var dt = (new Date()).getTime() - this.audioStopTime;
-    new_datum($(e.target).data("quad"),
-              dt);
+    // var dt = (new Date()).getTime() - this.audioStopTime;
+    // new_datum($(e.target).data("quad"),
+    //           dt);
+    new_datum($(e.target).data("quad"), this.audioStopTime, (new Date()).getTime() );
   }
 
   select_option(e) {

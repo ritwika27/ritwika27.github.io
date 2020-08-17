@@ -63,7 +63,7 @@ let listOrderings = [
      
      var imgSourceDirectory = "FinalImagesALL/ImgaesforExamples/";
      var audioSourceDirectory = "WAVFiles/Introduction_Instructions/";
-     all_pages.push(new LearnQuadPage("learn jeremiah",
+     all_pages.push(new LearnQuadPage("P_J was playing the piano",
                       [new Choice("T",
                               "Boy1_Piano.png"),
                        new Choice("C1",
@@ -79,7 +79,7 @@ let listOrderings = [
                       "Slide6_IncorrectFeedback.mp3",
                       true));
      
-     all_pages.push(new LearnQuadPage("learn julianne-rose",
+     all_pages.push(new LearnQuadPage("P_JR is watching the movie",
                      [new Choice("C1",
                              "Boy1_Piano.png"),
                       new Choice("C2",
@@ -95,7 +95,7 @@ let listOrderings = [
                      "Slide6_IncorrectFeedback.mp3",
                      true));
      
-     all_pages.push(new LearnQuadPage("learn carter and joe",
+     all_pages.push(new LearnQuadPage("P_CJ are cutting the paper",
                      [new Choice("C1",
                              "Boy1_Piano.png"),
                       new Choice("T",
@@ -111,7 +111,7 @@ let listOrderings = [
                      "Slide6_IncorrectFeedback.mp3",
                      true));
      
-     all_pages.push(new LearnQuadPage("learn julie and rose",
+     all_pages.push(new LearnQuadPage("P_JR are cleaning the table",
                      [new Choice("C1",
                              "Boy1_Piano.png"),
                       new Choice("C2",
@@ -144,7 +144,7 @@ let listOrderings = [
      
      var audioSourceDirectory = "WAVFiles/Examples/";
      
-     all_pages.push(new LearnQuadPage("slide71",
+     all_pages.push(new LearnQuadPage("P_J played the piano himself",
                      [new Choice("T",
                              "Boy1_Piano.png"),
                       new Choice("C1",
@@ -160,7 +160,7 @@ let listOrderings = [
                      "Slide71_IncorrectFeedback.wav",
                      false));
      
-     all_pages.push(new LearnQuadPage("slide72",
+     all_pages.push(new LearnQuadPage("P_JR watched the movie herself",
                      [new Choice("C1",
                              "Boy1_Piano.png"),
                       new Choice("C2",
@@ -193,7 +193,7 @@ let listOrderings = [
      
      var audioSourceDirectory = "WAVFiles/Examples/";
      
-     all_pages.push(new LearnQuadPage("slide8",
+     all_pages.push(new LearnQuadPage("P_CJ cut the paper together",
                      [new Choice("C1",
                             "Boy1_Paper.png"),
                       new Choice("T",
@@ -209,7 +209,7 @@ let listOrderings = [
                      "Slide8_IncorrectFeedback.wav",
                      false));
      
-     all_pages.push(new LearnQuadPage("slide9",
+     all_pages.push(new LearnQuadPage("P_JR cleaned the table together",
                      [new Choice("C3",
                              "Boy1_Table.png"),
                       new Choice("C2",

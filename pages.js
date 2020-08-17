@@ -22,43 +22,102 @@
 //   3. Page ID : string
 //   4. Target quadrant : integer
 //   5. Selected quadrant : integer
-//   6. Time to click: floating point
-function new_datum(clickQuadrant, deltaTime) {
+//   6. Time to click: integer
+//   7. startTime (audio end): integer
+//   8. endTime (time image clicked): integer
+//   9. condition : string
+//  10. name: string
+//  11. direct object: string
+//  12. correct: string
+function new_datum(clickQuadrant, startTime, endTime) {
+  var correct;
+  var targetQuadrant = globalBook.pages[globalBook.current_page].targetQuadrant;
+  var sentence = globalBook.pages[globalBook.current_page].pageID.split(" ");
+
+  var arr = getNameConditionObject(sentence);
+
+  var name = arr[0];
+  var direct_object = arr[1];
+  var condition = arr[2];
+  if (targetQuadrant == clickQuadrant){
+      correct = "yes";
+  }else {
+      correct = "no"
+  }
   var dat = [(new Date()).getTime(),
              userID,
-             listIndex,
+             listIndex + 1,
              globalBook.pages[globalBook.current_page].pageID,
-             globalBook.pages[globalBook.current_page].targetQuadrant,
+             targetQuadrant,
              clickQuadrant,
-             deltaTime];
+             endTime - startTime, 
+             startTime,
+             endTime,
+             condition,
+             name,
+             direct_object,
+             correct];
 
   logged_data.push(dat);
 
   return dat;
 }
 
+function getNameConditionObject(sentence){
+  var name;
+  var verb;
+  var condition;
+  var direct_object;
+  if (sentence[0].match(/P/)){
+    console.log("hello");
+    name = sentence[0].replace("P_", "");
+    condition = "practice";
+    var obj = sentence[sentence.length -1]
+    if(obj == "herself" || obj == "himself" || obj == "together"){
+      direct_object = sentence[sentence.length -2];
+    }else {
+      direct_object = sentence[sentence.length -1];
+    }
+    
+  }else{
+    name = sentence[0];
+    verb = sentence[1];
+    direct_object = sentence[sentence.length -1]
+    if (name == "JR" && verb == "was"){
+        condition = "A_was";
+    }else if (name == "JR" && verb == "were"){
+        condition = "A_were";
+    }else if (name == "CJ"){
+        condition = "UA_were";
+    }else{
+        condition = "UA_was";
+    }
+  }
+  var arr = [name, direct_object, condition];
+  return arr;
+  
+
+}
+
 function export_data() {
-  addData(logged_data);
-  // $.post("https://dev.vulpcod3z.dev/submit", logged_data, function(data, status, xhr){
-  //   console.log(status);
-  // },
-  // "json"); 
-  /* var blob = new Blob([JSON.stringify(logged_data)],
-      { type: "text/plain;charset=utf-8" });
-  saveAs(blob, "log.txt"); */
-  // $.ajax({
-  //   url: 'https://dev.vulpcod3z.dev/submit',
-  //   headers: {
-  //       'contentType': "application/json; charset=utf-8",
-  //       'Bearer': authKey,
-  //   },
-  //   dataType:"json",
-  //   method: 'POST',
-  //   data: JSON.stringify(logged_data),
-  //   success: function(data, status, xhr){
-  //     console.log(status);
-  //   }
-  // });
+  //addData(logged_data);
+  $.ajax({
+    url: 'https://493eebb3-f2ce-4ba4-9d67-ac4b1ec5e8b5.mock.pstmn.io',
+    // headers: {
+    //     'Content_Type': "application/json",
+    //     'Bearer': authKey,
+    // },
+    // headers: {
+    //   'Bearer': authKey
+    // },
+    contentType: 'application/json',
+    method: 'POST',
+    data: JSON.stringify({ "data": logged_data }),
+    success: function (data, status, xhr) {
+      console.log(status);
+    }
+  });
+
 }
 
 
