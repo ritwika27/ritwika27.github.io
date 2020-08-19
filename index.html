@@ -187,7 +187,7 @@
     <input class="exit start" type="button" value="Next"></input>
   </div>
 
-  <input type="button"  id = "skip" value="Skip to end"></input>
+  <!-- <input type="button"  id = "skip" value="Skip to end"></input> -->
 
   
 
@@ -1006,12 +1006,12 @@ class DocPage extends AudioPage {
 }
 
 
-$("#skip").bind("click touch", function() {
-  console.log("helo");
-  globalBook.pages[globalBook.current_page].deactivate();
-  globalBook.current_page = globalBook.pages.length - 3;
-  globalBook.pages[globalBook.current_page].play();
-});
+// $("#skip").bind("click touch", function() {
+//   console.log("helo");
+//   globalBook.pages[globalBook.current_page].deactivate();
+//   globalBook.current_page = globalBook.pages.length - 3;
+//   globalBook.pages[globalBook.current_page].play();
+// });
 
 // Modified from https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices
 function getAudioDevices() {
