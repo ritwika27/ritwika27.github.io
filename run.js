@@ -49,7 +49,7 @@ let listOrderings = [
                                    <li>Encourage your child to try their best, have fun, and complete the entire game</li>\
                                    <li>If possible, please use headphones and sit in a quiet room.</li></ul>",
                                    "90%", "40px", "Ready!",
-                                   "WAVFiles/Introduction_Instructions/Slide23CGInstructions.wav"))
+                                   "WAVFiles/Introduction_Instructions/Slide3CGInstructions.wav"))
      
      
      all_pages.push(new TestHeadphonesPage());
