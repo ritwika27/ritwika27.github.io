@@ -35,7 +35,8 @@ let listOrderings = [
      
      var imgSourceDirectory = "";
      var audioSourceDirectory = "";
-     
+
+     all_pages.push(new PreloadPage());
      all_pages.push(new DocPage("instruction page", "<br/> <br/> Participant ID<br />\
                                    <hr><div style='color:red;text-align:center;width:100%'>"+userID+"</div><br/> <br/> ",
                                    "90%", "60px", "Ready!",
