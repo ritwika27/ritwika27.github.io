@@ -187,7 +187,7 @@
     <input class="exit start" type="button" value="Next"></input>
   </div>
 
-  <!-- <input type="button"  id = "skip" value="Skip to end"></input> -->
+  <input type="button"  id = "skip" value="Skip to end"></input>
 
   
 
@@ -592,20 +592,6 @@
     <span> Need help or have questions? Call the Learning to Talk Lab at (301) 458-0660 | Learning2Talk@umd.edu</span>
 </div>
 <style>
-/* #consent{
-  margin:auto;
-  width: 80%;
-  left:10%;
-  top:10%;
-  font-size: 30px;
-  padding: 10px 8px 10px 14px;
-  background-color: white;
-  border: 1px solid black;
-  border-radius: 10px;
-  overflow: hidden;
-  position: absolute;
-} */
-
 
  #consent {
   margin:auto;
@@ -756,29 +742,40 @@ p {
 </div>
 
 <style>
-  #preload > #loading {
-      text-align: center;
-      font-size: 100px;
-      align-items: center;
-      position:absolute;
-      margin:auto;
-      width: 70%;
-      left:15%;
-      top:10%;
-  }
-  #preload > input {
-      position: absolute;
-      right: 30;
-      bottom: 30;
-  }
+    #preload {
+        
+        z-index: 100; /* in front of everything else */
+        background-color: white;
+        position:absolute;
+        top:0;
+        left:0; 
+        height:100%;
+        width:100%;
+
+    }
+
+    #preload > #loading {
+        z-index: inherit;
+        font-size: 80px;
+        text-align: center;
+        align-items: center;
+        color:blue;
+    }
+
+    #preload > input {
+        z-index: inherit;
+        align-items: center;
+        position: absolute;
+        right: 30;
+        bottom: 30;
+    } 
+
+
 </style>
 <div id="preload" class="page">
-  <div id="loading">
-      Game Loading ...
-  </div>
-  <input type="button" class = "exit" value="Continue" />
+    <p id = "loading">Game Loading ...</p>
+    <input type="button" id = "done" value="Continue" />
 </div>
-
     <script src="pouchdb-7.2.1.min.js"></script>
     <script src="pages.js"></script>
 
@@ -1030,12 +1027,12 @@ class DocPage extends AudioPage {
 }
 
 
-// $("#skip").bind("click touch", function() {
-//   console.log("helo");
-//   globalBook.pages[globalBook.current_page].deactivate();
-//   globalBook.current_page = globalBook.pages.length - 3;
-//   globalBook.pages[globalBook.current_page].play();
-// });
+$("#skip").bind("click touch", function() {
+  console.log("helo");
+  globalBook.pages[globalBook.current_page].deactivate();
+  globalBook.current_page = globalBook.pages.length - 3;
+  globalBook.pages[globalBook.current_page].play();
+});
 
 // Modified from https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices
 function getAudioDevices() {
@@ -1510,59 +1507,59 @@ class ChooseList extends Page {
       $("#chooselist").hide();
     }
   }
-// class ConsentPage extends Page {
-//     constructor() {
-//       super("consent");
-//     }
+class ConsentPage extends Page {
+    constructor() {
+      super("consent");
+    }
   
-//     play() {
-//       $("#consent").show();
-//     }
+    play() {
+      $("#consent").show();
+    }
   
-//     deactivate() {
-//       super.deactivate();
-//       $("#consent").hide();
-//     }
-//   }
+    deactivate() {
+      super.deactivate();
+      $("#consent").hide();
+    }
+  }
 
-//   function advance(){
-//     var no_consent = document.getElementById("no").checked;
-//     var consent = document.getElementById("yes").checked;
-//     if (no_consent) {
-//       alert("Please close the game.");
-//     }
-//     if (consent == true){
-//       globalBook.nextpage();
-//     }
-//   }
+  function advance(){
+    var no_consent = document.getElementById("no").checked;
+    var consent = document.getElementById("yes").checked;
+    if (no_consent) {
+      alert("Please close the game.");
+    }
+    if (consent == true){
+      globalBook.nextpage();
+    }
+  }
   
 
 
-//    $('#form').submit(function(e) {
-//     e.preventDefault();
+   $('#form').submit(function(e) {
+    e.preventDefault();
 
-//     form_data = [document.getElementById("fn_parent").value, 
-//     document.getElementById("ln_parent").value,
-//     document.getElementById("fn_participant").value,
-//     document.getElementById("ln_participant").value,
-//     document.getElementById("dob_participant").value,
-//     userID,
-//     document.getElementById("current_date").value,
-//     document.getElementById("parent_email").value,
-//     document.getElementById("yes").checked, 
-//     document.getElementById("no").checked];
+    form_data = [document.getElementById("fn_parent").value, 
+    document.getElementById("ln_parent").value,
+    document.getElementById("fn_participant").value,
+    document.getElementById("ln_participant").value,
+    document.getElementById("dob_participant").value,
+    userID,
+    document.getElementById("current_date").value,
+    document.getElementById("parent_email").value,
+    document.getElementById("yes").checked, 
+    document.getElementById("no").checked];
     
-//     $.ajax({
-//         headers: {
-//         'content-type': "application/json; charset=utf-8",
-//         },
-//          method: 'POST',
-//          url: "https://493eebb3-f2ce-4ba4-9d67-ac4b1ec5e8b5.mock.pstmn.io/ipad_study",
-//          data: JSON.stringify(form_data),
-//          dataType: "json",
-//          success: advance()
-//     });
-//   });
+    $.ajax({
+        headers: {
+        'content-type': "application/json; charset=utf-8",
+        },
+         method: 'POST',
+         url: "https://493eebb3-f2ce-4ba4-9d67-ac4b1ec5e8b5.mock.pstmn.io/ipad_study",
+         data: JSON.stringify(form_data),
+         dataType: "json",
+         success: advance()
+    });
+  });
 
  
 
@@ -1600,499 +1597,181 @@ if (remoteCouch) {
   sync();
 }
 
+//https://stackoverflow.com/questions/1759987/listening-for-variable-changes-in-javascript
 
-class PreloadPage extends Page {
-    constructor() {
-      super("preloadpage");
-    }
-  
-    play() {
-      $("#preload").show();
-      $("#preload > input.exit").attr("disabled", "disabled");
-      var images = new Array();
-      var loaded = preload(
-        "FinalImagesALL/ImgaesforExamples/Boy1_Paper.png",
-        "FinalImagesALL/ImgaesforExamples/Boy1_Table.png",
-        "FinalImagesALL/ImgaesforExamples/Boy2_3_Table.png",
-        "FinalImagesALL/ImgaesforExamples/Boy2_3_Paper.png",
-        "FinalImagesALL/ImgaesforExamples/Girl1_Paper.png",
-        "FinalImagesALL/ImgaesforExamples/Girl1_Table.png",
-        "FinalImagesALL/ImgaesforExamples/Girl2_3_Table.png",
-        "FinalImagesALL/ImgaesforExamples/Girl2_3_Paper.png",
-        "FinalImagesALL/Boy2_3_Baseball.jpg",
-        "FinalImagesALL/Girl1_Baseball.jpg",
-        "FinalImagesALL/Girl2_3_Baseball.jpg",
-        "FinalImagesALL/Boy1_Baseball.jpg",
-        "FinalImagesALL/Boy2_3_Clothes.jpg",
-        "FinalImagesALL/Girl1_Clothes.jpg",
-        "FinalImagesALL/Girl2_3_Clothes.jpg",
-        "FinalImagesALL/Boy1_Clothes.jpg",
-        "FinalImagesALL/Boy2_3_Bubbles.jpg",
-        "FinalImagesALL/Girl1_Bubbles.jpg",
-        "FinalImagesALL/Girl2_3_Bubbles.jpg",
-        "FinalImagesALL/Boy1_Bubbles.jpg",
-        "FinalImagesALL/Boy2_3_Floor.jpg",
-        "FinalImagesALL/Girl1_Floor.jpg",
-        "FinalImagesALL/Girl2_3_Floor.jpg",
-        "FinalImagesALL/Boy1_Floor.jpg",
-        "FinalImagesALL/Boy2_3_Bike.png",
-        "FinalImagesALL/Girl1_Bike.png",
-        "FinalImagesALL/Girl2_3_Bike.png",
-        "FinalImagesALL/Boy1_Bike.png",
-        "FinalImagesALL/Boy2_3_Cart.png",
-        "FinalImagesALL/Girl1_Cart.png",
-        "FinalImagesALL/Girl2_3_Cart.png",
-        "FinalImagesALL/Boy1_Cart.png",
-        "FinalImagesALL/Boy2_3_Cat.png",
-        "FinalImagesALL/Girl1_Cat.png",
-        "FinalImagesALL/Girl2_3_Cat.png",
-        "FinalImagesALL/Boy1_Cat.png",
-        "FinalImagesALL/Boy1_Rabbit.png",
-        "FinalImagesALL/Girl1_Rabbit.png",
-        "FinalImagesALL/Girl2_3_Rabbit.png",
-        "FinalImagesALL/Boy2_3_Rabbit.png",
-        "FinalImagesALL/Boy1_Frog.jpg",
-        "FinalImagesALL/Girl1_Frog.jpg",
-        "FinalImagesALL/Girl2_3_Frog.jpg",
-        "FinalImagesALL/Boy2_3_Frog.jpg",
-        "FinalImagesALL/Boy1_Basket.jpg",
-        "FinalImagesALL/Girl1_Basket.jpg",
-        "FinalImagesALL/Girl2_3_Basket.jpg",
-        "FinalImagesALL/Boy2_3_Basket.jpg",
-        "FinalImagesALL/Boy1_Sandcastle.jpg",
-        "FinalImagesALL/Girl1_Sandcastle.jpg",
-        "FinalImagesALL/Girl2_3_Sandcastle.jpg",
-        "FinalImagesALL/Boy2_3_Sandcastle.jpg",
-        "FinalImagesALL/Boy1_Wall.jpg",
-        "FinalImagesALL/Girl1_Wall.jpg",
-        "FinalImagesALL/Girl2_3_Wall.jpg",
-        "FinalImagesALL/Boy2_3_Wall.jpg",
-        "FinalImagesALL/Boy1_Fence.jpg",
-        "FinalImagesALL/Girl1_Fence.jpg",
-        "FinalImagesALL/Girl2_3_Fence.jpg",
-        "FinalImagesALL/Boy2_3_Fence.jpg",
-        "FinalImagesALL/Boy1_Box.jpg",
-        "FinalImagesALL/Girl1_Box.jpg",
-        "FinalImagesALL/Girl2_3_Box.jpg",
-        "FinalImagesALL/Boy2_3_Box.jpg",
-        "FinalImagesALL/Girl2_3_Milkshake.jpg",
-        "FinalImagesALL/Girl1_Milkshake.jpg",
-        "FinalImagesALL/Boy2_3_Milkshake.jpg",
-        "FinalImagesALL/Boy1_Milkshake.jpg",
-        "FinalImagesALL/Girl2_3_Bear.jpg",
-        "FinalImagesALL/Girl1_Bear.jpg",
-        "FinalImagesALL/Boy2_3_Bear.jpg",
-        "FinalImagesALL/Boy1_Bear.jpg",
-        "FinalImagesALL/Girl2_3_Apples.jpg",
-        "FinalImagesALL/Girl1_Apples.jpg",
-        "FinalImagesALL/Boy2_3_Apples.jpg",
-        "FinalImagesALL/Boy1_Apples.jpg",
-        "FinalImagesALL/Girl2_3_Flowers.jpg",
-        "FinalImagesALL/Girl1_Flowers.jpg",
-        "FinalImagesALL/Boy2_3_Flowers.jpg",
-        "FinalImagesALL/Boy1_Flowers.jpg",
-        "FinalImagesALL/Girl2_3_Pizza.jpg",
-        "FinalImagesALL/Girl1_Pizza.jpg",
-        "FinalImagesALL/Boy2_3_Pizza.jpg",
-        "FinalImagesALL/Boy1_Pizza.jpg",
-        "FinalImagesALL/Girl2_3_Cake.jpg",
-        "FinalImagesALL/Girl1_Cake.jpg",
-        "FinalImagesALL/Boy2_3_Cake.jpg",
-        "FinalImagesALL/Boy1_Cake.jpg",
-        "FinalImagesALL/Girl2_3_Dog.jpg",
-        "FinalImagesALL/Girl1_Dog.jpg",
-        "FinalImagesALL/Boy2_3_Dog.jpg",
-        "FinalImagesALL/Boy1_Dog.jpg",
-        "FinalImagesALL/Girl1_Car.jpg",
-        "FinalImagesALL/Boy2_3_Car.jpg",
-        "FinalImagesALL/Girl2_3_Car.jpg",
-        "FinalImagesALL/Boy1_Car.jpg",
-        "FinalImagesALL/Girl1_Book.jpg",
-        "FinalImagesALL/Boy2_3_Book.jpg",
-        "FinalImagesALL/Girl2_3_Book.jpg",
-        "FinalImagesALL/Boy1_Book.jpg",
-        "FinalImagesALL/Girl1_Ball.jpg",
-        "FinalImagesALL/Boy2_3_Ball.jpg",
-        "FinalImagesALL/Girl2_3_Ball.jpg",
-        "FinalImagesALL/Boy1_Ball.jpg",
-        "FinalImagesALL/Girl1_Horse.jpg",
-        "FinalImagesALL/Boy2_3_Horse.jpg",
-        "FinalImagesALL/Girl2_3_Horse.jpg",
-        "FinalImagesALL/Boy1_Horse.jpg",
-        "FinalImagesALL/Girl1_Wagon.jpg",
-        "FinalImagesALL/Boy2_3_Wagon.jpg",
-        "FinalImagesALL/Girl2_3_Wagon.jpg",
-        "FinalImagesALL/Boy1_Wagon.jpg",
-        "FinalImagesALL/Girl1_Blanket.jpg",
-        "FinalImagesALL/Boy2_3_Blanket.jpg",
-        "FinalImagesALL/Girl2_3_Blanket.jpg",
-        "FinalImagesALL/Boy1_Blanket.jpg",
-        "FinalImagesALL/Girl1_Tree.jpg",
-        "FinalImagesALL/Boy2_3_Tree.jpg",
-        "FinalImagesALL/Girl2_3_Tree.jpg",
-        "FinalImagesALL/Boy1_Tree.jpg",
-        "FinalImagesALL/Boy1_Baseball.jpg",
-        "FinalImagesALL/Boy2_3_Baseball.jpg",
-        "FinalImagesALL/Girl2_3_Baseball.jpg",
-        "FinalImagesALL/Girl1_Baseball.jpg",
-        "FinalImagesALL/Boy1_Clothes.jpg",
-        "FinalImagesALL/Boy2_3_Clothes.jpg",
-        "FinalImagesALL/Girl2_3_Clothes.jpg",
-        "FinalImagesALL/Girl1_Clothes.jpg",
-        "FinalImagesALL/Boy1_Bubbles.jpg",
-        "FinalImagesALL/Boy2_3_Bubbles.jpg",
-        "FinalImagesALL/Girl2_3_Bubbles.jpg",
-        "FinalImagesALL/Girl1_Bubbles.jpg",
-        "FinalImagesALL/Boy1_Floor.jpg",
-        "FinalImagesALL/Boy2_3_Floor.jpg",
-        "FinalImagesALL/Girl2_3_Floor.jpg",
-        "FinalImagesALL/Girl1_Floor.jpg",
-        "FinalImagesALL/Boy1_Bike.png",
-        "FinalImagesALL/Boy2_3_Bike.png",
-        "FinalImagesALL/Girl2_3_Bike.png",
-        "FinalImagesALL/Girl1_Bike.png",
-        "FinalImagesALL/Boy1_Cart.png",
-        "FinalImagesALL/Boy2_3_Cart.png",
-        "FinalImagesALL/Girl2_3_Cart.png",
-        "FinalImagesALL/Girl1_Cart.png",
-        "FinalImagesALL/Boy1_Cat.png",
-        "FinalImagesALL/Boy2_3_Cat.png",
-        "FinalImagesALL/Girl2_3_Cat.png",
-        "FinalImagesALL/Girl1_Cat.png",
-        "FinalImagesALL/Girl2_3_Rabbit.png",
-        "FinalImagesALL/Boy2_3_Rabbit.png",
-        "FinalImagesALL/Girl1_Rabbit.png",
-        "FinalImagesALL/Boy1_Rabbit.png",
-        "FinalImagesALL/Girl2_3_Frog.jpg",
-        "FinalImagesALL/Boy2_3_Frog.jpg",
-        "FinalImagesALL/Girl1_Frog.jpg",
-        "FinalImagesALL/Boy1_Frog.jpg",
-        "FinalImagesALL/Girl2_3_Basket.jpg",
-        "FinalImagesALL/Boy2_3_Basket.jpg",
-        "FinalImagesALL/Girl1_Basket.jpg",
-        "FinalImagesALL/Boy1_Basket.jpg",
-        "FinalImagesALL/Girl2_3_Sandcastle.jpg",
-        "FinalImagesALL/Boy2_3_Sandcastle.jpg",
-        "FinalImagesALL/Girl1_Sandcastle.jpg",
-        "FinalImagesALL/Boy1_Sandcastle.jpg",
-        "FinalImagesALL/Girl2_3_Wall.jpg",
-        "FinalImagesALL/Boy2_3_Wall.jpg",
-        "FinalImagesALL/Girl1_Wall.jpg",
-        "FinalImagesALL/Boy1_Wall.jpg",
-        "FinalImagesALL/Girl2_3_Fence.jpg",
-        "FinalImagesALL/Boy2_3_Fence.jpg",
-        "FinalImagesALL/Girl1_Fence.jpg",
-        "FinalImagesALL/Boy1_Fence.jpg",
-        "FinalImagesALL/Girl2_3_Box.jpg",
-        "FinalImagesALL/Boy2_3_Box.jpg",
-        "FinalImagesALL/Girl1_Box.jpg",
-        "FinalImagesALL/Boy1_Box.jpg",
-        "FinalImagesALL/Girl1_Milkshake.jpg",
-        "FinalImagesALL/Boy2_3_Milkshake.jpg",
-        "FinalImagesALL/Girl2_3_Milkshake.jpg",
-        "FinalImagesALL/Boy1_Milkshake.jpg",
-        "FinalImagesALL/Girl1_Bear.jpg",
-        "FinalImagesALL/Boy2_3_Bear.jpg",
-        "FinalImagesALL/Girl2_3_Bear.jpg",
-        "FinalImagesALL/Boy1_Bear.jpg",
-        "FinalImagesALL/Girl1_Apples.jpg",
-        "FinalImagesALL/Boy2_3_Apples.jpg",
-        "FinalImagesALL/Girl2_3_Apples.jpg",
-        "FinalImagesALL/Boy1_Apples.jpg",
-        "FinalImagesALL/Girl1_Flowers.jpg",
-        "FinalImagesALL/Boy2_3_Flowers.jpg",
-        "FinalImagesALL/Girl2_3_Flowers.jpg",
-        "FinalImagesALL/Boy1_Flowers.jpg",
-        "FinalImagesALL/Girl1_Pizza.jpg",
-        "FinalImagesALL/Boy2_3_Pizza.jpg",
-        "FinalImagesALL/Girl2_3_Pizza.jpg",
-        "FinalImagesALL/Boy1_Pizza.jpg",
-        "FinalImagesALL/Girl1_Cake.jpg",
-        "FinalImagesALL/Boy2_3_Cake.jpg",
-        "FinalImagesALL/Girl2_3_Cake.jpg",
-        "FinalImagesALL/Boy1_Cake.jpg",
-        "FinalImagesALL/Girl1_Dog.jpg",
-        "FinalImagesALL/Boy2_3_Dog.jpg",
-        "FinalImagesALL/Girl2_3_Dog.jpg",
-        "FinalImagesALL/Boy1_Dog.jpg",
-        "FinalImagesALL/Boy2_3_Car.jpg",
-        "FinalImagesALL/Girl1_Car.jpg",
-        "FinalImagesALL/Girl2_3_Car.jpg",
-        "FinalImagesALL/Boy1_Car.jpg",
-        "FinalImagesALL/Boy2_3_Book.jpg",
-        "FinalImagesALL/Girl1_Book.jpg",
-        "FinalImagesALL/Girl2_3_Book.jpg",
-        "FinalImagesALL/Boy1_Book.jpg",
-        "FinalImagesALL/Boy2_3_Ball.jpg",
-        "FinalImagesALL/Girl1_Ball.jpg",
-        "FinalImagesALL/Girl2_3_Ball.jpg",
-        "FinalImagesALL/Boy1_Ball.jpg.jpg",
-        "FinalImagesALL/Boy2_3_Horse.jpg",
-        "FinalImagesALL/Girl1_Horse.jpg",
-        "FinalImagesALL/Girl2_3_Horse.jpg",
-        "FinalImagesALL/Boy1_Horse.jpg",
-        "FinalImagesALL/Boy2_3_Wagon.jpg",
-        "FinalImagesALL/Girl1_Wagon.jpg",
-        "FinalImagesALL/Girl2_3_Wagon.jpg",
-        "FinalImagesALL/Boy1_Wagon.jpg",
-        "FinalImagesALL/Boy2_3_Blanket.jpg",
-        "FinalImagesALL/Girl1_Blanket.jpg",
-        "FinalImagesALL/Girl2_3_Blanket.jpg",
-        "FinalImagesALL/Boy1_Blanket.jpg",
-        "FinalImagesALL/Boy2_3_Tree.jpg",
-        "FinalImagesALL/Girl1_Tree.jpg",
-        "FinalImagesALL/Girl2_3_Tree.jpg",
-        "FinalImagesALL/Boy1_Tree.jpg",
-        "FinalImagesALL/Girl2_3_Baseball.jpg",
-        "FinalImagesALL/Boy2_3_Baseball.jpg",
-        "FinalImagesALL/Girl1_Baseball.jpg",
-        "FinalImagesALL/Boy1_Baseball.jpg",
-        "FinalImagesALL/Girl2_3_Clothes.jpg",
-        "FinalImagesALL/Boy2_3_Clothes.jpg",
-        "FinalImagesALL/Girl1_Clothes.jpg",
-        "FinalImagesALL/Boy1_Clothes.jpg",
-        "FinalImagesALL/Girl2_3_Bubbles.jpg",
-        "FinalImagesALL/Boy2_3_Bubbles.jpg",
-        "FinalImagesALL/Girl1_Bubbles.jpg",
-        "FinalImagesALL/Boy1_Bubbles.jpg",
-        "FinalImagesALL/Girl2_3_Floor.jpg",
-        "FinalImagesALL/Boy2_3_Floor.jpg",
-        "FinalImagesALL/Girl1_Floor.jpg",
-        "FinalImagesALL/Boy1_Floor.jpg",
-        "FinalImagesALL/Girl2_3_Bike.png",
-        "FinalImagesALL/Boy2_3_Bike.png",
-        "FinalImagesALL/Girl1_Bike.png",
-        "FinalImagesALL/Boy1_Bike.png",
-        "FinalImagesALL/Girl2_3_Cart.png",
-        "FinalImagesALL/Boy2_3_Cart.png",
-        "FinalImagesALL/Girl1_Cart.png",
-        "FinalImagesALL/Boy1_Cart.png",
-        "FinalImagesALL/Girl2_3_Cat.png",
-        "FinalImagesALL/Boy2_3_Cat.png",
-        "FinalImagesALL/Girl1_Cat.png",
-        "FinalImagesALL/Boy1_Cat.png",
-        "FinalImagesALL/Girl1_Rabbit.png",
-        "FinalImagesALL/Boy2_3_Rabbit.png",
-        "FinalImagesALL/Girl2_3_Rabbit.png",
-        "FinalImagesALL/Boy1_Rabbit.png",
-        "FinalImagesALL/Girl1_Frog.jpg",
-        "FinalImagesALL/Boy2_3_Frog.jpg",
-        "FinalImagesALL/Girl2_3_Frog.jpg",
-        "FinalImagesALL/Boy1_Frog.jpg",
-        "FinalImagesALL/Girl1_Basket.jpg",
-        "FinalImagesALL/Boy2_3_Basket.jpg",
-        "FinalImagesALL/Girl2_3_Basket.jpg",
-        "FinalImagesALL/Boy1_Basket.jpg",
-        "FinalImagesALL/Girl1_Sandcastle.jpg",
-        "FinalImagesALL/Boy2_3_Sandcastle.jpg",
-        "FinalImagesALL/Girl2_3_Sandcastle.jpg",
-        "FinalImagesALL/Boy1_Sandcastle.jpg",
-        "FinalImagesALL/Girl1_Wall.jpg",
-        "FinalImagesALL/Boy2_3_Wall.jpg",
-        "FinalImagesALL/Girl2_3_Wall.jpg",
-        "FinalImagesALL/Boy1_Wall.jpg",
-        "FinalImagesALL/Girl1_Fence.jpg",
-        "FinalImagesALL/Boy2_3_Fence.jpg",
-        "FinalImagesALL/Girl2_3_Fence.jpg",
-        "FinalImagesALL/Boy1_Fence.jpg",
-        "FinalImagesALL/Girl1_Box.jpg",
-        "FinalImagesALL/Boy2_3_Box.jpg",
-        "FinalImagesALL/Girl2_3_Box.jpg",
-        "FinalImagesALL/Boy1_Box.jpg",
-        "FinalImagesALL/Boy2_3_Milkshake.jpg",
-        "FinalImagesALL/Girl1_Milkshake.jpg",
-        "FinalImagesALL/Girl2_3_Milkshake.jpg",
-        "FinalImagesALL/Boy1_Milkshake.jpg",
-        "FinalImagesALL/Boy2_3_Bear.jpg",
-        "FinalImagesALL/Girl1_Bear.jpg",
-        "FinalImagesALL/Girl2_3_Bear.jpg",
-        "FinalImagesALL/Boy1_Bear.jpg",
-        "FinalImagesALL/Boy2_3_Apples.jpg",
-        "FinalImagesALL/Girl1_Apples.jpg",
-        "FinalImagesALL/Girl2_3_Apples.jpg",
-        "FinalImagesALL/Boy1_Apples.jpg",
-        "FinalImagesALL/Boy2_3_Flowers.jpg",
-        "FinalImagesALL/Girl1_Flowers.jpg",
-        "FinalImagesALL/Girl2_3_Flowers.jpg",
-        "FinalImagesALL/Boy1_Flowers.jpg",
-        "FinalImagesALL/Boy2_3_Pizza.jpg",
-        "FinalImagesALL/Girl1_Pizza.jpg",
-        "FinalImagesALL/Girl2_3_Pizza.jpg",
-        "FinalImagesALL/Boy1_Pizza.jpg",
-        "FinalImagesALL/Boy2_3_Cake.jpg",
-        "FinalImagesALL/Girl1_Cake.jpg",
-        "FinalImagesALL/Girl2_3_Cake.jpg",
-        "FinalImagesALL/Boy1_Cake.jpg",
-        "FinalImagesALL/Boy2_3_Dog.jpg",
-        "FinalImagesALL/Girl1_Dog.jpg",
-        "FinalImagesALL/Girl2_3_Dog.jpg",
-        "FinalImagesALL/Boy1_Dog.jpg",
-        "FinalImagesALL/Boy1_Car.jpg",
-        "FinalImagesALL/Boy2_3_Car.jpg",
-        "FinalImagesALL/Girl2_3_Car.jpg",
-        "FinalImagesALL/Girl1_Cart.png",
-        "FinalImagesALL/Boy1_Book.jpg",
-        "FinalImagesALL/Boy2_3_Book.jpg",
-        "FinalImagesALL/Girl2_3_Book.jpg",
-        "FinalImagesALL/Girl1_Book.jpg",
-        "FinalImagesALL/Boy1_Ball.jpg",
-        "FinalImagesALL/Boy2_3_Ball.jpg",
-        "FinalImagesALL/Girl2_3_Ball.jpg",
-        "FinalImagesALL/Girl1_Ball.jpg",
-        "FinalImagesALL/Boy1_Horse.jpg",
-        "FinalImagesALL/Boy2_3_Horse.jpg",
-        "FinalImagesALL/Girl2_3_Horse.jpg",
-        "FinalImagesALL/Girl1_Horse.jpg",
-        "FinalImagesALL/Boy1_Wagon.jpg",
-        "FinalImagesALL/Boy2_3_Wagon.jpg",
-        "FinalImagesALL/Girl2_3_Wagon.jpg",
-        "FinalImagesALL/Girl1_Wagon.jpg",
-        "FinalImagesALL/Boy1_Blanket.jpg",
-        "FinalImagesALL/Boy2_3_Blanket.jpg",
-        "FinalImagesALL/Girl2_3_Blanket.jpg",
-        "FinalImagesALL/Girl1_Blanket.jpg",
-        "FinalImagesALL/Boy1_Tree.jpg",
-        "FinalImagesALL/Boy2_3_Tree.jpg",
-        "FinalImagesALL/Girl2_3_Tree.jpg",
-        "FinalImagesALL/Girl1_Tree.jpg",
-        "FinalImagesALL/Girl1_Baseball.jpg",
-        "FinalImagesALL/Boy2_3_Baseball.jpg",
-        "FinalImagesALL/Girl2_3_Baseball.jpg",
-        "FinalImagesALL/Boy1_Baseball.jpg",
-        "FinalImagesALL/Girl1_Clothes.jpg",
-        "FinalImagesALL/Boy2_3_Clothes.jpg",
-        "FinalImagesALL/Girl2_3_Clothes.jpg",
-        "FinalImagesALL/Boy1_Clothes.jpg",
-        "FinalImagesALL/Girl1_Bubbles.jpg",
-        "FinalImagesALL/Boy2_3_Bubbles.jpg",
-        "FinalImagesALL/Girl2_3_Bubbles.jpg",
-        "FinalImagesALL/Boy1_Bubbles.jpg",
-        "FinalImagesALL/Girl1_Floor.jpg",
-        "FinalImagesALL/Boy2_3_Floor.jpg",
-        "FinalImagesALL/Girl2_3_Floor.jpg",
-        "FinalImagesALL/Boy1_Floor.jpg",
-        "FinalImagesALL/Girl1_Bike.png",
-        "FinalImagesALL/Boy2_3_Bike.png",
-        "FinalImagesALL/Girl2_3_Bike.png",
-        "FinalImagesALL/Boy1_Bike.png",
-        "FinalImagesALL/Girl1_Cart.png",
-        "FinalImagesALL/Boy2_3Cart.jpg",
-        "FinalImagesALL/Girl2_3_Cart.png",
-        "FinalImagesALL/Boy1_Cart.png",
-        "FinalImagesALL/Girl1_Cat.png",
-        "FinalImagesALL/Boy2_3_Cat.png",
-        "FinalImagesALL/Girl2_3_Cat.png",
-        "FinalImagesALL/Boy1_Cat.png",
-        "FinalImagesALL/Boy2_3_Rabbit.png",
-        "FinalImagesALL/Girl1_Rabbit.png",
-        "FinalImagesALL/Girl2_3_Rabbit.png",
-        "FinalImagesALL/Boy1_Rabbit.png",
-        "FinalImagesALL/Boy2_3_Frog.jpg",
-        "FinalImagesALL/Girl1_Frog.jpg",
-        "FinalImagesALL/Girl2_3_Frog.jpg",
-        "FinalImagesALL/Boy1_Frog.jpg",
-        "FinalImagesALL/Boy2_3_Bear.jpg",
-        "FinalImagesALL/Girl1_Bear.jpg",
-        "FinalImagesALL/Girl2_3_Bear.jpg",
-        "FinalImagesALL/Boy1_Bear.jpg",
-        "FinalImagesALL/Boy2_3_Sandcastle.jpg",
-        "FinalImagesALL/Girl1_Sandcastle.jpg",
-        "FinalImagesALL/Girl2_3_Sandcastle.jpg",
-        "FinalImagesALL/Boy1_Sandcastle.jpg",
-        "FinalImagesALL/Boy2_3_Wall.jpg",
-        "FinalImagesALL/Girl1_Wall.jpg",
-        "FinalImagesALL/Girl2_3_Wall.jpg",
-        "FinalImagesALL/Boy1_Wall.jpg",
-        "FinalImagesALL/Boy2_3_Fence.jpg",
-        "FinalImagesALL/Girl1_Fence.jpg",
-        "FinalImagesALL/Girl2_3_Fence.jpg",
-        "FinalImagesALL/Boy1_Fence.jpg",
-        "FinalImagesALL/Boy2_3_Box.jpg",
-        "FinalImagesALL/Girl1_Box.jpg",
-        "FinalImagesALL/Girl2_3_Box.jpg",
-        "FinalImagesALL/Boy1_Box.jpg",
-        "FinalImagesALL/Boy1_Milkshake.jpg",
-        "FinalImagesALL/Girl1_Milkshake.jpg",
-        "FinalImagesALL/Girl2_3_Milkshake.jpg",
-        "FinalImagesALL/Boy2_3_Milkshake.jpg",
-        "FinalImagesALL/Boy1_Bear.jpg",
-        "FinalImagesALL/Girl1_Bear.jpg",
-        "FinalImagesALL/Girl2_3_Bear.jpg",
-        "FinalImagesALL/Boy2_3_Bear.jpg",
-        "FinalImagesALL/Boy1_Apples.jpg",
-        "FinalImagesALL/Girl1_Apples.jpg",
-        "FinalImagesALL/Girl2_3_Apples.jpg",
-        "FinalImagesALL/Boy2_3_Apples.jpg",
-        "FinalImagesALL/Boy1_Flowers.jpg",
-        "FinalImagesALL/Girl1_Flowers.jpg",
-        "FinalImagesALL/Girl2_3_Flowers.jpg",
-        "FinalImagesALL/Boy2_3_Flowers.jpg",
-        "FinalImagesALL/Boy1_Pizza.jpg",
-        "FinalImagesALL/Girl1_Pizza.jpg",
-        "FinalImagesALL/Girl2_3_Pizza.jpg",
-        "FinalImagesALL/Boy2_3_Pizza.jpg",
-        "FinalImagesALL/Boy1_Cake.jpg",
-        "FinalImagesALL/Girl1_Cake.jpg",
-        "FinalImagesALL/Girl2_3_Cake.jpg",
-        "FinalImagesALL/Boy2_3_Cake.jpg",
-        "FinalImagesALL/Boy1_Dog.jpg",
-        "FinalImagesALL/Girl1_Dog.jpg",
-        "FinalImagesALL/Girl2_3_Dog.jpg",
-        "FinalImagesALL/Boy2_3_Dog.jpg",
-        "FinalImagesALL/Girl2_3_Car.jpg",
-        "FinalImagesALL/Boy2_3_Car.jpg",
-        "FinalImagesALL/Girl1_Car.jpg",
-        "FinalImagesALL/Boy1_Car.jpg",
-        "FinalImagesALL/Girl2_3_Book.jpg",
-        "FinalImagesALL/Boy2_3_Book.jpg",
-        "FinalImagesALL/Girl1_Book.jpg",
-        "FinalImagesALL/Boy1_Book.jpg",
-        "FinalImagesALL/Girl2_3_Ball.jpg",
-        "FinalImagesALL/Boy2_3_Ball.jpg",
-        "FinalImagesALL/Girl1_Ball.jpg",
-        "FinalImagesALL/Boy1_Ball.jpg",
-        "FinalImagesALL/Girl2_3_Horse.jpg",
-        "FinalImagesALL/Boy2_3_Horse.jpg",
-        "FinalImagesALL/Girl1_Horse.jpg",
-        "FinalImagesALL/Boy1_Horse.jpg",
-        "FinalImagesALL/Girl2_3_Wagon.jpg",
-        "FinalImagesALL/Boy2_3_Wagon.jpg",
-        "FinalImagesALL/Girl1_Wagon.jpg",
-        "FinalImagesALL/Boy1_Wagon.jpg",
-        "FinalImagesALL/Girl2_3_Blanket.jpg",
-        "FinalImagesALL/Boy2_3_Blanket.jpg",
-        "FinalImagesALL/Girl1_Blanket.jpg",
-        "FinalImagesALL/Boy1_Blanket.jpg",
-        "FinalImagesALL/Girl2_3_Tree.jpg",
-        "FinalImagesALL/Boy2_3_Tree.jpg",
-        "FinalImagesALL/Girl1_Tree.jpg",
-        "FinalImagesALL/Boy1_Tree.jpg"   
-        );
-        if (loaded) {
-            $('#loading').html('Loading Complete');
-            $("#preload > input").removeAttr("disabled");
-        }
-    }
-  
-    deactivate() {
-      $("#preload").hide();
-    }
+
+var imagesToLoad = ["FinalImagesALL/ImgaesforExamples/Boy1_Paper.png",
+"FinalImagesALL/ImgaesforExamples/Boy1_Table.png",
+"FinalImagesALL/ImgaesforExamples/Boy2_3_Table.png",
+"FinalImagesALL/ImgaesforExamples/Boy2_3_Paper.png",
+"FinalImagesALL/ImgaesforExamples/Girl1_Paper.png",
+"FinalImagesALL/ImgaesforExamples/Girl1_Table.png",
+"FinalImagesALL/ImgaesforExamples/Girl2_3_Table.png",
+"FinalImagesALL/ImgaesforExamples/Girl2_3_Paper.png",
+"FinalImagesALL/Boy2_3_Baseball.jpg",
+"FinalImagesALL/Girl1_Baseball.jpg",
+"FinalImagesALL/Girl2_3_Baseball.jpg",
+"FinalImagesALL/Boy1_Baseball.jpg",
+"FinalImagesALL/Boy2_3_Clothes.jpg",
+"FinalImagesALL/Girl1_Clothes.jpg",
+"FinalImagesALL/Girl2_3_Clothes.jpg",
+"FinalImagesALL/Boy1_Clothes.jpg",
+"FinalImagesALL/Boy2_3_Bubbles.jpg",
+"FinalImagesALL/Girl1_Bubbles.jpg",
+"FinalImagesALL/Girl2_3_Bubbles.jpg",
+"FinalImagesALL/Boy1_Bubbles.jpg",
+"FinalImagesALL/Boy2_3_Floor.jpg",
+"FinalImagesALL/Girl1_Floor.jpg",
+"FinalImagesALL/Girl2_3_Floor.jpg",
+"FinalImagesALL/Boy1_Floor.jpg",
+"FinalImagesALL/Boy2_3_Bike.png",
+"FinalImagesALL/Girl1_Bike.png",
+"FinalImagesALL/Girl2_3_Bike.png",
+"FinalImagesALL/Boy1_Bike.png",
+"FinalImagesALL/Boy2_3_Cart.png",
+"FinalImagesALL/Girl1_Cart.png",
+"FinalImagesALL/Girl2_3_Cart.png",
+"FinalImagesALL/Boy1_Cart.png",
+"FinalImagesALL/Boy2_3_Cat.png",
+"FinalImagesALL/Girl1_Cat.png",
+"FinalImagesALL/Girl2_3_Cat.png",
+"FinalImagesALL/Boy1_Cat.png",
+"FinalImagesALL/Boy1_Rabbit.png",
+"FinalImagesALL/Girl1_Rabbit.png",
+"FinalImagesALL/Girl2_3_Rabbit.png",
+"FinalImagesALL/Boy2_3_Rabbit.png",
+"FinalImagesALL/Boy1_Frog.jpg",
+"FinalImagesALL/Girl1_Frog.jpg",
+"FinalImagesALL/Girl2_3_Frog.jpg",
+"FinalImagesALL/Boy2_3_Frog.jpg",
+"FinalImagesALL/Boy1_Basket.jpg",
+"FinalImagesALL/Girl1_Basket.jpg",
+"FinalImagesALL/Girl2_3_Basket.jpg",
+"FinalImagesALL/Boy2_3_Basket.jpg",
+"FinalImagesALL/Boy1_Sandcastle.jpg",
+"FinalImagesALL/Girl1_Sandcastle.jpg",
+"FinalImagesALL/Girl2_3_Sandcastle.jpg",
+"FinalImagesALL/Boy2_3_Sandcastle.jpg",
+"FinalImagesALL/Boy1_Wall.jpg",
+"FinalImagesALL/Girl1_Wall.jpg",
+"FinalImagesALL/Girl2_3_Wall.jpg",
+"FinalImagesALL/Boy2_3_Wall.jpg",
+"FinalImagesALL/Boy1_Fence.jpg",
+"FinalImagesALL/Girl1_Fence.jpg",
+"FinalImagesALL/Girl2_3_Fence.jpg",
+"FinalImagesALL/Boy2_3_Fence.jpg",
+"FinalImagesALL/Boy1_Box.jpg",
+"FinalImagesALL/Girl1_Box.jpg",
+"FinalImagesALL/Girl2_3_Box.jpg",
+"FinalImagesALL/Boy2_3_Box.jpg",
+"FinalImagesALL/Girl2_3_Milkshake.jpg",
+"FinalImagesALL/Girl1_Milkshake.jpg",
+"FinalImagesALL/Boy2_3_Milkshake.jpg",
+"FinalImagesALL/Boy1_Milkshake.jpg",
+"FinalImagesALL/Girl2_3_Bear.jpg",
+"FinalImagesALL/Girl1_Bear.jpg",
+"FinalImagesALL/Boy2_3_Bear.jpg",
+"FinalImagesALL/Boy1_Bear.jpg",
+"FinalImagesALL/Girl2_3_Apples.jpg",
+"FinalImagesALL/Girl1_Apples.jpg",
+"FinalImagesALL/Boy2_3_Apples.jpg",
+"FinalImagesALL/Boy1_Apples.jpg",
+"FinalImagesALL/Girl2_3_Flowers.jpg",
+"FinalImagesALL/Girl1_Flowers.jpg",
+"FinalImagesALL/Boy2_3_Flowers.jpg",
+"FinalImagesALL/Boy1_Flowers.jpg",
+"FinalImagesALL/Girl2_3_Pizza.jpg",
+"FinalImagesALL/Girl1_Pizza.jpg",
+"FinalImagesALL/Boy2_3_Pizza.jpg",
+"FinalImagesALL/Boy1_Pizza.jpg",
+"FinalImagesALL/Girl2_3_Cake.jpg",
+"FinalImagesALL/Girl1_Cake.jpg",
+"FinalImagesALL/Boy2_3_Cake.jpg",
+"FinalImagesALL/Boy1_Cake.jpg",
+"FinalImagesALL/Girl2_3_Dog.jpg",
+"FinalImagesALL/Girl1_Dog.jpg",
+"FinalImagesALL/Boy2_3_Dog.jpg",
+"FinalImagesALL/Boy1_Dog.jpg",
+"FinalImagesALL/Girl1_Car.jpg",
+"FinalImagesALL/Boy2_3_Car.jpg",
+"FinalImagesALL/Girl2_3_Car.jpg",
+"FinalImagesALL/Boy1_Car.jpg",
+"FinalImagesALL/Girl1_Book.jpg",
+"FinalImagesALL/Boy2_3_Book.jpg",
+"FinalImagesALL/Girl2_3_Book.jpg",
+"FinalImagesALL/Boy1_Book.jpg",
+"FinalImagesALL/Girl1_Ball.jpg",
+"FinalImagesALL/Boy2_3_Ball.jpg",
+"FinalImagesALL/Girl2_3_Ball.jpg",
+"FinalImagesALL/Boy1_Ball.jpg",
+"FinalImagesALL/Girl1_Horse.jpg",
+"FinalImagesALL/Boy2_3_Horse.jpg",
+"FinalImagesALL/Girl2_3_Horse.jpg",
+"FinalImagesALL/Boy1_Horse.jpg",
+"FinalImagesALL/Girl1_Wagon.jpg",
+"FinalImagesALL/Boy2_3_Wagon.jpg",
+"FinalImagesALL/Girl2_3_Wagon.jpg",
+"FinalImagesALL/Boy1_Wagon.jpg",
+"FinalImagesALL/Girl1_Blanket.jpg",
+"FinalImagesALL/Boy2_3_Blanket.jpg",
+"FinalImagesALL/Girl2_3_Blanket.jpg",
+"FinalImagesALL/Boy1_Blanket.jpg",
+"FinalImagesALL/Girl1_Tree.jpg",
+"FinalImagesALL/Boy2_3_Tree.jpg",
+"FinalImagesALL/Girl2_3_Tree.jpg",
+"FinalImagesALL/Boy1_Tree.jpg",
+];
+
+//create an object, will allow calling a listener function everytime a new value is set
+loaded = {
+  internal: 0,
+  Listener: function(val) {},
+  set i(val) {
+    this.internal = val;
+    this.Listener(val);
+  },
+  get i() {
+    return this.internal;
+  },
+  registerListener: function(listener) {
+    this.Listener = listener;
   }
+}
+loaded.registerListener(function(val) {
+  if(loaded.i == imagesToLoad.length){
+    $('#loading').html('Loading Complete');
+    $("#preload > input").removeAttr("disabled");
+  }
+});
+
+var images = new Array();
 
 function preload() {
-    for (i = 0; i < preload.arguments.length; i++) {
+    for (i = 0; i < imagesToLoad.length; i++) {
         images[i] = new Image();
-        images[i].src = preload.arguments[i];
+        images[i].src = imagesToLoad[i];
+        images[i].addEventListener("load", function () {loaded.i = loaded.i + 1;} );
     }
-    return true;
 }
+
+function loadImages(){
+  $("#preload").show();
+  $("#preload > input.done").attr("disabled", "disabled");
+  preload(); 
+}
+
+$("#done").bind("click touch", function() {
+  $("#preload").hide();
+});
+
+$(window).on("load", loadImages);
 </script>
 
 
     <script src="lists.js"></script> <!-- NOTE FOR RICKY: DELETE THIS WHEN ADDING LIST CODE -->
 
     <script>
-      let userID = 3; // NOTE FOR RICKY: USERID INSERTED HERE
+      let userID = 0; // NOTE FOR RICKY: USERID INSERTED HERE
       let listIndex = 0; // NOTE FOR RICKY: LIST INDEX INSERTED HERE
       let list = lists[listIndex]; // NOTE FOR RICKY: CURRENT LIST INSERTED HERE
     </script>

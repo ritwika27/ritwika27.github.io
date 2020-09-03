@@ -68,18 +68,18 @@ function getNameConditionObject(sentence){
   var verb;
   var condition;
   var direct_object;
-  if (sentence[0].match(/P/)){
-    console.log("hello");
-    name = sentence[0].replace("P_", "");
-    condition = "practice";
-    var obj = sentence[sentence.length -1]
-    if(obj == "herself" || obj == "himself" || obj == "together"){
-      direct_object = sentence[sentence.length -2];
-    }else {
-      direct_object = sentence[sentence.length -1];
-    }
+  // if (sentence[0].match(/P/)){
+  //   console.log("hello");
+  //   name = sentence[0].replace("P_", "");
+  //   condition = "practice";
+  //   var obj = sentence[sentence.length -1]
+  //   if(obj == "herself" || obj == "himself" || obj == "together"){
+  //     direct_object = sentence[sentence.length -2];
+  //   }else {
+  //     direct_object = sentence[sentence.length -1];
+  //   }
     
-  }else{
+  // }else{
     name = sentence[0];
     verb = sentence[1];
     direct_object = sentence[sentence.length -1]
@@ -92,7 +92,7 @@ function getNameConditionObject(sentence){
     }else{
         condition = "UA_was";
     }
-  }
+  // }
   var arr = [name, direct_object, condition];
   return arr;
   
