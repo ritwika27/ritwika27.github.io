@@ -7,23 +7,7 @@ let listOrderings = [
        [23, 3, 4, 15, 27, 8, 14, 21, 6, 26, 9, 18, 7, 22, 11, 13, 5, 17, 2, 12, 24, 10, 25, 1, 16, 20, 0, 19],
        [22, 21, 8, 18, 7, 24, 26, 1, 14, 15, 11, 3, 23, 0, 20, 10, 13, 2, 9, 25, 17, 5, 19, 27, 6, 4, 12, 16],
        [26, 10, 16, 0, 3, 12, 20, 1, 24, 18, 13, 8, 5, 14, 4, 21, 15, 6, 7, 19, 25, 11, 27, 9, 22, 2, 17, 23]];
-       // [2, 12, 25, 27, 7, 6, 14, 20, 4, 15, 19, 1, 24, 16,
-       //   10, 23, 22, 8, 11, 21, 9, 26, 17, 3, 18, 13, 5, 0],
-       // [10, 8, 5, 2, 24, 1, 9, 12, 22, 27, 0, 16, 23, 13, 14,
-       //   18, 11, 26, 19, 4, 20, 25, 6, 21, 17, 3, 15, 7],
-       // [12, 24, 1, 26, 4, 10, 13, 18, 21, 3, 14, 19, 11, 23,
-       //   20, 7, 25, 5, 22, 27, 9, 15, 8, 16, 2, 0, 17, 6],
-       // [9, 2, 3, 11, 19, 26, 7, 0, 6, 27, 14, 4, 16, 20,
-       //   13, 21, 12, 8, 24, 15, 5, 17, 10, 25, 23, 1, 18, 22],
-       // [23, 13, 11, 2, 10, 8, 14, 17, 7, 25, 15, 9, 24, 16,
-       //   3, 4, 22, 26, 12, 21, 5, 18, 6, 0, 27, 1, 20, 19],
-       // [24, 14, 10, 26, 4, 8, 3, 7, 9, 23, 1, 16, 20, 5,
-       //   27, 25, 13, 12, 21, 11, 19, 6, 17, 2, 15, 22, 0, 18],
-       // [5, 9, 24, 10, 14, 22, 2, 17, 0, 1, 26, 3, 19, 4,
-       //   18, 8, 13, 20, 11, 7, 21, 23, 6, 27, 25, 12, 16, 15],
-       // [6, 14, 13, 24, 3, 22, 8, 26, 23, 9, 17, 11, 18, 27, 7,
-       //    10, 15, 16, 4, 25, 1, 0, 20, 12, 2, 5, 21, 19]
-     //];
+
      
      let thisOrdering = listOrderings[Math.floor(Math.random() * listOrderings.length)];
      
@@ -36,7 +20,7 @@ let listOrderings = [
      var imgSourceDirectory = "";
      var audioSourceDirectory = "";
 
-     all_pages.push(new PreloadPage());
+     
      all_pages.push(new DocPage("instruction page", "<br/> <br/> Participant ID<br />\
                                    <hr><div style='color:red;text-align:center;width:100%'>"+userID+"</div><br/> <br/> ",
                                    "90%", "60px", "Ready!",
@@ -44,13 +28,13 @@ let listOrderings = [
      //all_pages.push(new Consent());
      all_pages.push(new ChooseList());
      
-     all_pages.push(new DocPage("instruction page", "Caregiver Instructions<br />\
-                                   <ul>\
-                                   <li>Please do not answer questions or provide hints about the sentences</li>\
-                                   <li>Encourage your child to try their best, have fun, and complete the entire game</li>\
-                                   <li>If possible, please use headphones and sit in a quiet room.</li></ul>",
-                                   "90%", "40px", "Ready!",
-                                   "WAVFiles/Introduction_Instructions/Slide3CGInstructions.wav"))
+//      all_pages.push(new DocPage("instruction page", "Caregiver Instructions<br />\
+//                                    <ul>\
+//                                    <li>Please do not answer questions or provide hints about the sentences</li>\
+//                                    <li>Encourage your child to try their best, have fun, and complete the entire game</li>\
+//                                    <li>If possible, please use headphones and sit in a quiet room.</li></ul>",
+//                                    "90%", "40px", "Ready!",
+//                                    "WAVFiles/Introduction_Instructions/Slide3CGInstructions.wav"))
      
      
      all_pages.push(new TestHeadphonesPage());
