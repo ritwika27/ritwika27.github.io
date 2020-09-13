@@ -37,7 +37,6 @@
     <link rel="stylesheet" type="text/css" href="custom.css">
 
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-    <script src="resources/FileSaver.min.js"></script>
   </head>
 
   <body>
@@ -754,13 +753,15 @@ p {
 
     }
 
-    #preload > #loading {
+    #preload > #image_loading, #preload > #audio_loading{
         z-index: inherit;
         font-size: 80px;
         text-align: center;
         align-items: center;
         color:blue;
     }
+
+
 
     #preload > input {
         z-index: inherit;
@@ -773,7 +774,8 @@ p {
 
 </style>
 <div id="preload" class="page">
-    <p id = "loading">Game Loading ...</p>
+    <p id = "image_loading">Game Loading ...</p>
+    <p id = "audio_loading"></p>
     <input type="button" id = "done" value="Continue" />
 </div>
     <script src="pouchdb-7.2.1.min.js"></script>
@@ -812,44 +814,98 @@ function reorder(list, arrangement) {
   return o;
 }
 
-// play audio some amount of time after the page starts
+class AudioAtlas {
+  constructor(atlasObject) {
+      this.file = atlasObject.file;
+      this.locations = atlasObject.locations;
 
-var _global_audio = new Audio("");
-var _audio_ready = false;
+      this.audioend = 0;
+      this.pausing = false;
+      this.afterfunction = function(){};
+
+      this.audio = new Audio(this.file);
+      this.audio.addEventListener("canplaythrough", function() {
+        if (!this.loaded) {
+          this.loaded = true;
+          this.audio.pause();
+          console.log("canplaythrough");
+          
+          audio_loaded.i = true;
+        }
+      }.bind(this));
+
+      this.audio.addEventListener('timeupdate', function() {
+        if (this.audio.currentTime >= this.audioend) {
+          if (!this.pausing) {
+            this.audio.pause();
+            this.pausing = true;
+            console.log("pausing");
+            this.afterfunction(); // double check that this is only run once
+          }
+        }
+      }.bind(this), false);
+
+      this.loaded = false;
+  }
+
+  playFile(name) {
+    if (name in this.locations) {
+      this.playTime(this.locations[name].start, this.locations[name].length);
+    } else {
+      console.log(`FILE ${name} not available in atlas`);
+    }
+  }
+
+  playTime(start, length) {
+    if (this.loaded) {
+      this.audio.currentTime = start;
+
+      console.log(`Start: ${start}\nEnd:${start+length}`);
+
+      this.audioend = start+length;
+      this.audio.play();
+      this.pausing = false;
+    } else {
+      console.log("CANNOT play audio because it is unloaded.");
+    }
+  }
+
+  initialize() {
+    if (!this.loaded) {
+      this.audio.play();
+    }
+  }
+
+  paused() {
+    return this.audio.paused;
+  }
+
+  pause() {
+    this.audioend = 0;
+  }
+}
+
+_global_audio = undefined;
+$(window).on("load", function() {
+  _global_audio = new AudioAtlas(_global_audio_object);
+});
 
 $("input").bind("click touch", function() {
-  if (!_audio_ready){
-    console.log("WINDOW CLICKED")
-    try{
-      _global_audio.play();
-    } catch(error) {console.log("error caught");console.log(error)}
-
-    _audio_ready = true;
-  }
+  _global_audio.initialize();
 });
 
-var _afterfunction = function() {};
-
-_global_audio.addEventListener('canplaythrough', function () {
-  console.log("LOADED")
-    _global_audio.play();
-
-  globalBook.pages[globalBook.current_page].setTimeout(function() {
-    _afterfunction();
-  }, 1000*_global_audio.duration);
-});
 
 function play_audio(file, afterfunction) {
+  _global_audio.pause();
   if (file == undefined) {
-    console.log("NO LOAD")
+    console.log("NO LOAD");
 
     afterfunction();
   } else {
-    _afterfunction = afterfunction;
-  }
+    _global_audio.afterfunction = afterfunction;
 
-  _global_audio.src = file;
-  _global_audio.load();
+    _global_audio.playFile(file);
+    }
 }
 
 class AudioPage extends Page {
@@ -1723,7 +1779,7 @@ var imagesToLoad = ["FinalImagesALL/ImgaesforExamples/Boy1_Paper.png",
 ];
 
 //create an object, will allow calling a listener function everytime a new value is set
-loaded = {
+image_loaded = {
   internal: 0,
   Listener: function(val) {},
   set i(val) {
@@ -1737,12 +1793,34 @@ loaded = {
     this.Listener = listener;
   }
 }
-loaded.registerListener(function(val) {
-  if(loaded.i == imagesToLoad.length){
-    $('#loading').html('Loading Complete');
-    $("#preload > input").removeAttr("disabled");
+audio_loaded = {
+  internal: false,
+  Listener: function(val) {},
+  set i(val) {
+    this.internal = val;
+    this.Listener(val);
+  },
+  get i() {
+    return this.internal;
+  },
+  registerListener: function(listener) {
+    this.Listener = listener;
+  }
+}
+
+image_loaded.registerListener(function(val) {
+  if(image_loaded.i == imagesToLoad.length){
+      $('#image_loading').html('Image Loading Complete');
   }
 });
+
+audio_loaded.registerListener(function(val) {
+  if(audio_loaded.i == true){
+      $('#audio_loading').html('Audio Loading Complete');
+      $("#preload > input").removeAttr("disabled");
+  }
+});
+
 
 var images = new Array();
 
@@ -1750,13 +1828,13 @@ function preload() {
     for (i = 0; i < imagesToLoad.length; i++) {
         images[i] = new Image();
         images[i].src = imagesToLoad[i];
-        images[i].addEventListener("load", function () {loaded.i = loaded.i + 1;} );
+        images[i].addEventListener("load", function () {image_loaded.i = image_loaded.i + 1;} );
     }
 }
 
 function loadImages(){
   $("#preload").show();
-  $("#preload > input.done").attr("disabled", "disabled");
+  $("#preload > input").attr("disabled", "disabled");
   preload(); 
 }
 
@@ -1778,7 +1856,7 @@ $(window).on("load", loadImages);
 
     <script src="run.js"></script>
 
-    
+
 
   </body>
 
