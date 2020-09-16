@@ -741,7 +741,7 @@ p {
 </div>
 
 <style>
-    #preload {
+    #preload, #preload_button {
         
         z-index: 100; /* in front of everything else */
         background-color: white;
@@ -763,7 +763,7 @@ p {
 
 
 
-    #preload > input {
+    #done {
         z-index: inherit;
         align-items: center;
         position: absolute;
@@ -771,12 +771,30 @@ p {
         bottom: 30;
     } 
 
+    #continue{
+        z-index: inherit;
+        background-color: cadetblue;
+        top: 20%;
+        height:20%; 
+        width: 100%; 
+        font-size: 80px;
+        /*margin: -20px -50px; */
+        position:relative; 
+        top:50%; 
+        /*left:50%;*/
+    }
+
+
+
 
 </style>
+<div id = preload_button>
+    <input type="button" id = "continue" value="Load Game" />
+</div>
 <div id="preload" class="page">
     <p id = "image_loading">Game Loading ...</p>
     <p id = "audio_loading"></p>
-    <input type="button" id = "done" value="Continue" />
+    <input type="button" id = "done" value="Continue" /> 
 </div>
     <script src="pouchdb-7.2.1.min.js"></script>
     <script src="pages.js"></script>
@@ -1817,7 +1835,7 @@ image_loaded.registerListener(function(val) {
 audio_loaded.registerListener(function(val) {
   if(audio_loaded.i == true){
       $('#audio_loading').html('Audio Loading Complete');
-      $("#preload > input").removeAttr("disabled");
+     // $("#done").removeAttr("disabled");
   }
 });
 
@@ -1833,13 +1851,19 @@ function preload() {
 }
 
 function loadImages(){
-  $("#preload").show();
-  $("#preload > input").attr("disabled", "disabled");
-  preload(); 
+  $("#preload_button").show();
 }
 
 $("#done").bind("click touch", function() {
   $("#preload").hide();
+});
+
+
+$("#preload_button").bind("click touch", function() {
+  $("#preload").show();
+  $("#preload_button").hide();
+  //$("#done").attr("disabled", "disabled");
+  preload();
 });
 
 $(window).on("load", loadImages);
