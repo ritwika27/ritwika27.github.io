@@ -116,7 +116,7 @@ all_pages.push(new LearnQuadPage("P_JR are cleaning the table",
 
 var audioSourceDirectory = "WAVFiles/Introduction_Instructions/";
 
-all_pages.push(new QuadAudioPage("slide7IntroEX",
+all_pages.push(new QuadAudioPage("slide7IntroEX.wav",
                 "Slide7_IntrotoEX.wav",
 
                 [new Choice("Boy1",
@@ -141,10 +141,10 @@ all_pages.push(new LearnQuadPage("P_Jeremiah is playing the piano",
                  new Choice("C3",
                         "Girl2_3_Piano.png")],
 
-                "Slide7_J_UA_Piano",
+                "Slide7_J_UA_Piano.wav",
                 0,
                 "Slide6_9_CorrectFeedback.wav",
-                "Slide7_Incorrect_Jpiano",
+                "Slide7_Incorrect_Jpiano.wav",
                 false));
 
 all_pages.push(new LearnQuadPage("P_JR is cleaning the table",
@@ -157,10 +157,10 @@ all_pages.push(new LearnQuadPage("P_JR is cleaning the table",
                  new Choice("C3",
                         "Girl2_3_Table.png")],
 
-                "Slide8_JR_Asing_table",
+                "Slide8_JR_Asing_table.wav",
                 2,
                 "Slide6_9_CorrectFeedback.wav",
-                "Slide8_Incorrect_JRtable",
+                "Slide8_Incorrect_JRtable.wav",
                 false));
 
 // var audioSourceDirectory = "WAVFiles/Introduction_Instructions/";
@@ -190,10 +190,10 @@ all_pages.push(new LearnQuadPage("P_JR is watching the movie",
                  new Choice("C3",
                        "Girl2_3_Movie.png")],
 
-                "Slide9_JR_Asing_movie",
+                "Slide9_JR_Asing_movie.wav",
                 2,
                 "Slide6_9_CorrectFeedback.wav",
-                "Slide9_Incorrect_JRmovie",
+                "Slide9_Incorrect_JRmovie.wav",
                 false));
 
 all_pages.push(new LearnQuadPage("P_JR are cutting the paper ",
@@ -206,10 +206,10 @@ all_pages.push(new LearnQuadPage("P_JR are cutting the paper ",
                  new Choice("T",
                         "Girl2_3_Paper.png")],
 
-                 "Slide10_JRAplural_paper",
+                 "Slide10_JRAplural_paper.wav",
                 3,
                 "Slide6_9_CorrectFeedback.wav",
-                "Slide10_Incorrect_JRpaper",
+                "Slide10_Incorrect_JRpaper.wav",
                 false));
 
 all_pages.push(new BeginPage("WAVFiles/Introduction_Instructions/Slide10_LetsBegin.wav"));
