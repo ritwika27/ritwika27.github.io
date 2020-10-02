@@ -83,9 +83,9 @@ function getNameConditionObject(sentence){
     name = sentence[0];
     verb = sentence[1];
     direct_object = sentence[sentence.length -1]
-    if (name == "JR" && verb == "was"){
+    if (name == "CM" && verb == "was"){
         condition = "A_was";
-    }else if (name == "JR" && verb == "were"){
+    }else if (name == "CM" && verb == "were"){
         condition = "A_were";
     }else if (name == "CJ"){
         condition = "UA_were";
