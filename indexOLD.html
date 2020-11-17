@@ -1,0 +1,1897 @@
+<html>
+  <head>
+    <title> iPad Test </title>
+
+    <meta name="viewport" content="width=device-width, user-scalable=no">
+
+    <style>
+      :root {
+        --theme-color: #eee;
+      }
+
+      html, body {
+        background-color: var(--theme-color);
+      }
+
+      .page {
+        display: hidden;
+      }
+
+      input[type="button"] {
+        border: none;
+        height: 50px;
+        width: 200px;
+        padding: 15px 32px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+      }
+
+      input[type="button"][disabled] {
+        color: gray;
+        border: ridge 5px;
+      }
+    </style>
+
+    <link rel="stylesheet" type="text/css" href="custom.css">
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+  </head>
+
+  <body>
+
+    
+
+<style>
+  #forcelandscape {
+    --font-size: 40px;
+
+    z-index: 100; /* in front of everything else */
+    text-align: center;
+    align-items: center;
+    padding-top:calc(50% - var(--font-size) / 2);
+    color:red;
+    font-size:var(--font-size);
+    background-color: white;
+    position:absolute;
+    top:0;
+    left:0;
+    height:100%;
+    width:100%;
+  }
+
+  #forcelandscape > div {
+    position:relative;
+    display:inline-block;
+  }
+</style>
+<div id="forcelandscape" class="page">
+  Please rotate your device to landscape mode.
+</div>
+
+<style>
+  :root {
+    --image-distance-from-center: 10px;
+    --image-distance-from-side: 10px;
+    --bottom-input-height: 0px;
+
+    --img-horiz-position:  calc(50% + var(--image-distance-from-center));
+    --img-top-position:    calc(50% + var(--image-distance-from-center) -
+                                var(--bottom-input-height) / 2);
+    --img-bottom-position: calc(50% + var(--image-distance-from-center) +
+                                var(--bottom-input-height) / 2);
+  }
+
+  .imgquad > img {
+    position: absolute;
+    height: calc((100% - var(--bottom-input-height)) / 2  -
+                  var(--image-distance-from-side) -
+                  var(--image-distance-from-center));
+  }
+
+  #quad-page > input {
+    width: 5%;
+    height: 10%;
+    border-top: 10px solid grey;
+    border-right: 10px solid  grey;
+    border-left: solid #eee;
+    border-bottom: solid #eee;
+    transform: rotate(45deg);
+    /*border-radius: 15%;*/
+    position: absolute;
+    right: 30;
+    bottom: 30;
+    -webkit-appearance: none;
+    border-radius: 0;
+
+  }
+
+
+  .topleft-img {
+    right: var(--img-horiz-position);
+    bottom: var(--img-bottom-position);
+  }
+
+  .topright-img {
+    left: var(--img-horiz-position);
+    bottom: var(--img-bottom-position);
+  }
+
+  .bottomleft-img {
+    right: var(--img-horiz-position);
+    top: var(--img-top-position);
+  }
+
+  .bottomright-img {
+    left: var(--img-horiz-position);
+    top: var(--img-top-position);
+  }
+
+
+
+</style>
+
+<div class="page" id="quad-page">
+  <div id="images" class="imgquad">
+    <img id="topleft-img" class="topleft-img" />
+    <img id="topright-img" class="topright-img" />
+    <img id="bottomleft-img" class="bottomleft-img" />
+    <img id="bottomright-img" class="bottomright-img" />
+  </div>
+    <input class="exit" type="button" ></input>
+</div>
+
+
+
+
+<style>
+  #doc-page {
+    display: block;
+    justify-content: center;
+
+    --form-width: 50%;
+  }
+
+  #doc-page > #form-page-center {
+    --padding: 25px;
+
+    background-color:white;
+    width: var(--form-width);
+    margin-left: calc(50% - var(--form-width) / 2 - var(--padding));
+    margin-top: 40px;
+    padding:var(--padding);
+    display: block;
+    justify-content: left;
+  }
+
+  #doc-page > div {
+    justify-content: center;
+    display: flex;
+    margin-bottom: 15px;
+  }
+
+  #doc-page > span {
+    position:absolute;
+    bottom:10px;
+    font-size:20px;
+    text-align:center;
+    width:100%;
+  }
+</style>
+
+<div id="doc-page" class="page">
+  <div id="form-page-center"> Hello this is a consent form. <br /> <br /> Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum<br /><br />Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem. Ut enim ad minima veniam, quis nostrum exercitationem ullam corporis suscipit laboriosam, nisi ut aliquid ex ea commodi consequatur? Quis autem vel eum iure reprehenderit qui in ea voluptate velit esse quam nihil molestiae consequatur, vel illum qui dolorem eum fugiat quo voluptas nulla pariatur? </div>
+  <div>
+    <input class="exit start" type="button" value="Next"></input>
+  </div>
+
+  <input type="button"  id = "skip" value="Skip to end"></input>
+
+  
+
+  <span> Need help or have questions? Call the Learning to Talk Lab at (301) 458-0660 | Learning2Talk@umd.edu</span>
+</div>
+
+<style>
+#testheadphones-page > input {
+  border-radius:10px;
+  background-color: rgb(158,206,203);
+  position:absolute;
+  color: white;
+  font-size:25px;
+  border-color: rgb(158,206,203);
+}
+
+#testheadphones-page > .replay {
+  width: 500px;
+  height:80px;
+  top:55%;
+  margin-left: calc(50% - 250px);
+}
+
+#testheadphones-page > .exit {
+  width: 300px;
+  height:80px;
+  top:70%;
+  margin-left: calc(50% - 150px);
+}
+
+#testheadphones-page > input[disabled] {
+  background-color: #889c97;
+  border-color: #889c97;
+}
+
+#testheadphones-page > .info {
+ margin-left:15%;
+ padding:20px;
+ border-radius:10px;
+ top:30%;
+ color: white;
+ font-size: 40px;
+ width: 70%;
+ background-color:rgb(158,206,203);
+ position:absolute;
+ text-align:center;
+}
+
+</style>
+
+<div id="testheadphones-page" class="page">
+
+  <div class="info">
+      Please use headphones to play this game, and make sure you’re in a quiet room.
+  </div>
+
+  <input type="button" class="replay" value="Click here to test the sound" />
+
+  <input type="button" class="exit" value="Click here to start!" />
+</div>
+
+<style>
+  #imgaudio {
+    justify-content: center;
+    align-items:center;
+    height:100%;
+  }
+
+  #imgaudio > .center-image {
+    height: 80%;
+  }
+
+  #imgaudio > * {
+    display:block;
+    position: relative;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top:20px;
+  }
+
+</style>
+
+<div id="imgaudio" class="page">
+  <img class="center-image" />
+  <input type="button" class="exit" value="Next" />
+</div>
+
+<!-- NOTE: Uses styling format from quad -->
+<div id="slide7" class="page">
+  <div class="imgquad">
+    <img class="topleft-img" src="FinalImagesALL/ImgaesforExamples/Boy1_Piano.png" />
+    <img class="topright-img" src="FinalImagesALL/ImgaesforExamples/Boy2_3_Paper.png" />
+    <img class="bottomleft-img" src="FinalImagesALL/ImgaesforExamples/Girl1_Movie.png" />
+    <img class="bottomright-img" src="FinalImagesALL/ImgaesforExamples/Girl2_3_Table.png" />
+  </div>
+</div>
+
+
+<!-- COMMENT -->
+<style>
+
+#turtlerun-page > * {
+  position: relative;
+}
+
+#turtlerun-page > img {
+  height:60%;
+  left:0;
+  top:30%;
+}
+
+#turtlerun-page > .turtles {
+  height:50%;
+  width: 600px;
+  left: 30%;
+  bottom: 0;
+  display:block;
+  position:absolute;
+}
+
+#turtlerun-page > .turtles > img {
+  position:relative;
+  display:block;
+  height:33%;
+}
+
+</style>
+
+<div id="turtlerun-page" class="page">
+  <img src="FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png" />
+
+  <div class="turtles">
+    <img style="left:25%; top:0;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:75%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:0%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:50%; top:-66%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:75%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:25%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+    <img style="left:50%; top:-133%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+
+  </div>
+</div>
+
+<!-- This is a custom styled page. It shows a bunch of turtles, Jerimiah, and
+      an image "let's begin the game" -->
+
+<style>
+  #begin-page{
+    background-color:white;
+    width:100%;
+    height:100%;
+  }
+
+  #begin-page > * {
+    position: absolute;
+    display: block;
+  }
+
+  #begin-boy1 {
+    left:35%;
+    top:0%;
+    height:70%;
+  }
+
+  #begin-text {
+    left:20px;
+    top:30%;
+    width:40%;
+  }
+
+  #beginturtle1 {
+    top:0;
+    right:0;
+    width:200px;
+  }
+
+  #beginturtle2 {
+    bottom:20px;
+    right:50%;
+    width:200px;
+  }
+
+</style>
+
+<div id="begin-page" class="page">
+  <img id="begin-boy1" src="FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png">
+  <img id="begin-text" src="customImages/beginImage.png">
+
+  <img id="beginturtle1" controls="controls"
+    src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+
+  <img id="beginturtle2"
+    src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+</div>
+
+<style>
+#progress-page > .progress {
+  height: 15%;
+  width: 100%;
+
+  position:absolute;
+  bottom: 20px;
+
+  display: flex;
+  flex-direction: row;
+}
+
+#progress-page > .progress > div {
+  height: 100%;
+  flex: 1;
+
+  position:relative;
+}
+
+#progress-page > .progress > div > *{
+  height: 100%;
+}
+
+#progress-page > img {
+  position: absolute;
+}
+
+#progress-page > .progress-img {
+  height:50%;
+  display:block;
+
+  top:50px;
+}
+
+#progress-page > #newitem {
+  left: 60%;
+  top: 30%;
+}
+
+#progress-page > #newitem {
+  height: 15%;
+}
+
+</style>
+
+<div id="progress-page" class="page">
+  <img class="progress-img" />
+  <div class="progress-boxes progress">
+  </div>
+  <div class="progress-items progress">
+  </div>
+
+  <img id="newitem" />
+</div>
+
+
+
+<style>
+  #imgpg {
+    height:100%;
+    width: 100%;
+    margin:0;
+    padding:0;
+  }
+
+  #imgpg > img {
+    width:100%;
+    margin-top: 10%;;
+  }
+</style>
+
+<div id="imgpg" class="page">
+  <img />
+</div>
+
+<div id="movpage" class="page">
+  <video width="400" controls autoplay>
+    <!-- does not work currently -->
+    <source src="customImages/256transparentTurtle.mov">
+  </video>
+</div>
+
+<style>
+
+    #end-page > * {
+      position: relative;
+    }
+    
+    
+    #end-page > .turtles {
+      margin: auto;
+      height: 60%;
+      width: 50%;
+      
+    }
+    
+    #end-page > .turtles > img {
+      position:relative;
+      display:block;
+      width: 150px;
+    }
+
+    #end-page > input {
+      border-radius:10px;
+      color: white;
+      font-size: 20px;
+      width: 10%;
+      background-color:rgb(158,206,203);
+      position: absolute;
+      bottom: 30;
+      right: 30;
+    }
+    
+    #over {
+      text-align: center;
+      font-size: 400%;
+    }
+    </style>
+    
+    <div id="end-page" class="page">
+      <h1 id = "over">Game Over!</h1>
+      <div class="turtles">
+        <img style="left:25%; top:0;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:75%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:0%; top:-33%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:50%; top:-66%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:75%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:25%; top:-100%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+        <img style="left:50%; top:-133%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+      </div>
+      <input class="endpg" type="button"value = "Exit Game" ></input>
+    </div>
+
+<style>
+
+#chooselist > #lists{
+  margin:auto;
+  width: 70%;
+  left:15%;
+  top:10%;
+  font-size: 30px;
+  padding: 10px 8px 10px 14px;
+  background-color: white;
+  border: 1px solid black;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+}
+
+#chooselist > #lists > #options{
+  width: 200%;
+  background:url('arrow.png') no-repeat;
+  background-position:80% center;
+}
+
+#chooselist > #lists > #options > select{
+  width: 25%;
+  font-size: 20px;
+  position: absolute;
+  left: 15;
+  bottom: 60;
+}
+
+#chooselist > #lists >#options > input{
+    margin-left:15%;
+    padding:20px;
+    border-radius:10px;
+    color: white;
+    font-size: 15px;
+    width: 15%;
+    background-color:rgb(158,206,203);
+    text-align:center;
+    position: absolute;
+    right: 50;
+    bottom: 15;
+}
+
+#chooselist > span {
+    position:absolute;
+    bottom:10px;
+    font-size:20px;
+    text-align:center;
+    width:100%;
+  }
+
+
+</style>
+
+<div id="chooselist" class="page">
+    <div id = "lists">
+        <h2>Choose a List</h2>
+        <br><br>
+        <div id = "options">
+        <select id="scripts" name="scripts">
+            <option value="0">List 1</option>
+            <option value="1">List 2</option>
+            <option value="2">List 3</option>
+            <option value="3">List 4</option>
+            <option value = "random">Random</option>
+        </select>
+
+        <input type="button" class = "exit" value="Select" />
+
+        </div>
+    </div>
+    
+    <span> Need help or have questions? Call the Learning to Talk Lab at (301) 458-0660 | Learning2Talk@umd.edu</span>
+</div>
+<style>
+
+ #consent {
+  margin:auto;
+  width: 80%;
+  left:10%;
+  top:10%;
+  font-size: 15px;
+  background-color: white;
+  border: 8px solid white;
+  border-radius: 10px;
+  overflow: hidden;
+  position: absolute;
+
+}
+
+.names {
+  display: inline-block;
+  width: 8em;
+  position: relative;
+  top: -4em;
+}
+
+.dates {
+  
+  width: 10em;
+  position: relative;
+  top: -2em;  
+}
+
+#parent_email {
+  display: inline-block;
+  width: 15em;
+  position: relative;
+  top: -4em;  
+}
+
+.wrap > label {
+  display: inline-block;
+  width: 8em;
+  margin-right: .5em;
+  padding-top: 1.5em;
+}
+
+p {
+    font-size: 20px;
+}
+
+#submit {
+    background-color: rgb(158,206,203);
+    border-color: rgb(158,206,203);
+    color: white;
+    width: 15%;
+    
+}
+
+</style>
+
+<div id="consent" class="page">
+    
+    <div>
+        <p><strong>Project Title: </strong>Understanding language under difficult listening conditions</p>
+        <p><strong>Requester Information:</strong></p> 
+        <ul>
+            <li>
+              Name. Jan Edwards, PhD
+            </li>
+            <li>
+              Title and Organization. Professor, Hearing and Speech Sciences Department and Associate Director, Maryland Language Science Center, University of MD, College Park.
+            </li>
+        </ul>    
+        <p><strong>Purpose of the Project</strong></p>
+        <p>This research is being conducted by Jan Edwards at the University of Maryland, College Park.  We are inviting your child to participate in this research project because your child is between 3 and 12 years of age and either has normal hearing or uses a cochlear implant.  The purpose of this research project is to better understand on how children comprehend language in different listening conditions. For example, it is easier to understand language in quiet environments as compared to noisy environments. It is also easier to understand a familiar variety of English, like American English, compared to the less familiar variety of English, such as British English. Another sort of difficulty is ignoring irrelevant information when hearing words and sentences. Ultimately, we are interested in developing new methods to support children who experience difficulty understanding language in difficult listening conditions.</p>
+        <p><strong>Procedures</strong></p> 
+        <p>Your child may participate in the following tasks:</p>
+        <p>Your child will participate at home. During this activity, your child should sit in a quiet room and use headphones if possible.</p>
+        <p>Your child will listen to some sentences and look at some pictures on a tablet device. Your child will respond by touching the pictures on the tablet. The study will be presented over a web-based application on the tablet.</p>
+        <p>This session will take 20-30 minutes.</p>
+        <p><strong>Potential Risks</strong></p>
+        <p>The potential risks are relatively minor. Your child may get tired during the task, but it is relatively short and it is designed as a game so children are usually motivated to continue. The only other risk is a potential loss of confidentiality, which will be minimized as described below.</p>
+        <p><strong>Potential Benefits     </strong></p>
+        <p>There are no direct benefits from participating in this research. We hope that, in the future, other children might benefit from this study through improved understanding of how children comprehend speech in difficult listening conditions.</p>
+        <p><strong>Confidentiality</strong></p>
+        <p>Any potential loss of confidentiality will be minimized by the following procedures:</p>
+        <p>All participants will be assigned a numerical identifier which will be used in place of their name in all materials except for a single password-protected file on a password-protected server Your child’s name will never be reported or included in any presentations or articles. We will use a number instead of your child’s name. Only the experimenters will have access to your child’s name.</p>
+        <p>Only I and my staff will have access to the test information that we collect.</p>
+        <p>All data from your child will be used for research purposes only and will be seen only by trained and vetted staff.</p>
+        <p>We will not share any information with your child’s teacher or school unless you ask us to do so.</p>
+        <p>We will provide a group report for all children who participate but will not identify your child specifically.</p>
+        <p>If we write a report or article about this research project, your child’s identity will be protected to the maximum extent possible.  Your child’s information may be shared with representatives of the University of Maryland, College Park or governmental authorities if your child or someone else is in danger or if we are required to do so by law.</p>  
+        <p><strong>Compensation</strong></p>
+        <p>You will receive $20 via a digital payment method for participating in the session. If you or your child decide to withdraw prior to the end of the session, you will still receive compensation.</p>
+        <p><strong>Right to Withdraw and Questions </strong> </p>
+        <p>Your child’s participation in this research is completely voluntary.  Your child may choose not to take part at all.  If you decide to participate in this research, your child may stop participating at any time.  If your child decides not to participate in this study or stops participating at any time, your child will not be penalized or lose any benefits to which you otherwise qualify. If your child decides to stop taking part in the study, if you have questions, concerns, or complaints, or if you need to report an injury related to the research, please contact the investigator:</p>
+        <p>Jan Edwards, edwards@umd.edu, (301) 405-5237, 0121D Taliaferro Hall, University of MD</p>
+        <p><strong>Participant Rights:</strong> If you have questions or concerns about your rights as a research participant, the Director of the Institutional Review Board at the University of Maryland can be reached by calling the Research Compliance Office at (301)-405-0678.</p>
+        <p style="text-align: center;"><strong>University of Maryland College Park, Institutional Review Board Office</strong></p>
+        <p style="text-align: center;"><strong>1204 Marie Mount, College Park, Maryland, 20742</strong></p>
+        <p style="text-align: center;"><strong>E-mail: irb@umd.edu, Telephone: 301-405-0678</strong></p>
+        <p>This research has been reviewed according to the University of Maryland, College Park IRB procedures for research involving human subjects.</p>
+        <p><strong>STATEMENT OF CONSENT</strong></p>
+        <p>Your digital signature indicates that you are at least 18 years of age; you have read this consent form or have had it read to you; your questions have been answered to your satisfaction and you voluntarily agree to have your child participate in this research study. You will receive a copy of this signed consent form.</p>
+        <p><em>If you agree to participate, please type your name, today's date, and select "I consent" in the fields below.</em></p>
+    </div>
+    <form method="POST" action="https://493eebb3-f2ce-4ba4-9d67-ac4b1ec5e8b5.mock.pstmn.io/ipad_study" id = "form">
+        <div class = "wrap">
+            <p>Name of Parent/Legal Guardian <span style="color:red;font-weight:bold">*</span></p>
+            <label id = "names">First Name<input class = "names" name="fn_parent" id="fn_parent"  required/></label>
+            <label id = "names">Last Name<input class = "names" name="ln_parent" id="ln_parent"  required/></label>
+        </div>
+        <div class = "wrap">
+            <p>Name of Minor Participant <span style="color:red;font-weight:bold">*</span></p>
+            <label id = "names">First Name<input class = "names" name="fn_participant" id="fn_participant"  required/></label>
+            <label id = "names">Last Name<input class = "names" name="ln_participant" id="ln_participant"  required/></label>
+        </div>
+        <div class = "wrap">
+            <p>Child's Date of Birth <span style="color:red;font-weight:bold">*</span></p>
+            <label Date><input class = "dates" type = "date" name="dob_participant" id="dob_participant" required/></label>
+        </div>
+        <div class = "wrap">
+            <p>Email <span style="color:red;font-weight:bold">*</span></p>
+            <label >example@example.com <input  name="parent_email" id="parent_email"  required/></label>
+            
+        </div>
+        <div class = "wrap">
+            <p>Today's Date <span style="color:red;font-weight:bold">*</span></p>
+            <label Date><input class = "dates" type = "date" name="current_date" id="current_date" required/></label>
+        </div>
+        <div>
+            <p>Statement of Consent <span style="color:red;font-weight:bold">*</span></p>
+            <div>
+                <input class = "consent" type="checkbox" id="yes" name="consent" >
+                <label class = "consent_section"for="yes"> I consent.</label>                
+            </div>
+            <div>
+                <input class = "consent" type="checkbox" id="no" name="no_consent">
+                <label class = "consent_section" for="no"> I do not consent.</label>
+            </div>
+
+            
+        </div>
+        <br>
+        <br>
+        <button id = "submit" type="submit" size = "100">Submit </button>
+    </form>
+
+  
+
+</div>
+
+<style>
+    #preload, #preload_button {
+        
+        z-index: 100; /* in front of everything else */
+        background-color: white;
+        position:absolute;
+        top:0;
+        left:0; 
+        height:100%;
+        width:100%;
+
+    }
+
+    #preload > #image_loading, #preload > #audio_loading{
+        z-index: inherit;
+        font-size: 80px;
+        text-align: center;
+        align-items: center;
+        color:blue;
+    }
+
+
+
+    #done {
+        z-index: inherit;
+        align-items: center;
+        position: absolute;
+        right: 30;
+        bottom: 30;
+    } 
+
+    #continue{
+        z-index: inherit;
+        background-color: cadetblue;
+        top: 20%;
+        height:20%; 
+        width: 100%; 
+        font-size: 80px;
+        /*margin: -20px -50px; */
+        position:relative; 
+        top:50%; 
+        /*left:50%;*/
+    }
+
+
+
+
+</style>
+<div id = preload_button>
+    <input type="button" id = "continue" value="Load Game" />
+</div>
+<div id="preload" class="page">
+    <p id = "image_loading">Game Loading ...</p>
+    <p id = "audio_loading"></p>
+    <input type="button" id = "done" value="Continue" /> 
+</div>
+    <script src="pouchdb-7.2.1.min.js"></script>
+    <script src="pages.js"></script>
+
+    <script>// This is the Fisher-Yates shuffle
+// Taken from https://bost.ocks.org/mike/shuffle/
+function shuffle(array) {
+  var m = array.length, t, i;
+
+  // While there remain elements to shuffle…
+  while (m) {
+
+    // Pick a remaining element…
+    i = Math.floor(Math.random() * m--);
+
+    // And swap it with the current element.
+    t = array[m];
+    array[m] = array[i];
+    array[i] = t;
+  }
+
+  return array;
+}
+
+// takes two lists of equal length
+//  list is anything
+//  arrangement is a shuffling of range(0, len(arrangement))
+function reorder(list, arrangement) {
+  var o = [];
+
+  for(var i=0; i< arrangement.length; i++) {
+    o.push(list[arrangement[i]])
+  }
+
+  return o;
+}
+
+class AudioAtlas {
+  constructor(atlasObject) {
+      this.file = atlasObject.file;
+      this.locations = atlasObject.locations;
+
+      this.audioend = 0;
+      this.pausing = false;
+      this.afterfunction = function(){};
+
+      this.audio = new Audio(this.file);
+      this.audio.addEventListener("canplaythrough", function() {
+        if (!this.loaded) {
+          this.loaded = true;
+          this.audio.pause();
+          console.log("canplaythrough");
+          
+          audio_loaded.i = true;
+        }
+      }.bind(this));
+
+      this.audio.addEventListener('timeupdate', function() {
+        if (this.audio.currentTime >= this.audioend) {
+          if (!this.pausing) {
+            this.audio.pause();
+            this.pausing = true;
+            console.log("pausing");
+            this.afterfunction(); // double check that this is only run once
+          }
+        }
+      }.bind(this), false);
+
+      this.loaded = false;
+  }
+
+  playFile(name) {
+    if (name in this.locations) {
+      this.playTime(this.locations[name].start, this.locations[name].length);
+    } else {
+      console.log(`FILE ${name} not available in atlas`);
+    }
+  }
+
+  playTime(start, length) {
+    if (this.loaded) {
+      this.audio.currentTime = start;
+
+      console.log(`Start: ${start}\nEnd:${start+length}`);
+
+      this.audioend = start+length;
+      this.audio.play();
+      this.pausing = false;
+    } else {
+      console.log("CANNOT play audio because it is unloaded.");
+    }
+  }
+
+  initialize() {
+    if (!this.loaded) {
+      this.audio.play();
+    }
+  }
+
+  paused() {
+    return this.audio.paused;
+  }
+
+  pause() {
+    this.audioend = 0;
+  }
+}
+
+_global_audio = undefined;
+$(window).on("load", function() {
+  _global_audio = new AudioAtlas(_global_audio_object);
+});
+
+$("input").bind("click touch", function() {
+  _global_audio.initialize();
+});
+
+
+function play_audio(file, afterfunction) {
+  _global_audio.pause();
+  if (file == undefined) {
+    console.log("NO LOAD");
+
+    afterfunction();
+  } else {
+    _global_audio.afterfunction = afterfunction;
+
+    _global_audio.playFile(file);
+    }
+}
+
+class AudioPage extends Page {
+  constructor(pageID, audio, delay) {
+    super(pageID);
+
+    this.audiofile = audio;
+    this.delay = delay;
+  }
+
+  after_audio() {}
+
+  play_audio() {
+    play_audio(this.audiofile, function() {
+        (this.after_audio.bind(this))();
+    }.bind(this));
+  }
+
+  play() {
+    this.setTimeout(this.play_audio.bind(this), this.delay);
+  }
+
+  deactivate() {
+    super.deactivate();
+    _global_audio.pause();
+  }
+}
+
+// note that this does not act like a normal page
+
+function forceLandscape(){
+  if ($(window).width() > $(window).height()) {
+    $("#forcelandscape").hide();
+  } else {
+    $("#forcelandscape").show();
+  }
+}
+
+$(window).on("resize",forceLandscape);
+
+$(window).on("load", forceLandscape);
+
+// This stores 4 images, and plays audio. Once the audio is played, one image
+// must be tapped on, and that image is logged. There is also a replay button,
+// which plays the audio again
+let img_order = ["topleft", "topright", "bottomleft", "bottomright"];
+
+// These are defined to minimize re-typing
+var imgSourceDirectory = "";
+var audioSourceDirectory = "";
+
+// Choice
+// A choice has a name and an image
+// it is in the OptionPage
+class Choice {
+  constructor(label, image) {
+    this.label = label;
+    this.image = imgSourceDirectory + image;
+  }
+}
+
+class QuadPage extends AudioPage {
+  constructor(pageID, audio, choices, showdelay) {
+    if (showdelay === undefined) { showdelay = 500; }
+
+    super(pageID, audioSourceDirectory+audio, showdelay + 3000);
+
+    this.showdelay = showdelay;
+
+    this.choices = [];
+
+    this.choices.push(choices.find(e => e.image.match(/Boy/) && e.image.match(/1/)));
+    this.choices.push(choices.find(e => e.image.match(/Boy/) && e.image.match(/2_3/)));
+    this.choices.push(choices.find(e => e.image.match(/Girl/) && e.image.match(/1/)));
+    this.choices.push(choices.find(e => e.image.match(/Girl/) && e.image.match(/2_3/)));
+
+    this.targetQuadrant = -1;
+    this.audioStopTime = 0;
+  }
+
+  select_option(e) {
+    if (_global_audio.paused) {//only run if no audio playing
+      //var dt = (new Date()).getTime() - this.audioStopTime;
+      new_datum($(e.target).data("quad"), this.audioStopTime, (new Date()).getTime() );
+
+      //
+
+      // if (globalBook.current_page == globalBook.pages.length - 3){
+      //   addData(logged_data);
+      // }
+      
+      //
+
+      globalBook.nextpage();
+    }
+  }
+
+  after_audio() {
+    $("img").unbind('click touch');//ensure it doesnt get double called
+    $("img").bind('click touch', this.select_option.bind(this));
+    this.audioStopTime = (new Date()).getTime();
+    $("#quad-page > input").removeAttr("disabled");
+  }
+
+  play_audio() {
+    super.play_audio();
+  }
+
+  play() {
+    super.play();
+    $("#images > img").data("isTarget", "C");
+   
+    for (var i=0; i<4; i++) {
+      if (this.choices[i] != undefined) {
+        $(`#${img_order[i]}-img`).attr("src", this.choices[i].image);
+        $(`#${img_order[i]}-img`).data("id", this.choices[i].label);
+        $(`#${img_order[i]}-img`).data("quad", i); // This doesnt need to be
+                                                   // set every time, but not
+                                                   // that important to optimize
+        if (this.choices[i].label == "T") {
+          this.targetQuadrant = i;
+        }
+      } else {
+        $(`#${img_order[i]}-img`).attr("src", "");
+        $(`#${img_order[i]}-img`).data("id", "undefined");
+      }
+    }
+    
+    this.setTimeout(function(){$("#quad-page > input.exit").attr("disabled", "disabled");$("#quad-page").show()}, this.showdelay);
+  }
+
+  deactivate() {
+    super.deactivate();
+
+    $("img").unbind("click touch");
+    $("#quad-page").hide();
+  }
+}
+
+class DocPage extends AudioPage {
+  constructor(pid, text, width_str, fontsize, buttontext, audio) {
+    super(pid, audio, 400);
+
+    this.text = text;
+    this.width = width_str;
+    this.fontsize = fontsize;
+
+    this.buttontext = buttontext;
+  }
+
+  after_audio() {
+    $("#doc-page > div > input").removeAttr("disabled");
+  }
+
+
+
+  play() {
+    super.play();
+    $("#doc-page").css("--form-width", this.width)
+    $("#doc-page > #form-page-center").html(this.text)
+    $("#doc-page > #form-page-center").css("font-size", this.fontsize)
+
+    $("#doc-page > div > input ").attr("value", this.buttontext)
+
+    $("#doc-page > div > input").attr("disabled", "disabled")
+
+    $("#doc-page").show();
+  }
+
+  deactivate() {
+    super.deactivate();
+
+    $("#doc-page").hide();
+  }
+}
+
+
+$("#skip").bind("click touch", function() {
+  console.log("helo");
+  globalBook.pages[globalBook.current_page].deactivate();
+  globalBook.current_page = globalBook.pages.length - 3;
+  globalBook.pages[globalBook.current_page].play();
+});
+
+// Modified from https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices
+function getAudioDevices() {
+  if (!navigator.mediaDevices || !navigator.mediaDevices.enumerateDevices) {
+    console.log("enumerateDevices() not supported.");
+    return;
+  }
+
+  var devices = navigator.mediaDevices.enumerateDevices();
+
+  return devices.filter(device => device.type == "audiooutput");
+}
+
+// TODO TEST HOW TO TELL IF HEADPHONES EXIST
+function getHeadphones() {
+  audios = getAudioDevices();
+}
+
+class TestHeadphonesPage extends AudioPage {
+  constructor(pageID) {
+    super(pageID, "WAVFiles/Introduction_Instructions/Slide4_WearHeadphones.wav", 0);
+  }
+
+  after_audio() {
+    $("#testheadphones-page > input").removeAttr("disabled");
+  }
+
+  play() {
+    $(".replay").on('click touch', function() {
+      this.play_audio();
+    }.bind(this));
+
+    $("#testheadphones-page > input.exit").attr("disabled", "disabled");
+    $("#testheadphones-page").show();
+    super.play();
+  }
+
+  deactivate() {
+    super.deactivate();
+
+    $("#testheadphones-page").hide();
+  }
+}
+
+class ImgAudioPage extends AudioPage {
+  constructor(pageID, imagefile, audiofile) {
+    super(pageID, audiofile, 0);
+
+    this.image = imagefile;
+  }
+
+  after_audio() {
+    $("#imgaudio > input").removeAttr("disabled")
+  }
+
+  play() {
+    super.play();
+    $("#imgaudio > img").attr("src", this.image)
+    $("#imgaudio").show();
+    $("#imgaudio > input").attr("disabled", "disabled");
+  }
+
+  deactivate () {
+    super.deactivate();
+    $("#imgaudio").hide();
+  }
+}
+
+class Slide7Page extends AudioPage {
+  constructor(pid) {
+    var pid = "slide7";
+    var audio = "WAVFiles/Introduction_Instructions/Slide6_IntroToNames.wav";
+    var delay = 500;
+    super(pid, audio, delay);
+
+    this.delay = delay;
+
+    this.growIndexes = [0,2,1,3];
+    this.growTimestamps = [8000, 18500, 27800, 36700];
+
+  }
+
+  grow(index) {
+    console.log(index);
+    var imgpos = "#slide7 > .imgquad > .";
+    var imgname = imgpos + img_order[index] + "-img";
+    console.log(imgname);
+
+    // save the current offset for later;
+    var offset = $(imgname).offset();
+    var height = $(imgname).height();
+
+    // shows up in front of other values
+    $(imgname).css("zIndex", 2);
+
+    $(imgname).animate({
+      height: "70%",
+      top: "15%",
+      left: "25%",
+    }, 2000, function() {
+      console.log("Done with first animation!");
+      this.setTimeout(function() {
+        $(imgname).animate({
+          height: height,
+          "z-index": 1,
+          top: offset.top,
+          left: offset.left,
+        }, 2000, function() {
+          $(imgname).removeAttr("height");
+          $(imgname).css("zIndex", 1);
+        });
+      }, 1000);
+    }.bind(this));
+  }
+
+  after_audio () {
+    globalBook.nextpage();
+  }
+
+  play() {
+    $("#slide7").show();
+    super.play();
+
+    for(var i=0; i<this.growIndexes.length; i++) {
+      let ind = this.growIndexes[i];
+      this.setTimeout(
+        function () {
+          this.grow(ind)
+        }.bind(this),
+        this.growTimestamps[i] + this.delay);
+    }
+
+    console.log(this.audiofile);
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#slide7").hide();
+  }
+}
+
+class LearnQuadPage extends QuadPage {
+  constructor(pid, images, audio, target_index,
+              correct_feedback_audio, incorrect_feedback_audio, replay_audio) {
+    super(pid, audio, images, 0);
+
+    this.replay_audio = replay_audio;
+
+    var orig = "WAVFiles/Reinforcement/"
+    this.rewardAudio = orig + correct_feedback_audio;
+    this.wrongAudio = orig + incorrect_feedback_audio;
+
+    this.clickready = false;
+  }
+
+  correct_choice(e) {
+    // var dt = (new Date()).getTime() - this.audioStopTime;
+    // new_datum($(e.target).data("quad"),
+    //           dt);
+    new_datum($(e.target).data("quad"), this.audioStopTime, (new Date()).getTime() );
+    play_audio(this.rewardAudio, function() {
+      setTimeout(function(){
+        globalBook.nextpage();
+      }, 3000);
+      //globalBook.nextpage();
+    }.bind(this));
+
+    // var dt = (new Date()).getTime() - this.audioStopTime;
+    // new_datum($(e.target).data("quad"),
+    //           dt);
+  }
+
+  wrong_choice(e) {
+    if (this.replay_audio) {
+      play_audio(this.wrongAudio, this.play_audio.bind(this));
+    } else {
+      play_audio(this.wrongAudio, this.after_audio.bind(this) );
+    }
+
+    this.clickready = false;
+
+    // var dt = (new Date()).getTime() - this.audioStopTime;
+    // new_datum($(e.target).data("quad"),
+    //           dt);
+    new_datum($(e.target).data("quad"), this.audioStopTime, (new Date()).getTime() );
+  }
+
+  select_option(e) {
+    if (_global_audio.paused && this.clickready) {
+      if ($(e.target).data("isTarget") == "T") {
+        this.correct_choice(e);
+      } else {
+        this.wrong_choice(e);
+      }
+    }
+  }
+
+  after_audio() {
+    super.after_audio();
+    this.clickready = true;
+  }
+
+  play() {
+    super.play();
+    var targetImageName = "." + img_order[this.targetQuadrant] + "-img";
+
+    $("#images > img").data("isTarget", "C");
+    $("#images > " + targetImageName).data("isTarget", "T");
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#images > img").removeData("isTarget");
+  }
+}
+
+class TurtleRunPage extends AudioPage {
+  constructor() {
+    super("turtles run away", "WAVFiles/Introduction_Instructions/Slide5_StoryIntro.wav", 300);
+
+    this.time_to_run = 7000;
+  }
+
+  after_audio() {
+    globalBook.nextpage();
+  }
+
+  play() {
+    $("#turtlerun-page").show();
+
+    this.setTimeout(function(){
+      $("#turtlerun-page > .turtles").animate({
+        opacity: 0
+      }, 2500);
+    }, this.time_to_run);
+
+    this.setInterval(
+      function() {
+        turtledance(".turtles > img");
+      }, 5000, true);
+
+    super.play();
+  }
+
+  deactivate() {
+    $("#turtlerun-page").hide();
+
+    super.deactivate();
+    $("#turtlerun-page > .turtles").css("left","40%")
+    $("#turtlerun-page > .turtles").css("bottom","0")
+
+  }
+}
+
+class BeginPage extends AudioPage {
+  constructor(audio) {
+    super("begin", audio, 500);
+  }
+
+  after_audio() {
+    globalBook.nextpage();
+  }
+
+  play() {
+    super.play();
+
+    this.setInterval(
+      function() {
+        turtledance("#beginturtle1");
+      }, 5000, true);
+
+    this.setTimeout(function() {
+      this.setInterval(function() {
+        turtledance("#beginturtle2")
+      }, 5000, true);
+    }.bind(this), 100);
+
+    $("#begin-page").show();
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#begin-page").hide();
+  }
+}
+
+// todo create audiopage which other pages are based on
+class ProgressPage extends AudioPage {
+  constructor(pageID, number, total, progressImage, emptyImage, mainImage, audiofile) {
+    super(pageID, audiofile, 400);
+
+    this.number = number;
+    this.total = total;
+
+    this.progressImage = progressImage;
+    this.emptyImage = emptyImage;
+    this.mainImage = mainImage;
+  }
+
+  after_audio() {
+    globalBook.nextpage();
+  }
+
+  play() {
+    $("#progress-page > .progress-img").attr("src", this.mainImage);
+
+    for(var i=0; i<this.total; i++) {
+      $("#progress-page > .progress-boxes").append(`<div><img src="${this.emptyImage}" /><div>`);
+    }
+
+    for(var i=0; i<this.number-1; i++) {
+      $("#progress-page > .progress-items").append(`<div><img src="${this.progressImage}" /></div>`);
+    }
+
+    for(var i=this.number-1; i<this.total; i++) {
+      $("#progress-page > .progress-items").append(`<div></div>`);
+    }
+
+    $("#newitem").attr("src", this.progressImage);
+
+    $("#progress-page").show();
+
+    this.setTimeout(function() {
+      var xpos = $(".progress-items > div")[this.number-1].offsetLeft;
+      var ypos = $(".progress-items")[0].offsetTop;
+
+      $("#newitem").animate({
+        left: xpos,
+        top: ypos
+      }, {
+        duration: 2500,
+        queue: false
+      });
+    }.bind(this), 1000);
+
+    this.setInterval(
+      function() {
+        turtledance(".progress-items > div");
+        turtledance("#newitem");
+      }, 5000, true);
+
+    super.play();
+  }
+
+  deactivate() {
+    super.deactivate();
+
+    $("#progress-page").hide();
+    $("#progress-page > .progress-boxes").html("");
+    $("#progress-page > .progress-items").html("");
+    $("#progress-page > img#newitem").attr("src", "");
+    $("#newitem").css("left", "60%");
+    $("#newitem").css("top", "30%");
+  }
+}
+
+// just plays the audio, not interactive
+class QuadAudioPage extends QuadPage {
+  constructor(pageID, audio, choices) {
+    super(pageID, audio, choices, 0);
+  }
+
+  after_audio() {
+    globalBook.nextpage();
+  }
+
+  play() {
+    super.play();
+  }
+
+  deactivate() {
+    super.deactivate();
+  }
+}
+
+class ImagePage extends Page {
+  constructor(name, image, delay) {
+    super(name);
+    this.image = image;
+    this.delay = delay;
+  }
+
+  play() {
+    super.play();
+    $("#imgpg > img").attr("src", this.image);
+    $("#imgpg").show();
+
+    this.setTimeout(function() {
+      globalBook.nextpage();
+    }, this.delay);
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#imgpg").hide();
+  }
+}
+
+function turtledance(turtlename) {
+  var danceposes = [[ 30, 2000],
+                    [-30, 1000],
+                    [ 30, 1000],
+                    [  0, 1000]];
+
+  for (var i=0; i<danceposes.length; i++) {
+    $(turtlename).animate({
+      deg: danceposes[i][0]
+    }, {
+      duration: danceposes[i][1],
+      step: function(cur) {
+          $(turtlename).css({
+            "WebkitTransform": "rotate("+cur+"deg)",
+            "-moz-transform": "rotate("+cur+"deg)",
+            "transform": "rotate("+cur+"deg)"})
+      }});
+  }
+}
+
+class MovPage extends Page {
+  constructor() {
+    super("mov");
+  }
+
+  play() {
+    $("#movpage").show();
+  }
+
+  deactivate() {
+    super.deactivate();
+    $("#movpage").hide();
+  }
+}
+
+class EndPage extends Page {
+    constructor() {
+      super("endpg");
+    }
+  
+    play() {
+      $("#end-page").show();
+      turtledance(".turtles > img");
+      
+    }
+  
+    deactivate() {
+      super.deactivate();
+    }
+  }
+
+  $(".endpg").bind("click touch", function() {
+    window.close();
+  });
+class ChooseList extends Page {
+    constructor() {
+      super("chooselist");
+    }
+  
+    play() {
+      $("#chooselist").show();
+    }
+  
+    deactivate() {
+      var sel = document.getElementById('scripts');
+      var choice = sel.options[sel.selectedIndex].value;  
+      console.log(choice);   
+      if (choice.length == 1) {
+        listIndex = choice;
+        listIndex = parseInt(listIndex);
+      } 
+      addPages(listIndex);
+      super.deactivate();
+      $("#chooselist").hide();
+    }
+  }
+class ConsentPage extends Page {
+    constructor() {
+      super("consent");
+    }
+  
+    play() {
+      $("#consent").show();
+    }
+  
+    deactivate() {
+      super.deactivate();
+      $("#consent").hide();
+    }
+  }
+
+  function advance(){
+    var no_consent = document.getElementById("no").checked;
+    var consent = document.getElementById("yes").checked;
+    if (no_consent) {
+      alert("Please close the game.");
+    }
+    if (consent == true){
+      globalBook.nextpage();
+    }
+  }
+  
+
+
+   $('#form').submit(function(e) {
+    e.preventDefault();
+
+    form_data = [document.getElementById("fn_parent").value, 
+    document.getElementById("ln_parent").value,
+    document.getElementById("fn_participant").value,
+    document.getElementById("ln_participant").value,
+    document.getElementById("dob_participant").value,
+    userID,
+    document.getElementById("current_date").value,
+    document.getElementById("parent_email").value,
+    document.getElementById("yes").checked, 
+    document.getElementById("no").checked];
+    
+    $.ajax({
+        headers: {
+        'content-type': "application/json; charset=utf-8",
+        },
+         method: 'POST',
+         url: "https://493eebb3-f2ce-4ba4-9d67-ac4b1ec5e8b5.mock.pstmn.io/ipad_study",
+         data: JSON.stringify(form_data),
+         dataType: "json",
+         success: advance()
+    });
+  });
+
+ 
+
+// https://www.tutorialspoint.com/pouchdb/pouchdb_synchronizationpn.htm#:~:text=You%20can%20synchronize%20the%20databases,have%20used%20the%20method%20PouchDB.
+var db = new PouchDB('ab_study');
+
+/*create CouchDB database (personal cloudant db for testng purposes) */
+var remoteCouch = "https://08c3bb2d-aec5-48c2-9972-362ab894e00b-bluemix:c087461717c7e0e15d1592c1505f749fad973517380eb1c36ebe1588922002f9@08c3bb2d-aec5-48c2-9972-362ab894e00b-bluemix.cloudantnosqldb.appdomain.cloud/ab-study";
+
+
+
+
+//implement sync function
+function sync(){
+  //syncDom.setAttribute('data-sync-state', 'syncing');
+  var opts = {live: true, retry: true};
+  //two way sync
+  db.sync(remoteCouch, opts);
+}
+
+//add new data to PouchDB, adds all the logged data for a single game as a new document
+function addData(test_data){
+  var test = {
+      _id: new Date().toISOString(),
+      data: test_data,
+    };
+    db.put(test).then(function(result){
+      console.log(result);
+    }).catch(function(err){
+      console.log(err);
+    });
+}
+
+if (remoteCouch) {
+  sync();
+}
+
+//https://stackoverflow.com/questions/1759987/listening-for-variable-changes-in-javascript
+
+
+var imagesToLoad = [
+"FinalImagesALL/ImgaesforExamples/Boy_1_Solo.png",
+"FinalImagesALL/ImgaesforExamples/Boy1_Piano.png",
+"FinalImagesALL/ImgaesforExamples/Boy1_Movie.png",
+"FinalImagesALL/ImgaesforExamples/Boy1_Paper.png",
+"FinalImagesALL/ImgaesforExamples/Boy1_Table.png",
+"FinalImagesALL/ImgaesforExamples/Boy2_3_Movie.png",
+"FinalImagesALL/ImgaesforExamples/Boy2_3_Table.png",
+"FinalImagesALL/ImgaesforExamples/Boy2_3_Paper.png",
+"FinalImagesALL/ImgaesforExamples/Boy2_3_Piano.png",
+"FinalImagesALL/ImgaesforExamples/Girl1_Movie.png",
+"FinalImagesALL/ImgaesforExamples/Girl1_Paper.png",
+"FinalImagesALL/ImgaesforExamples/Girl1_Table.png",
+"FinalImagesALL/ImgaesforExamples/Girl1_Piano.png",
+"FinalImagesALL/ImgaesforExamples/Girl2_3_Movie.png",
+"FinalImagesALL/ImgaesforExamples/Girl2_3_Table.png",
+"FinalImagesALL/ImgaesforExamples/Girl2_3_Paper.png",
+"FinalImagesALL/ImgaesforExamples/Girl2_3_Piano.png",
+"FinalImagesALL/Boy2_3_Baseball.jpg",
+"FinalImagesALL/Girl1_Baseball.jpg",
+"FinalImagesALL/Girl2_3_Baseball.jpg",
+"FinalImagesALL/Boy1_Baseball.jpg",
+"FinalImagesALL/Boy2_3_Clothes.jpg",
+"FinalImagesALL/Girl1_Clothes.jpg",
+"FinalImagesALL/Girl2_3_Clothes.jpg",
+"FinalImagesALL/Boy1_Clothes.jpg",
+"FinalImagesALL/Boy2_3_Bubbles.jpg",
+"FinalImagesALL/Girl1_Bubbles.jpg",
+"FinalImagesALL/Girl2_3_Bubbles.jpg",
+"FinalImagesALL/Boy1_Bubbles.jpg",
+"FinalImagesALL/Boy2_3_Floor.jpg",
+"FinalImagesALL/Girl1_Floor.jpg",
+"FinalImagesALL/Girl2_3_Floor.jpg",
+"FinalImagesALL/Boy1_Floor.jpg",
+"FinalImagesALL/Boy2_3_Bike.png",
+"FinalImagesALL/Girl1_Bike.png",
+"FinalImagesALL/Girl2_3_Bike.png",
+"FinalImagesALL/Boy1_Bike.png",
+"FinalImagesALL/Boy2_3_Cart.png",
+"FinalImagesALL/Girl1_Cart.png",
+"FinalImagesALL/Girl2_3_Cart.png",
+"FinalImagesALL/Boy1_Cart.png",
+"FinalImagesALL/Boy2_3_Cat.png",
+"FinalImagesALL/Girl1_Cat.png",
+"FinalImagesALL/Girl2_3_Cat.png",
+"FinalImagesALL/Boy1_Cat.png",
+"FinalImagesALL/Boy1_Rabbit.png",
+"FinalImagesALL/Girl1_Rabbit.png",
+"FinalImagesALL/Girl2_3_Rabbit.png",
+"FinalImagesALL/Boy2_3_Rabbit.png",
+"FinalImagesALL/Boy1_Frog.jpg",
+"FinalImagesALL/Girl1_Frog.jpg",
+"FinalImagesALL/Girl2_3_Frog.jpg",
+"FinalImagesALL/Boy2_3_Frog.jpg",
+"FinalImagesALL/Boy1_Basket.jpg",
+"FinalImagesALL/Girl1_Basket.jpg",
+"FinalImagesALL/Girl2_3_Basket.jpg",
+"FinalImagesALL/Boy2_3_Basket.jpg",
+"FinalImagesALL/Boy1_Sandcastle.jpg",
+"FinalImagesALL/Girl1_Sandcastle.jpg",
+"FinalImagesALL/Girl2_3_Sandcastle.jpg",
+"FinalImagesALL/Boy2_3_Sandcastle.jpg",
+"FinalImagesALL/Boy1_Wall.jpg",
+"FinalImagesALL/Girl1_Wall.jpg",
+"FinalImagesALL/Girl2_3_Wall.jpg",
+"FinalImagesALL/Boy2_3_Wall.jpg",
+"FinalImagesALL/Boy1_Fence.jpg",
+"FinalImagesALL/Girl1_Fence.jpg",
+"FinalImagesALL/Girl2_3_Fence.jpg",
+"FinalImagesALL/Boy2_3_Fence.jpg",
+"FinalImagesALL/Boy1_Box.jpg",
+"FinalImagesALL/Girl1_Box.jpg",
+"FinalImagesALL/Girl2_3_Box.jpg",
+"FinalImagesALL/Boy2_3_Box.jpg",
+"FinalImagesALL/Girl2_3_Milkshake.jpg",
+"FinalImagesALL/Girl1_Milkshake.jpg",
+"FinalImagesALL/Boy2_3_Milkshake.jpg",
+"FinalImagesALL/Boy1_Milkshake.jpg",
+"FinalImagesALL/Girl2_3_Bear.jpg",
+"FinalImagesALL/Girl1_Bear.jpg",
+"FinalImagesALL/Boy2_3_Bear.jpg",
+"FinalImagesALL/Boy1_Bear.jpg",
+"FinalImagesALL/Girl2_3_Apples.jpg",
+"FinalImagesALL/Girl1_Apples.jpg",
+"FinalImagesALL/Boy2_3_Apples.jpg",
+"FinalImagesALL/Boy1_Apples.jpg",
+"FinalImagesALL/Girl2_3_Flowers.jpg",
+"FinalImagesALL/Girl1_Flowers.jpg",
+"FinalImagesALL/Boy2_3_Flowers.jpg",
+"FinalImagesALL/Boy1_Flowers.jpg",
+"FinalImagesALL/Girl2_3_Pizza.jpg",
+"FinalImagesALL/Girl1_Pizza.jpg",
+"FinalImagesALL/Boy2_3_Pizza.jpg",
+"FinalImagesALL/Boy1_Pizza.jpg",
+"FinalImagesALL/Girl2_3_Cake.jpg",
+"FinalImagesALL/Girl1_Cake.jpg",
+"FinalImagesALL/Boy2_3_Cake.jpg",
+"FinalImagesALL/Boy1_Cake.jpg",
+"FinalImagesALL/Girl2_3_Dog.jpg",
+"FinalImagesALL/Girl1_Dog.jpg",
+"FinalImagesALL/Boy2_3_Dog.jpg",
+"FinalImagesALL/Boy1_Dog.jpg",
+"FinalImagesALL/Girl1_Car.jpg",
+"FinalImagesALL/Boy2_3_Car.jpg",
+"FinalImagesALL/Girl2_3_Car.jpg",
+"FinalImagesALL/Boy1_Car.jpg",
+"FinalImagesALL/Girl1_Book.jpg",
+"FinalImagesALL/Boy2_3_Book.jpg",
+"FinalImagesALL/Girl2_3_Book.jpg",
+"FinalImagesALL/Boy1_Book.jpg",
+"FinalImagesALL/Girl1_Ball.jpg",
+"FinalImagesALL/Boy2_3_Ball.jpg",
+"FinalImagesALL/Girl2_3_Ball.jpg",
+"FinalImagesALL/Boy1_Ball.jpg",
+"FinalImagesALL/Girl1_Horse.jpg",
+"FinalImagesALL/Boy2_3_Horse.jpg",
+"FinalImagesALL/Girl2_3_Horse.jpg",
+"FinalImagesALL/Boy1_Horse.jpg",
+"FinalImagesALL/Girl1_Wagon.jpg",
+"FinalImagesALL/Boy2_3_Wagon.jpg",
+"FinalImagesALL/Girl2_3_Wagon.jpg",
+"FinalImagesALL/Boy1_Wagon.jpg",
+"FinalImagesALL/Girl1_Blanket.jpg",
+"FinalImagesALL/Boy2_3_Blanket.jpg",
+"FinalImagesALL/Girl2_3_Blanket.jpg",
+"FinalImagesALL/Boy1_Blanket.jpg",
+"FinalImagesALL/Girl1_Tree.jpg",
+"FinalImagesALL/Boy2_3_Tree.jpg",
+"FinalImagesALL/Girl2_3_Tree.jpg",
+"FinalImagesALL/Boy1_Tree.jpg",
+];
+
+//create an object, will allow calling a listener function everytime a new value is set
+image_loaded = {
+  internal: 0,
+  Listener: function(val) {},
+  set i(val) {
+    this.internal = val;
+    this.Listener(val);
+  },
+  get i() {
+    return this.internal;
+  },
+  registerListener: function(listener) {
+    this.Listener = listener;
+  }
+}
+audio_loaded = {
+  internal: false,
+  Listener: function(val) {},
+  set i(val) {
+    this.internal = val;
+    this.Listener(val);
+  },
+  get i() {
+    return this.internal;
+  },
+  registerListener: function(listener) {
+    this.Listener = listener;
+  }
+}
+
+image_loaded.registerListener(function(val) {
+  if(image_loaded.i == imagesToLoad.length){
+      $('#image_loading').html('Image Loading Complete');
+  }
+});
+
+audio_loaded.registerListener(function(val) {
+  if(audio_loaded.i == true){
+      $('#audio_loading').html('Audio Loading Complete');
+     // $("#done").removeAttr("disabled");
+  }
+});
+
+
+var images = new Array();
+
+function preload() {
+    for (i = 0; i < imagesToLoad.length; i++) {
+        images[i] = new Image();
+        images[i].src = imagesToLoad[i];
+        images[i].addEventListener("load", function () {image_loaded.i = image_loaded.i + 1;} );
+    }
+}
+
+function loadImages(){
+  $("#preload_button").show();
+}
+
+$("#done").bind("click touch", function() {
+  $("#preload").hide();
+});
+
+
+$("#preload_button").bind("click touch", function() {
+  $("#preload").show();
+  $("#preload_button").hide();
+  //$("#done").attr("disabled", "disabled");
+  preload();
+});
+
+$(window).on("load", loadImages);
+</script>
+
+
+    <script src="lists.js"></script> <!-- NOTE FOR RICKY: DELETE THIS WHEN ADDING LIST CODE -->
+
+    <script>
+      let userID = 0; // NOTE FOR RICKY: USERID INSERTED HERE
+      let listIndex = 0; // NOTE FOR RICKY: LIST INDEX INSERTED HERE
+      let list = lists[listIndex]; // NOTE FOR RICKY: CURRENT LIST INSERTED HERE
+    </script>
+
+    <script src="run.js"></script>
+
+
+
+  </body>
+
+</html>
