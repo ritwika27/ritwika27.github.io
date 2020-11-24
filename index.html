@@ -534,7 +534,7 @@
        #end-page > #turtles > img {
         /* position:relative; */
         display:inline; 
-        width: 200px;
+        width: 150px;
       } 
   
       #end-page > #adult > #continue {
@@ -548,8 +548,8 @@
         margin: 0 auto;
   
        
-        height: 80px;
-        width: 200px;
+        height: 100px;
+        width: 300px;
         border-radius: 50%;
       }
   
@@ -567,8 +567,8 @@
   
       #exit {
         background-color: red;
-        height: 80px;
-        width: 200px;
+        height: 100px;
+        width: 300px;
         border-radius: 50%; 
         display: block;
         margin: 0 auto;
@@ -579,6 +579,10 @@
       #end-page > #over {
         font-size: 400%;
       }
+
+      #participant {
+        color: red;
+      }
   
       </style>
       
@@ -588,7 +592,7 @@
           <img style="left:15%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" /> 
         </div>
         <h1 id = "over">Game Over!</h1>
-
+        <h2 id = "participant"></h2>
         <div id = "adult">
             <h1>If you are an <mark>adult participant, write down your ID</mark> and click the button below to proceed to the survery.</h1>
             <input id = "continue" class="endpg" type="button" value = "Proceed to Survey" ></input>
@@ -1563,6 +1567,7 @@ class EndPage extends Page {
   
     play() {
       $("#end-page").show();
+      document.getElementById('participant').innerHTML = "Participant ID: " + userID; 
       turtledance("#turtles > img");
       
     }
