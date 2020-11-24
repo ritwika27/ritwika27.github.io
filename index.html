@@ -91,10 +91,10 @@
   }
 
   #quad-page > input {
-    width: 5%;
-    height: 10%;
-    border-top: 10px solid grey;
-    border-right: 10px solid  grey;
+    width: 10%;
+    height: 20%;
+    border-top: 30px solid grey;
+    border-right: 30px solid  grey;
     border-left: solid #eee;
     border-bottom: solid #eee;
     transform: rotate(45deg);
@@ -139,7 +139,7 @@
     <img id="bottomleft-img" class="bottomleft-img" />
     <img id="bottomright-img" class="bottomright-img" />
   </div>
-    <!-- <input class="exit" type="button" ></input> -->
+  <!-- <input class="exit" type="button" ></input>  -->
 </div>
 
 
@@ -186,7 +186,7 @@
     <input class="exit start" type="button" value="Next"></input>
   </div>
 
-  <input type="button"  id = "skip" value="Skip to end"></input>
+  <!-- <input type="button"  id = "skip" value="Skip to end"></input> -->
 
   
 
@@ -464,7 +464,7 @@
   </video>
 </div>
 
-<style>
+<!-- <style>
 
     #end-page > * {
       position: relative;
@@ -513,7 +513,94 @@
         <img style="left:50%; top:-133%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
       </div>
       <input class="endpg" type="button"value = "Exit Game" ></input>
-    </div>
+    </div> -->
+
+    <style>
+
+      #end-page > * {
+        position: relative;
+        text-align: center;
+        
+      }
+      
+     
+      #end-page > #turtles {
+        margin: auto;
+        /* height: 10%;
+        width: 20%; */
+        
+      } 
+      
+       #end-page > #turtles > img {
+        /* position:relative; */
+        display:inline; 
+        width: 200px;
+      } 
+  
+      #end-page > #adult > #continue {
+        
+        color: white;
+        font-size: 20px;
+        
+        text-align: center;
+        background-color:rgb(158,206,203);
+        display: block;
+        margin: 0 auto;
+  
+       
+        height: 80px;
+        width: 200px;
+        border-radius: 50%;
+      }
+  
+      
+      #end-page > #adult{
+          display: table;
+          margin: 0 auto;
+      }
+  
+      #end-page > #child{
+          display: table;
+          margin: 0 auto;
+      }
+  
+  
+      #exit {
+        background-color: red;
+        height: 80px;
+        width: 200px;
+        border-radius: 50%; 
+        display: block;
+        margin: 0 auto;
+        color: white;
+        font-size: 20px; 
+      }
+  
+      #end-page > #over {
+        font-size: 400%;
+      }
+  
+      </style>
+      
+      <div id="end-page" class="page">
+        <div id = turtles>
+          <img style=" left:75%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" />
+          <img style="left:15%;" src="FinalImagesALL/ImgaesforExamples/TurtleTransparent.png" /> 
+        </div>
+        <h1 id = "over">Game Over!</h1>
+
+        <div id = "adult">
+            <h1>If you are an <mark>adult participant, write down your ID</mark> and click the button below to proceed to the survery.</h1>
+            <input id = "continue" class="endpg" type="button" value = "Proceed to Survey" ></input>
+       </div>
+        
+        <div id = "child">
+          <h1>If you are a <mark>child participant,</mark> please click here to exit the game.</h1> 
+          <input id = "exit"  type="button"value = "Exit Game" ></input>
+        </div>
+        
+      </div>
+  
 
 <style>
 
@@ -646,6 +733,78 @@
     <p id = "audio_loading"></p>
     <input type="button" id = "done" value="Continue" /> 
 </div>
+<style>
+
+#email{
+
+    margin: 0 auto;
+    width: 75%;
+    padding: 50px;
+    text-align: center;
+
+}
+
+#skip {
+    margin-left:80%;
+    margin-top: 20%;
+    width: 5%;
+    height: 10%;
+    border-top: 15px solid rgb(158,206,203);
+    border-right: 15px solid rgb(158,206,203);;
+    border-left: 0px solid white;
+    border-bottom: 0px solid white;
+    /* background-color: white; */
+    transform: rotate(45deg);
+    /*border-radius: 15%;*/
+    position: absolute;
+    /* right: 30;
+    bottom: 30; */
+    -webkit-appearance: none;
+    border-radius: 0;
+
+  }
+
+  #enter_email
+{
+    font-size:16pt;
+    min-height:50px;
+    min-width: 100px;
+}
+
+#enter {
+  border-color: black;
+  background-color: rgb(158,206,203);;
+}
+
+
+  #skipping_div {
+    position: fixed;
+    left: 50%;
+    bottom: 40px;
+    transform: translate(-50%, -50%);
+    margin: 0 auto;
+  }
+      
+</style>
+     
+      <div id="emailpage" class="page">
+        <div>
+            <div id = "email">
+                <h1>If you are an <mark>adult participant</mark>, please enter your email in the box below. Your email will be used to contact you for compensation</h1>
+        
+                <input type="text" id = "enter_email" />
+                <input type="button" id = "enter" value = "Enter" class = "exit" />
+        
+                </div>
+            </div>
+            
+            <div id = skipping_div>
+                <h2><mark>If you are a parent of a child particpant, skip this page.</mark></h2> 
+            </div>
+            <input type="button" id = "skip" class = "exit" />
+        </div>
+      </div>
+      
 
     <script src="pouchdb-7.2.1.min.js"></script>
     <script src="pages.js"></script>
@@ -654,7 +813,7 @@
 // Taken from https://bost.ocks.org/mike/shuffle/
 function shuffle(array) {
   var m = array.length, t, i;
- 
+
   // While there remain elements to shuffle…
   while (m) {
 
@@ -961,12 +1120,12 @@ class DocPage extends AudioPage {
 }
 
 
-$("#skip").bind("click touch", function() {
-  console.log("helo");
-  globalBook.pages[globalBook.current_page].deactivate();
-  globalBook.current_page = globalBook.pages.length - 3;
-  globalBook.pages[globalBook.current_page].play();
-});
+// $("#skip").bind("click touch", function() {
+//   console.log("helo");
+//   globalBook.pages[globalBook.current_page].deactivate();
+//   globalBook.current_page = globalBook.pages.length - 3;
+//   globalBook.pages[globalBook.current_page].play();
+// });
 
 // Modified from https://developer.mozilla.org/en-US/docs/Web/API/MediaDevices/enumerateDevices
 function getAudioDevices() {
@@ -1404,7 +1563,7 @@ class EndPage extends Page {
   
     play() {
       $("#end-page").show();
-      turtledance(".turtles > img");
+      turtledance("#turtles > img");
       
     }
   
@@ -1413,8 +1572,8 @@ class EndPage extends Page {
     }
   }
 
-  $(".endpg").bind("click touch", function() {
-    window.close();
+  $("#exit").bind("click touch", function() {
+    window.alert("Please close this window");
   });
 class ChooseList extends Page {
     constructor() {
@@ -1646,6 +1805,37 @@ $("#preload_button").bind("click touch", function() {
 
 $(window).on("load", loadImages);
 
+class EmailPage extends Page {
+    constructor() {
+      super("email_page");
+    }
+  
+    play() {
+      $("#emailpage").show();
+    }
+  
+    deactivate() {
+      if (document.getElementById("enter_email").value != document.getElementById("enter_email").defaultValue){
+        var dat = [(new Date()).getTime(),
+          userID,
+          listIndex + 1,
+          document.getElementById("enter_email").value,
+          -1,
+          -1,
+          -1, 
+          -1,
+          -1,
+          "",
+          "",
+          "",
+          ""];
+
+          logged_data.push(dat);
+      }
+      super.deactivate();
+      $("#emailpage").hide();
+    }
+  }
 
 // https://www.tutorialspoint.com/pouchdb/pouchdb_synchronizationpn.htm#:~:text=You%20can%20synchronize%20the%20databases,have%20used%20the%20method%20PouchDB.
 var db = new PouchDB('ab_study');
@@ -1685,7 +1875,7 @@ if (remoteCouch) {
     <script src="lists.js"></script> <!-- NOTE FOR RICKY: DELETE THIS WHEN ADDING LIST CODE -->
 
     <script>
-      let userID = 2; // NOTE FOR RICKY: USERID INSERTED HERE
+      let userID = -1; // NOTE FOR RICKY: USERID INSERTED HERE
       let listIndex = 0; // NOTE FOR RICKY: LIST INDEX INSERTED HERE
       let list = lists[listIndex]; // NOTE FOR RICKY: CURRENT LIST INSERTED HERE
     </script>

@@ -29,6 +29,7 @@ all_pages.push(new DocPage("instruction page", "<br/> <br/> Participant ID<br />
                            undefined));
 //all_pages.push(new ConsentPage());
 
+all_pages.push(new EmailPage());
 all_pages.push(new ChooseList());
 
 // all_pages.push(new DocPage("instruction page", "Caregiver Instructions<br />\
